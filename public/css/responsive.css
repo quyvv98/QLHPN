@@ -1,0 +1,273 @@
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.our-service-item img{
+		height: 14rem;
+	}
+	.product-item-img img,
+	.news-item-img img{
+		height: 13rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .logo-nav {
+        height: 60px;
+    }
+
+    .navbar-collapse .navbar-nav {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar-logo-deco {
+        height: 85px;
+    }
+
+    .cart-badge {
+        top: 3px;
+        right: -3px;
+    }
+
+    .search-cart-mobile i {
+        font-size: 20px !important
+    }
+
+    .search-cart-mobile .nav-item:first-child {
+        margin: 0px 10px;
+    }
+
+    .news-item-img img,
+    .our-service-item img {
+        height: 10rem;
+    }
+
+    .large-video-item img,
+    .product-item-img img {
+        height: 20rem;
+    }
+
+    .our-service-container .col-sm-12 {
+        -ms-flex: 0 0 33.33%;
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+
+    .contact-right-bg:before{
+    	display: none;
+    }
+
+    .logo-footer {
+        height: 5rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .topbar .row .col-sm-12 * {
+        font-size: 10px !important;
+    }
+
+    .navbar-collapse .navbar-nav {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar-logo-deco {
+        height: 85px;
+        right: -57px;
+    }
+
+    .cart-badge {
+        top: 3px;
+        right: -3px;
+    }
+
+    .search-cart-mobile i {
+        font-size: 20px !important
+    }
+
+    .search-cart-mobile .nav-item:first-child {
+        margin: 0px 10px;
+    }
+
+    .our-service-container .col-sm-12,
+    .support-item-container .col-sm-12,
+    .list-news-container .col-sm-12,
+    .our-product-tab-content .tab-pane .row .col-sm-12 {
+        margin-bottom: 15px;
+    }
+
+    .our-service-container,
+    .product-video-item,
+    .list-news-container,
+    .our-service-container .col-sm-12:last-child,
+    .support-item-container .col-sm-12:last-child,
+    .list-news-container .col-sm-12:last-child {
+        margin-bottom: 0;
+    }
+
+    .our-service-item img,
+    .product-item-img img,
+    .news-item-img img {
+        height: auto;
+    }
+
+    .large-video-item img {
+        height: 20rem;
+    }
+
+    .small-video-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .vertical-video-item {
+        flex-basis: 45%;
+    }
+
+    .vertical-video-item img {
+        height: 10rem;
+    }
+
+    .our-product,
+    .contact,
+    .support {
+        margin-top: 0;
+    }
+
+    .news-item-content {
+        padding: 0 15px;
+    }
+
+    .product-video-item .col-sm-12 * {
+        color: #fff !important;
+    }
+
+    .our-product-tab-content .tab-pane .row .col-sm-12,
+    .our-value-list .row .col-sm-12,
+    .support-item-container .col-sm-12,
+    .topbar .row .col-sm-12 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .product-item-img img {
+        height: 15rem;
+    }
+
+    .contact-right-bg,
+    .contact-right-bg:before,
+    .navbar-item-right {
+        display: none;
+    }
+
+    .contact-left-bg {
+        width: 100%;
+    }
+
+    .logo-footer {
+        height: 5rem;
+    }
+
+    .copyright .col-sm-12,
+    .copyright .col-sm-12 .footer-social {
+        text-align: center !important;
+    }
+
+    .copyright .col-sm-12 .footer-social {
+        margin-top: 7px;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    .logo-nav {
+        height: 55px;
+    }
+
+    .navbar-collapse .navbar-nav {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar-logo-deco {
+        height: 85px;
+    }
+
+    .search-cart-mobile i {
+        font-size: 20px !important
+    }
+
+    .search-cart-mobile .nav-item:first-child {
+        margin: 0px 10px;
+    }
+
+    .our-service-item img,
+    .product-item-img img,
+    .news-item-img img {
+        height: auto;
+    }
+
+    .large-video-item img {
+        height: 20rem;
+    }
+
+    .our-service-container .col-sm-12,
+    .support-item-container .col-sm-12,
+    .list-news-container .col-sm-12 {
+        margin-bottom: 15px;
+    }
+
+    .our-service-container,
+    .product-video-item,
+    .list-news-container,
+    .our-service-container .col-sm-12:last-child,
+    .support-item-container .col-sm-12:last-child,
+    .list-news-container .col-sm-12:last-child {
+        margin-bottom: 0;
+    }
+
+    .our-product,
+    .contact,
+    .support {
+        margin-top: 0;
+    }
+
+    .news-item-content {
+        padding: 0 15px;
+    }
+
+    .product-video-item .col-sm-12 * {
+        color: #fff !important;
+    }
+
+    .contact-right-bg,
+    .contact-right-bg:before,
+    .navbar-item-right {
+        display: none;
+    }
+
+    .contact-left-bg {
+        width: 100%;
+    }
+
+    .copyright .col-sm-12,
+    .copyright .col-sm-12 .footer-social {
+        text-align: center !important;
+    }
+
+    .copyright .col-sm-12 .footer-social {
+        margin-top: 7px;
+    }
+}
