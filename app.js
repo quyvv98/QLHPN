@@ -3,7 +3,7 @@ const express = require('express')
 //const productsControler = require('./controler/products')
 //const catalogsControler = require('./controler/catalogs')
 //const db = require('./model/products')
-const route = require('./routers/index')
+const route = require('./router')
 const path = require('path')
 const port = 4000;
 const app = express()
@@ -15,7 +15,7 @@ app.use(session({
   secret: 'abcdefg',
   resave: true,
   saveUninitialized: true,
-  cookie: { maxAge: 60000 }
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 //reload req
 app.use(express.json())
@@ -40,6 +40,6 @@ app.listen(port,(err)=>{
     if(err){
         console.log(err)
     }else{
-        console.log('sever bat dau chay')
+        console.log('Server running at 127.0.0.1:' + port)
     }
 })

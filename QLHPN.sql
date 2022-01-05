@@ -25,7 +25,7 @@ USE QLHPN;
 DROP TABLE IF EXISTS `level`;
 CREATE TABLE `level` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'trinhdo',
-  `user_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
   `value` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL COMMENT 'vanhoa, chinhtri, chuyenmon',
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -226,7 +226,7 @@ CREATE TABLE `group` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO group (name)
-VALUE ('ội phụ nữ');
+VALUE ('Hội phụ nữ');
 INSERT INTO group (name)
 VALUE ('Chi đoàn');
 
@@ -257,10 +257,25 @@ CREATE TABLE `user` (
   CONSTRAINT `user_ibfk_3` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Bích Hạnh',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Lê Minh Thu',1/1/1992, '1', 1, 1/1/2015, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Lê Thị Lan Anh',1/1/1980, '1', 1, 1/1/2013, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Dương Quỳnh Anh',1/1/1979, '1', 1, 1/1/2004, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Cúc',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Đinh Thị Thanh Lan',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Thủy',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+
 DROP TABLE IF EXISTS `award`;
 CREATE TABLE `award` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -278,7 +293,7 @@ CREATE TABLE `account` (
   `password` varchar(255) NOT NULL,
   `last_login` datetime DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -286,14 +301,15 @@ CREATE TABLE `account` (
   CONSTRAINT `account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
+INSERT INTO account (username,password, user_id)
+VALUES ('admin', '123', 1);
 
 DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title_id` int DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
   `level_id` int DEFAULT NULL,
   `position_id` int DEFAULT NULL,
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -315,8 +331,8 @@ CREATE TABLE `history` (
 DROP TABLE IF EXISTS `user_group`;
 CREATE TABLE `user_group` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int DEFAULT NULL,
-  `group_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  `group_id` int NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
