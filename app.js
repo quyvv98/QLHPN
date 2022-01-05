@@ -12,9 +12,10 @@ const session = require('express-session')
 //const hbs = handlebars.create({})
 //const router = express.Router()
 app.use(session({
-  secret: 'abcdefg',
+  secret: '19981998',
   resave: true,
   saveUninitialized: true,
+  expires: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 //reload req

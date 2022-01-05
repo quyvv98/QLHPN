@@ -29,15 +29,8 @@ class AccountController {
   };
 
   //edit user
-  editUser = (req, res) => {
-    res.render("user_edit");
-  };
-  saveEditUser = (req, res) => {
-    let n = String(req.body.name);
-    let p = String(req.body.password);
-    let q = String(req.body.permission);
-    console.log("edit user: " + n + p + q);
-    res.redirect("/user/edit");
+  editAccount = (req, res) => {
+    res.render("edit_account2");
   };
   // add user
   addAccount = (req, res) => {
@@ -47,15 +40,8 @@ class AccountController {
     }
     res.render("new_account");
   };
-  saveAddUser = (req, res) => {
-    let n = String(req.body.name);
-    let p = String(req.body.password);
-    let q = String(req.body.permission);
-    console.log("add user: " + n + p + q);
-    res.render("user_add");
-  };
   //detail user
-  getAccountDetaul = (req, res) => {
+  getAccount = (req, res) => {
     let data = [
       {
         tTKhoan: "vu dieu linh",
@@ -63,20 +49,16 @@ class AccountController {
         quyen: "quan lý cap cao",
       },
     ];
-    res.render("user", { data: data });
+    res.render("account", { data: data });
   };
-  //delet user
-  deleteUser = (req, res) => {
-    res.render("user");
+  removeAccount = (req, res) => {
+    // res.render("user");
   };
-  // report controller
-  report = (req, res) => {
-    res.render("report");
-  };
+
   // edit password
   editPassword = (req, res) => {
     console.log("edit pass: " + req.body.pass);
-    res.redirect("/member");
+    res.redirect("/users");
   };
 }
 

@@ -232,23 +232,17 @@
                                                   <!---->
                                                   <!----><!-- <%= data[i].maHV %> -->
                                                   <!----><a class="dropdown-item"
-                                                     href="/user/1">
+                                                     href="/users/1">
                                                      
                                                      
                                                      <i class="fa fa-eye"></i>&nbsp;Chi tiết</a>
                                                   <!---->
                                                   <!---->
                                                   <!----><a class="dropdown-item"
-                                                     href="/member/edit/<%= data[i].maHV %>"><i aria-hidden="true"
+                                                     href="/users/1/edit"><i aria-hidden="true"
                                                        class="fa fa-save"></i>&nbsp;Cập nhật</a>
-                                                  <!---->
-                                                  <!---->
-                                                  <!----><!-- 
-                                                    <input class="dropdown-item" id="xoa" type="submit"
-                                                     onclick="xoa()" formaction="/member" formmethod="POST"><i class="fa fa-trash-alt" values="Xóa"></i>&nbsp;</input> -->
-                                                  <!---->
                                                   <a class="dropdown-item" id="xoa" 
-                                                     onclick="xoa()" href="/member/<%= data[i].maHV %>" ><i class="fa fa-trash-alt"></i>&nbsp;Xóa</a>
+                                                     onclick="xoa()" href="/users/<%= data[i].maHV %>" ><i class="fa fa-trash-alt"></i>&nbsp;Xóa</a>
                                                   <!---->
                                                 </div>
                                               </div>
