@@ -1,36 +1,70 @@
 const { reject } = require("async");
+const session = require('express-session');
+const { get } = require("express/lib/response");
+const { use } = require("express/lib/router");
+
 const conn = require("./connect");
 class AccountRepository {
-  login = (username, password) => {
+  login = (phone, password) => {
     return new Promise(function (handle) {
       let sql =
         "SELECT * FROM account WHERE username = ? and password = ? and active = 1";
       //query database
-      conn.query(sql, [username, password], (err, rows) => {
+      conn.query(sql, [phone, password], (err, rows) => {
         if (err) {
           console.log(err);
         } else {
           if (rows.length < 1) {
             return handle(null);
           } else {
-            return handle(rows[0]);
+            const accountId = rows[0].id;
+            const userId = rows[0].user_id 
+            let updateLastLogin =
+              "update account set last_login = now() where id = ?";
+            conn.query(updateLastLogin, [accountId], (err, res) => {
+              if (err) {
+                console.log("update last_login fail");
+              } else {
+                console.log("update last_login success");
+              }
+              
+            // get permission
+              let getUserInfo = "select GROUP_CONCAT(group_id) group_ids from user_group where user_id = ? and is_admin=1"
+              conn.query(getUserInfo, [userId], (err, permissions) => {
+                if (err) {
+                  console.log("check permission fail");
+                } else {
+                  
+                  const user ={
+                    'admin': permissions[0].group_ids,
+                  }
+                  console.log("check permission success");
+                }
+                return handle(rows[0]);
+
+              })
+            });
           }
         }
       });
     });
   };
 
-  getAll = () => {
+  getAccounts = () => {
     return new Promise(function (handle) {
       let sql = `
       SELECT
-        account.id id,
-        username,
+        user.name name,
         active,
-        user.id userId
+        user.id userId,
+        email,
+        last_login,
+        account.phone phone
       FROM
         account
-        JOIN user ON account.user_id = user.id;
+      JOIN user ON account.user_id = user.id
+      JOIN user_group on user_group.user_id = user.id
+
       `;
       //query database
       conn.query(sql, (err, rows) => {

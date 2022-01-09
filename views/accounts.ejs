@@ -1,358 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>QUẢN LÝ HỘI VIÊN- DANH SÁCH TÀI KHOẢN</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css2/bootstrap.min.css">
+        <link rel="stylesheet" href="/css2/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="/js2/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="main-site">
+            <header class="main-header">
+                <h2>QUẢN LÝ HỘI VIÊN</h2>
+            </header>
+            <!-- main-header -->
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description"
-          content="" />
-    <meta name="author"
-          content="" />
-    <title>Quản lý tài khoản</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-          rel="stylesheet" />
-    <link href="css/styles.css"
-          rel="stylesheet" />
-    <link href="css/style.css"
-          rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-            crossorigin="anonymous"></script>
-</head>
-
-<body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3"
-           href="/">HỘI VIÊN</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-                id="sidebarToggle"
-                href="#!"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <!-- <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-
-                    
-                    
-                    ="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div> -->
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   id="navbarDropdown"
-                   href="#"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdown">
-                    <!--<li><a class="dropdown-item" href="#!">Settings</a></li> -->
-                    <li><a class="dropdown-item"    data-bs-toggle="modal"
-                        data-bs-target="#changePassword"
-                           href="#!">Đổi mật khẩu</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        href="/logout">Đăng xuất</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark"
-                 id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
-                        <a class="nav-link nav-item"
-                           href="/users">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            QUẢN LÝ HỘI VIÊN
-                        </a>
-                        <a class="nav-link active"
-                        href="/accounts" >
-                         <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
-                         QUẢN LÝ TÀI KHOẢN
-                     </a>
-                        <a class="nav-link"
-                           href="/reports">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            THÔNG KÊ
-                        </a>
+            <section class="main-content">
+                <div class="mk-minibar-menu">
+                    <a href="/users" class="mk-minibar-menu-item">
+                        <i class="fas fa-child"></i>
+                    </a>
+                    <a href="/accounts" class="mk-minibar-menu-item active">
+                        <i class="far fa-user-circle"></i>
+                    </a>
+                </div>
+                <div class="mk-panel-tab-content">
+                    <div class="tab-content-topbar">
+                        <div class="bar-left">
+                            <h6 class="mb-0">
+                                Danh sách tài khoản
+                            </h6> 
+                        </div>
+                        <div class="bar-right">
+                            <div class="text-right bar-right-item">
+                                <strong class="mb-0 fs-12">Tổng số tài khoản: 
+                                    <span class="color-brand-secondary"><%= data.length%></span>
+                                </strong>
+                            </div> 
+                            <div class="bar-right-item">
+                                <button type="button" class="mk-btn mk-btn-primary" data-toggle="modal" 
+                                data-target="#modalAccount">
+                                    <i class="fas fa-plus"></i>
+                                    Thêm mới tài khoản
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="sb-sidenav-footer">
-
-                </div>
-            </nav>
-        </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4 text-uppercase">Quản lý tài khoản</h1>
-                    <div class="row py-4">
-                        <!-- Actual search box -->
-                        <!-- <div class="col-md">
-                            <div class="mx-auto">
-                                <div class="input-group">
-                                    <input class="form-control rounded-2"
-                                           type="search"
-                                           placeholder="search"
-                                           id="example-search-input" />
+                    <div class="mk-product-filter">
+                        <div class="mk-product-filter-dropdown mk-dropdowns-inline">
+                            <strong>Phân loại theo:</strong>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Trạng thái
+                                  <i class="fas fa-angle-down"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownStatus">
+                                  <a class="dropdown-item active" href="#">Tất cả</a>
+                                  <a class="dropdown-item" href="#">Mở khóa</a>
+                                  <a class="dropdown-item" href="#">Khóa</a>
                                 </div>
                             </div>
-                        </div> -->
-
-                        <!-- Another variation with a button -->
-                        <div class="col-md text-end">
-                            <a href="/accounts/add"
-                               style="font-weight: 500; text-transform: uppercase"
-                               title="thêm mới"
-                               class="btn btn-primary">
-                                Thêm mới
-                            </a>
                         </div>
-
-
                     </div>
-
-                    <div class="card mb-4">
-
-                        <div class="">
-                            <table class="
-                    table
-                    table-bordered
-                    table-hover
-                    table-striped
-                    table-responsive
-                  "
-                                   id="datatablesSimple">
-                                <thead style="text-align: center">
-                                    <tr>
-                                        <!-- <th>
-                                            <input type="checkbox"
-                                                   name=""
-                                                   id="" />
-                                        </th> -->
-                                        <!-- <th>Mã hội viên</th> -->
-                                        <th>Tên Tài khoản</th>
-                                        <th>Nhóm quyền</th>
-                                        <th>Khoá</th>
-                                        <th>Mã hội viên</th>
-
-                                        
-                                    </tr>
+                    <div class="mk-product-wrap">
+                        <div class="mk-header-checkall justify-content-start">
+                            <div class="mk-custom-checkbox custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" 
+                                value="true" id="__BVID__5316">
+                                <label class="custom-control-label" for="__BVID__5316">
+                                    <strong>Có
+                                        <span class="color-brand-secondary">
+                                        0
+                                        tài khoản
+                                        </span>
+                                    </strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mk-search-form">
+                            <i class="fas fa-search"></i>
+                            <input type="search" placeholder="Tìm kiếm theo tên hội viên, số điện thoại, email" class="form-control">
+                        </div>
+                        <div id="mk-table" class="mk-table-list">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Tên hội viên</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Thời gian đăng nhập lần cuối </th>
+                                    <th scope="col">Thao tác</th>
+                                  </tr>
                                 </thead>
-
                                 <tbody>
-                                    <% for (var i = 0 ; i < data.length ; i++){ %>
-                                    <tr>
-                                        
-                                        <td style="text-align: center"><%= data[i].username%></td>
-                                        
-                                        <td style="text-align: center">-</td>
-                                        <td style="text-align: center"><%= data[i].active%></td>
-                                        <td style="text-align: center"><%= data[i].userId%></td>
-                                        <td style="text-align: center">
-                                            <div class="">
-                                                <button aria-expanded="false"
-                                                        aria-haspopup="true"
-                                                        class="btn btn-primary btn-sm"
-                                                        data-toggle="dropdown"
-                                                        type="button">
-                                                    <i class="fa fa-bars"></i>
-                                                </button>
-                                                <div class="dropdown-menu"
-                                                     x-placement="top-start"
-                                                                            style="
-                                                    position: absolute;
-                                                    transform: translate3d(484px, 217px, 0px);
-                                                    top: 0px;
-                                                    left: 0px;
-                                                    will-change: transform;
-                                                    ">
+                                <% for (var i = 0 ; i < data.length ; i++){ %>
 
-                                                    <a class="dropdown-item"
-                                                       href="/accounts/1"><i class="fa fa-eye"></i>&nbsp;Chi
-                                                        tiết</a>
-                                                    
-                                                    
-                                                    <a class="dropdown-item"
-                                                       href="/accounts/1/edit"><i aria-hidden="true"
-                                                           class="fa fa-save"></i>&nbsp;Cập nhật</a>
-                                                    
-                                                    
-                                                    <a class="dropdown-item"
-                                                       id="xoa"
-                                                       onclick="xoa()"><i class="fa fa-trash-alt"></i>&nbsp;Xóa</a>
-                                                    
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <% } %>
+                                  <tr>
+                                    <td>
+                                      <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                      </div>
+                                    </td>
+                                    <td><%= data[i].name %></td>
+                                    <td><%= data[i].phone %></td>
+                                    <td><%= data[i].email %></td>
+                                    <td><%= data[i].last_login %></td>
+                                    <td class="cell-operation cell-pinned">
+                                        <div class="input-group input-group-options p-0 border-0">
+                                            <a title="Delete" class="item mk-action-delete active">
+                                                <i class="fas fa-lock"></i>
+                                            </a> 
+                                        </div>
+                                    </td>
+                                  </tr>
+                                <% } %>
+                                
                                 </tbody>
                             </table>
                         </div>
+                        
+                        <!-- <div class="pagination-wrap">
+                            <ul  class="pagination mk-pagination b-pagination">
+                                <li role="presentation" class="page-item active">
+                                    <button class="page-link">1</button>
+                                </li>
+                                <li role="presentation" class="page-item">
+                                    <button role="menuitemradio" type="button" class="page-link">2</button>
+                                </li>
+                            </ul> 
+                        </div> -->
                     </div>
                 </div>
-            </main>
-
+            </section>
+            <!-- main-content -->
         </div>
-        <!-- Button trigger modal -->
 
-        <!-- Modal  sign out-->
-        <div class="modal fade"
-             id="exampleModal"
-             tabindex="-1"
-             aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-uppercase"
-                            id="exampleModalLabel">Đăng xuất</h5>
-                        <button type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">Bạn chắc chắn muốn đăng xuất ?</div>
-                    <div class="modal-footer">
-                        <a type="button"
-                           class="btn btn-secondary"
-                           data-bs-dismiss="modal">Đóng</a>
-                        <a href="/logout"
-                           type="button"
-                           class="btn btn-primary">Đăng xuất</a>
-                    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalAccount" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Thêm mới thông tin tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- end modal -->
-
-        <!-- Modal  change password-->
-        <form class="modal fade"
-                action="/accounts/1/change-password"
-                method="POST"
-             id="changePassword"
-             tabindex="-1"
-             aria-labelledby="changePasswordlLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-uppercase"
-                            id="changePasswordlLabel">
-                            Đổi mật khẩu
-                        </h5>
-                        <button type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="pb-3">
-                                    <label class="pb-2">Mật khẩu hiện tại</label>
-                                    <div class="form-group pass_show">
-                                        <input type="password"
-                                            name="pass"
-                                               value=""
-                                               class="form-control"
-                                               placeholder="faisalkhan@123" />
-                                    </div>
+                <div class="modal-body">
+                    <div class="account-form row">
+                        <div class="account-left col">
+                            <div class="mk-card-row mk-image-preview">
+                                <div class="aspect-ratio-1-1 w-100">
+                                    <img alt="" class="mk-favicon-preview lazyLoad isLoaded" 
+                                    src="https://picsum.photos/id/237/200/300">
                                 </div>
-                                <div class="pb-3">
-                                    <label class="pb-2">Mật khẩu mới</label>
-                                    <div class="form-group pass_show">
-                                        <input type="password"
-                                                name="passNew"
-                                               class="form-control"
-                                               placeholder="*******" />
-                                    </div>
-                                </div>
-                                <div class="pb-3">
-                                    <label class="pb-2">Xác nhận mật khẩu</label>
-                                    <div class="form-group pass_show">
-                                        <input type="password"
-                                                name="passNew1"
-                                               class="form-control"
-                                               placeholder="*******" />
+                            </div>
+                            <div class="mk-card-row">
+                                <label class="mk-card-row-label m0 fw-500">Avatar</label>
+                                <div class="mk-card-row-group">
+                                    <div class="input-group input-group-image">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <span class="remove"><i class="fas fa-times"></i></span> 
+                                                <img alt="" class="image-widget-current lazyLoad isLoaded" 
+                                                src="https://d3rzzb9pdm93i0.cloudfront.net/2021/12/1638961364bf57c1fd29f88585f1f96079349df398.jpg">
+                                            </span>
+                                        </div> 
+                                        <input type="text" placeholder="1638961364bf57c1fd29f88585f1f96079349df398.jpg" class="form-control"> 
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><span>
+                                                <i aria-hidden="true" class="fa fa-upload"></i>
+                                            </span> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button"
-                           class="btn btn-secondary"
-                           data-bs-dismiss="modal" value="Đóng"></input>
-                        <input type="submit"
-                           class="btn btn-primary" value="Xác nhận"></input>
+                        <div class="account-right col">
+                            <div class="mk-form-group">
+                                <label class="mk-label">Tên tài khoản <span class="color-error">*</span></label> 
+                                <input type="text" placeholder="Nhập Tên tài khoản" class="form-control">
+                            </div> 
+                            <div class="mk-form-group">
+                                <label class="mk-label">Số điện thoại
+                                    <span class="color-error">*</span>
+                                </label> 
+                                <input placeholder="Nhập Số điện thoại" type="text" class="form-control">
+                            </div>  
+                            <div class="mk-form-group">
+                                <label class="mk-label">Email
+                                </label> 
+                                <input type="email"  placeholder="Nhập Email" value="debra.holt@example.com" class="form-control">
+                            </div> 
+                            <div class="mk-form-group">
+                                <label class="mk-label">Mật khẩu
+                                </label> 
+                                <input type="email"  placeholder="Nhập Mật khẩu"  value="*******" class="form-control">
+                            </div> 
+                        </div>    
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
+                    <button type="button" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
+                </div>
             </div>
-        </form>
-
-        <!-- end modal -->
-    </div>
-
-    <script type="text/javascript"
-            src="js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript"
-            src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"
-            src="js/slick.min.js"></script>
-    <script type="text/javascript"
-            src="js/custom.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-            crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.min.js"
-            integrity="sha512-kmrY+BFhi6ywgfK8hW1ySM/KYU3xPd4elbMhORq3DhacwqmitFrf3GB2HpLj3srV1zFsqxvAcZ4qU+y+ym1Eeg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.js"
-            integrity="sha512-CQ5jiRwHEBqO2GFEO/VQi5MbV3MQeX4dftsA4HcVz94Ok08mISN+3pqdAhay0z/shDOWY4DzaBzFNME+FzDX+Q=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".pass_show").append('<span class="ptxt">Show</span>');
-        });
-
-        $(document).on("click", ".pass_show .ptxt", function () {
-            $(this).text($(this).text() == "Show" ? "Hide" : "Show");
-
-            $(this)
-                .prev()
-                .attr("type", function (index, attr) {
-                    return attr == "password" ? "text" : "password";
-                });
-        });
-        function xoa() {
-            if (confirm("Bạn muốn thoát xoá  người dùng này?")) {
-                return true;
-            }
-        }
-    </script>
-</body>
-
+            </div>
+        </div>
+    </body>
 </html>

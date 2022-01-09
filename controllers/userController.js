@@ -4,7 +4,7 @@ const session = require("express-session");
 /* const { render } = require("ejs") */
 
 class UserController {
-  getAll = (req, res) => {
+  getUsers = (req, res) => {
     if (!req.session.account) {
       res.redirect("/login");
     }
@@ -17,6 +17,9 @@ class UserController {
   }
 
   getUser(req, res) {
+    if (!req.session.account) {
+      res.redirect("/login");
+    }
     const userId = req.params.id;
     userRepository.get(userId).then((user) => {
       res.render("user", { data: user });
@@ -30,32 +33,12 @@ class UserController {
     res.render("edit");
   }
   removeUser(req, res) {
-    console.log("deleteMember have id: " + req.params.id);
-    let info = [
-      {
-        hoTen: "nguyen thi a",
-        lhv: "qncn",
-        nSinh: "13-07-1979",
-        gTinh: "nam",
-        dToc: "kinh",
-        nNNgu: "20-12-1997",
-        dVi: "h3",
-        hoi: "phu nu",
-        tGVHoi: "20-12-1998",
-        cBac: "trung uy",
-        bTho: "bac 2",
-        cDanh: "tro ly",
-        lDSTao: "viet bao",
-        tDo: "trung cap",
-        tTHNhan: "da ket hon",
-        nhaO: "ngo 21 phuon liet thanh xuan",
-        tSBACBThan: "ko co",
-        tSBACCCai: "ko co",
-        vTri: "dang vien",
-        dHieu: "tro giang",
-      },
-    ];
-    res.render("member", { data: info });
+    const userId = req.params.id
+    const groupId =  req.session.user.groupId
+    userRepository.removeUser(userId, groupId).then((result)=>{
+
+    })
+    res.redirect("/users")
   }
 }
 module.exports = new UserController();

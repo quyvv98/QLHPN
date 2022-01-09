@@ -9,13 +9,11 @@ const port = 4000;
 const app = express()
 
 const session = require('express-session')
-//const hbs = handlebars.create({})
-//const router = express.Router()
 app.use(session({
   secret: '19981998',
   resave: true,
   saveUninitialized: true,
-  expires: false,
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
   cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 //reload req

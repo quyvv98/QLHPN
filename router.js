@@ -33,11 +33,11 @@ function route(app){
     app.post('/login', accountController.login)
 
     //router member
-    app.get('/users',userController.getAll)
+    app.get('/users',userController.getUsers)
     app.get('/users/add',userController.add)
     app.get('/users/:id',userController.getUser)
     app.get('/users/:id/edit',userController.editUser)
-    app.delete('/users/:id',userController.removeUser)
+    app.post('/users/:id/delete',userController.removeUser)
 
     app.get('/accounts',accountController.getAccounts)
     app.get('/accounts/add',accountController.addAccount)

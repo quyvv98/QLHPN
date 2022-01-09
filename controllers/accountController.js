@@ -8,9 +8,9 @@ const { use } = require("express/lib/application");
 class AccountController {
   
   login = (req, res) => {
-    let username = String(req.body.name);
+    let phone = String(req.body.phone);
     let password = String(req.body.password);
-    accountRepository.login(username, password).then(function (account) {
+    accountRepository.login(phone, password).then(function (account) {
       if (account) {
         req.session.account = account
         res.redirect("/");
@@ -23,7 +23,7 @@ class AccountController {
     if(!req.session.account){
       res.redirect("/login")
     }
-    accountRepository.getAll().then(function (accounts) {
+    accountRepository.getAccounts().then(function (accounts) {
       res.render("accounts", { data: accounts });
     });
   };
@@ -38,10 +38,13 @@ class AccountController {
       res.redirect("/login")
       return
     }
-    res.render("new_account");
+    res.render("user");
   };
   //detail user
   getAccount = (req, res) => {
+    if (!req.session.account) {
+      res.redirect("/login");
+    }
     let data = [
       {
         tTKhoan: "admin",
