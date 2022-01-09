@@ -35,6 +35,31 @@ CREATE TABLE `level` (
   CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO level (value, type)
+VALUES ('12/12', 'Văn hóa');
+INSERT INTO level (value, type)
+VALUES ('10/10', 'Văn hóa');
+INSERT INTO level (value, type)
+VALUES ('Sơ cấp', 'Chính trị');
+INSERT INTO level (value, type)
+VALUES ('Trung cấp', 'Chính trị');
+INSERT INTO level (value, type)
+VALUES ('Cao đẳng', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Thạc sĩ', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Đại học', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Sơ cấp', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Trung cấp', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Tiến sĩ', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Cử nhân', 'Chuyên môn');
+INSERT INTO level (value, type)
+VALUES ('Kỹ sư', 'Chuyên môn');
+
 
 DROP TABLE IF EXISTS `position`;
 CREATE TABLE `position` (
@@ -48,6 +73,52 @@ CREATE TABLE `position` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `position_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO position (value, type)
+VALUES ('Đảng viên', 'Đảng');
+INSERT INTO position (value, type)
+VALUES ('Chi ủy viên', 'Đảng');
+INSERT INTO position (value, type)
+VALUES ('Bí thư Chi bộ', 'Đảng');
+INSERT INTO position (value, type)
+VALUES ('PBT Chi bộ', 'Đảng');
+INSERT INTO position (value, type)
+VALUES ('PBT Đảng ủy', 'Đảng');
+INSERT INTO position (value, type)
+VALUES ('Chủ tịch HPN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Hội viên HPN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Ủy viên BCH CĐ', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Ủy viên HPN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Phó CT HPN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Đoàn viên CĐ', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('BCH Hội đồng QN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Nguyên Chủ tịch HPN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Phó CT CĐ', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Tổ trưởng CĐ', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Chi hội trưởng', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Chi hội phó', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Nguyên Phó CT HPN', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('PBT Chi đoàn', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('PBT Liên chi', 'Quần chúng');
+INSERT INTO position (value, type)
+VALUES ('Chủ tịch CĐ', 'Quần chúng');
+
+
 
 DROP TABLE IF EXISTS `title`;
 CREATE TABLE `title` (
@@ -266,11 +337,75 @@ VALUES ('Lê Thị Lan Anh',1/1/1980, '1', 1, 1/1/2013, 1, 1);
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
 VALUES ('Dương Quỳnh Anh',1/1/1979, '1', 1, 1/1/2004, 1, 1);
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
-VALUES ('Nguyễn Thị Cúc',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+VALUES ('Nguyễn Thị Cúc',1/1/1970, '1', 1, 1/1/2011, 1, 1);
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
-VALUES ('Đinh Thị Thanh Lan',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+VALUES ('Đinh Thị Thanh Lan',1/1/1970, '1', 1, 1/1/1993, 1, 1);
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
-VALUES ('Nguyễn Thị Thủy',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+VALUES ('Nguyễn Thị Thủy',1/1/1972, '1', 1, 1/1/2011, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Vũ Thị Hương',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Đỗ Thị Loan',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Phạm Thị Mai',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Tuyết Oanh',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Trần Thị Thu Thủy',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Kim Vân',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Lưu Thanh Huyền',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Mỹ Linh',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Trần Thị Tư',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Quỳnh Trúc',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Bùi Thị Tuyết Nga',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Thúy Mùi',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Bùi Lệ Mỹ',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Ngân',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thu Phương',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Thu Thùy',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Cao Doãn Thu Trang',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Phạm Thị Hương',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Trịnh Hải Anh',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Lê Thị Vinh Hạnh',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Ngô Thị Lan',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Thu Thùy',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Hiền',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Chu Thị Hường',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Hoàng Thị Vân',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Nguyễn Thị Hoài Thu',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Lê Thị Minh Hiền',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Đoàn Thị Minh Hằng',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Đỗ Thị Ngọc Diệp',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Lê Thị Nga',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
+VALUES ('Trương Thị Hương Huyền',1/1/1970, '1', 1, 1/1/1989, 1, 1);
+
+
 
 DROP TABLE IF EXISTS `award`;
 CREATE TABLE `award` (

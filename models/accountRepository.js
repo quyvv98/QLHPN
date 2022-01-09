@@ -1,9 +1,10 @@
 const { reject } = require("async");
 const conn = require("./connect");
 class AccountRepository {
-  get = (username, password) => {
+  login = (username, password) => {
     return new Promise(function (handle) {
-      let sql = "SELECT * FROM account WHERE username = ? and password = ? ";
+      let sql =
+        "SELECT * FROM account WHERE username = ? and password = ? and active = 1";
       //query database
       conn.query(sql, [username, password], (err, rows) => {
         if (err) {
@@ -36,14 +37,32 @@ class AccountRepository {
         if (err) {
           console.log(err);
         } else {
-          handle(rows)
+          handle(rows);
         }
       });
     });
   };
 
-  
-
+  updatePassword = (accountId, oldPassword, newPassword) => {
+    return new Promise(function (handle) {
+      let sql =
+        `update account set password = "` +
+        newPassword +
+        `" where id = ` +
+        accountId +
+        ` and password = "` +
+        oldPassword +
+        `" ;`;
+      //query database
+      conn.query(sql, (err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          handle(res);
+        }
+      });
+    });
+  };
 }
 
 module.exports = new AccountRepository();

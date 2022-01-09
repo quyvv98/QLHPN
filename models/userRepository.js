@@ -1,19 +1,15 @@
 const { reject } = require("async");
 const conn = require("./connect");
-class AccountRepository {
-  get = (n, p) => {
+class UserRepository {
+  get = (userId) => {
     return new Promise(function (handle) {
-      let sql = "SELECT * FROM account WHERE username = ? and password = ? ";
+      let sql = "SELECT * from user where id = ?";
       //query database
-      conn.query(sql, [n, p], (err, rows) => {
+      conn.query(sql, [userId], (err, rows) => {
         if (err) {
           console.log(err);
         } else {
-          if (rows.length < 1) {
-            return handle(false);
-          } else {
-            return handle(true);
-          }
+         handle(rows[0]);
         }
       });
     });
@@ -55,4 +51,4 @@ class AccountRepository {
   };
 }
 
-module.exports = new AccountRepository();
+module.exports = new UserRepository();

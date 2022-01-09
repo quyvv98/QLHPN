@@ -10,7 +10,7 @@ class AccountController {
   login = (req, res) => {
     let username = String(req.body.name);
     let password = String(req.body.password);
-    accountRepository.get(username, password).then(function (account) {
+    accountRepository.login(username, password).then(function (account) {
       if (account) {
         req.session.account = account
         res.redirect("/");
@@ -44,11 +44,13 @@ class AccountController {
   getAccount = (req, res) => {
     let data = [
       {
-        tTKhoan: "vu dieu linh",
-        mKhau: "123456",
-        quyen: "quan lý cap cao",
+        tTKhoan: "admin",
+        mKhau: "*****",
+        quyen: "Quản lý cấp học viện",
       },
     ];
+    const accountId =  req.params.id
+    accountRepository.login
     res.render("account", { data: data });
   };
   removeAccount = (req, res) => {
@@ -58,7 +60,19 @@ class AccountController {
   // edit password
   editPassword = (req, res) => {
     console.log("edit pass: " + req.body.pass);
-    res.redirect("/users");
+    const oldPass= req.body.pass;
+    const newPass= req.body.passNew;
+    const newPass2= req.body.passNew2;
+    const accountId =  req.params.id
+    accountRepository.updatePassword(accountId, oldPass, newPass).then((result)=>{
+      if(result && result.affectedRows > 0){
+        req.session.account = null;
+        res.redirect("/login")
+      }else{
+        res.redirect("/accounts/"+accountId)
+
+      }
+    })
   };
 }
 

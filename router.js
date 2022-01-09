@@ -43,6 +43,8 @@ function route(app){
     app.get('/accounts/add',accountController.addAccount)
     app.get('/accounts/:id',accountController.getAccount)
     app.get('/accounts/:id/edit',accountController.editAccount)
+    app.post('/accounts/:id/change-password',accountController.editPassword)
+
     app.delete('/accounts/:id',accountController.removeAccount)
 
 

@@ -199,9 +199,9 @@
                                     <tr>
                                         <th>Mã hội viên</th>
                                         <th>Họ và tên</th>
-                                        <th>Loại hội viên</th>
+                                        <!-- <th>Loại hội viên</th> -->
                                         <th>Trình độ</th>
-                                        <th>Danh hiệu</th>
+                                        <!-- <th>Danh hiệu</th> -->
                                         <th>Đơn vị</th>
                                         <th>Chức danh</th>
 
@@ -213,9 +213,9 @@
                                     <tr>
                                         <td style="text-align: center;"><%= data[i].id %></td>
                                         <td><%=data[i].name %></td>
-                                        <td><%=data[i].type%></td>
+                                        <!-- <td><%=data[i].type%></td> -->
                                         <td><%=data[i].capbac %></td>
-                                        <td><%=data[i].award %></td>
+                                        <!-- <td><%=data[i].award %></td> -->
                                         <td><%=data[i].donvi %></td>
                                         <td><%= data[i].title %></td>
                                         <td style="text-align: center;">
@@ -294,7 +294,7 @@
 
                     <!-- Modal  change password-->
         <form class="modal fade"
-                action="/password"
+                action="/accounts/1/change-password"
                 method="POST"
              id="changePassword"
              tabindex="-1"

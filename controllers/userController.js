@@ -17,32 +17,10 @@ class UserController {
   }
 
   getUser(req, res) {
-    console.log(req.params.id);
-    let info = [
-      {
-        hoTen: "nguyen thi a",
-        lhv: "qncn",
-        nSinh: "13-07-1979",
-        gTinh: "nam",
-        dToc: "kinh",
-        nNNgu: "20-12-1997",
-        dVi: "h3",
-        hoi: "phu nu",
-        tGVHoi: "20-12-1998",
-        cBac: "trung uy",
-        bTho: "bac 2",
-        cDanh: "tro ly",
-        lDSTao: "viet bao",
-        tDo: "trung cap",
-        tTHNhan: "da ket hon",
-        nhaO: "ngo 21 phuon liet thanh xuan",
-        tSBACBThan: "ko co",
-        tSBACCCai: "ko co",
-        vTri: "dang vien",
-        dHieu: "tro giang",
-      },
-    ];
-    res.render("user", { data: info });
+    const userId = req.params.id;
+    userRepository.get(userId).then((user) => {
+      res.render("user", { data: user });
+    });
   }
   editUser(req, res) {
     res.render("edit_user", { data: {} });

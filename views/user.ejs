@@ -134,7 +134,7 @@
                                                                     disabled
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].hoTen %></option>
+                                                                  <option value="AL"><%= data.name %></option>
                                                             </select>
                                                       </div>
                                                 </div>
@@ -149,7 +149,7 @@
                                                                     disabled
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].lhv %></option>
+                                                                  <option value="AL">Hội phụ nữ</option>
                                                             </select>
                                                       </div>
                                                 </div>
@@ -175,7 +175,7 @@
                                                                     disabled
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].nSinh %></option>
+                                                                  <option value="AL"> <%= data.birthday%></option>
                                                             </select>
                                                       </div>
                                                 </div>
@@ -191,7 +191,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].gTinh %></option>
+                                                                  <option value="AL">Nữ</option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -206,7 +206,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].dToc %></option>
+                                                                  <option value="AL">Kinh</option>
                                                             </select>
                                                       </div>
                                                 </div>
@@ -232,7 +232,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].nNNgu %></option>
+                                                                  <option value="AL"><%= data.nhapngu %></option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -249,7 +249,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].dVi %></option>
+                                                                  <option value="AL">P1</option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -281,7 +281,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].hoi %></option>
+                                                                  <option value="AL">Hội phụ nữ</option>
                                                             </select>
                                                       </div>
                                                 </div>
@@ -297,7 +297,7 @@
                                                                    class="form-control">
                                                       </div>
                                                 </div> -->
-                                                <div class="col-md">
+                                                <!-- <div class="col-md">
                                                       <div class="group">
                                                             <label class="text-uppercase pb-2"
                                                                    for="loaihoivien">
@@ -307,10 +307,10 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].tGVHoi %></option>
+                                                                  <option value="AL"> 1/1/</option>
                                                             </select>
                                                       </div>
-                                                </div>
+                                                </div> -->
                                           </div>
       
                                           <div class="row py-4">
@@ -324,7 +324,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].cBac %></option>
+                                                                  <option value="AL">3/CN</option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -339,7 +339,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"> <%= data[0].bTho %></option>
+                                                                  <option value="AL"> 1</option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -390,7 +390,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].vTri  %></option>
+                                                                  <option value="AL"> - </option>
                                                             </select>
                                                       </div>
                                                 </div>
@@ -406,7 +406,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].cDanh  %></option>
+                                                                  <option value="AL">Nhân viên</option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -421,7 +421,7 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].lDSTao  %></option>
+                                                                  <option value="AL"> - </option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -435,7 +435,7 @@
                                                             <select class="js-example-basic-single form-control"
                                                                     name="state"
                                                                     disabled>
-                                                                  <option value="AL"><%= data[0].tDo  %></option>
+                                                                  <option value="AL">- </option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
@@ -450,14 +450,14 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="AL"><%= data[0].dHieu  %></option>
+                                                                  <option value="AL">-</option>
                                                             </select>
                                                             <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
                                                 </div>
                                           </div>
                                           <div class="row py-4">
-                                                <div class="col-md 2">
+                                                <!-- <div class="col-md 2">
                                                       <div class="group">
                                                             <label class="text-uppercase pb-2"
                                                                    for="name">
@@ -468,12 +468,11 @@
                                                                     name="state"
                                                                     disabled>
       
-                                                                  <option value="WY"><%= data[0].tTHNhan  %></option>
+                                                                  <option value="WY">-</option>
       
                                                             </select>
-                                                            <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                                       </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="col-md-8">
                                                       <div class="group">
                                                             <label class="text-uppercase pb-2"
@@ -489,83 +488,10 @@
                                                                    aria-describedby="inputGroupPrepend2">
                                                       </div>
                                                 </div> -->
-                                                <div class="col-md 2">
-                                                      <div class="group">
-                                                            <label class="text-uppercase pb-2"
-                                                                   for="name">
-                                                                  Nhà ở
-                                                            </label>
-                                                            <select class="js-example-basic-single form-control"
-                                                                    disabled
-                                                                    name="state"
-                                                                    disabled>
-      
-                                                                  <option value="WY"><%= data[0].nhaO  %></option>
-      
-                                                            </select>
-                                                            <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                                      </div>
-                                                </div>
-                                                <div class="col-md-2 d-flex align-items-end">
-                                                      <div class="group">
-                                                            <label class="text-uppercase pb-2"
-                                                                   for="name">
-                                                                  chồng cùng đơn vị
-                                                            </label>
-                                                            <input class="form-check-input"
-                                                                   type="checkbox"
-                                                                   disabled
-                                                                   value=""
-                                                                   id="flexCheckChecked"
-                                                                   checked
-                                                                   readonly>
-                                                            <label class="form-check-label"
-                                                                   for="flexCheckChecked">
-      
-                                                            </label>
-                                                            <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                                      </div>
-                                                </div>
-      
+                                             
+                                               
                                           </div>
-                                          <div class="row py-4">
-                                                <div class="col-md">
-                                                      <div class="group">
-                                                            <label class="text-uppercase pb-2"
-                                                                   for="name">
-                                                                  tiền sử bệnh án của bản thân
-                                                            </label>
-                                                            <textarea class="form-control"
-                                                                      id="w3review"
-                                                                      readonly
-                                                                      name="w3review"
-                                                                      rows="4"
-                                                                      cols="50">
-                                                                     <%= data[0].tSBACBThan  %>
-                                                            </textarea>
-                                                            <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                                      </div>
-                                                </div>
-      
-      
-                                                <div class="col-md">
-                                                      <div class="group">
-                                                            <label class="text-uppercase pb-2"
-                                                                   for="name">
-                                                                  tiền sử bệnh án của con cái
-                                                            </label>
-                                                            <textarea class="form-control"
-                                                                      id="w3review"
-                                                                      name="w3review"
-                                                                      rows="4"
-                                                                      cols="50"
-                                                                      readonly>
-                                                                        <%= data[0].tSBACCCai  %>
-                                                            </textarea>
-                                                            <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                                      </div>
-                                                </div>
-                                          </div>
+                                          
       
                                       
                                     </form>
@@ -639,7 +565,7 @@
 
                 <!-- Modal  change password-->
         <form class="modal fade"
-                action="/password"
+                action="/accounts/1/change-password"
                 method="POST"
              id="changePassword"
              tabindex="-1"
