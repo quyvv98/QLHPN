@@ -5,34 +5,41 @@ const session = require("express-session");
 
 class UserController {
   getUsers = (req, res) => {
-    if (!req.session.account) {
+    if (!req.session || !req.session.account) {
       res.redirect("/login");
     }
     userRepository.getUsers().then((users) => {
-      res.render("users", { data: users });
+      res.render("users", { data: users, session: req.session });
     });
   };
   add(req, res) {
-    res.render("new_user");
+    if (!req.session || !req.session.account) {
+      res.redirect("/login");
+    }else{
+      res.render("new_user", {data: {}, session: req.session});
+    }
   }
 
   getUser(req, res) {
-    if (!req.session.account) {
+    if (!req.session || !req.session.account) {
       res.redirect("/login");
+      return
     }
     const userId = req.params.id;
     userRepository.get(userId).then((user) => {
-      res.render("user", { data: user });
+      res.render("user", { data: user, session: req.session });
     });
   }
   editUser(req, res) {
-    res.render("edit_user", { data: {} });
-  }
-  saveEditMember(req, res) {
-    console.log("editMember: " + req.body.name);
-    res.render("edit");
+    if (!req.session || !req.session.account) {
+      res.redirect("/login");
+    }
+    res.render("edit_user", { data: {} , session: req.session});
   }
   removeUser(req, res) {
+    if (!req.session || !req.session.account) {
+      res.redirect("/login");
+    }
     const userId = req.params.id
     const groupId =  req.session.user.groupId
     userRepository.removeUser(userId, groupId).then((result)=>{

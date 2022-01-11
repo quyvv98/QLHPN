@@ -7,11 +7,11 @@ const userRepository = require('../models/userRepository')
 
 class HomeController {
   index = (req, res) => {
-      if(!req.session.account){
+      if(!req.session || !req.session.account){
         res.redirect('/login')
     }else{
       userRepository.getUsers().then((users)=>{
-        res.render('users',{data: users })
+        res.render('users',{data: users , session: req.session})
     })
     }   
     ;

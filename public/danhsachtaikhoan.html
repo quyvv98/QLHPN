@@ -5,10 +5,10 @@
         <title>QUẢN LÝ HỘI VIÊN- DANH SÁCH TÀI KHOẢN</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css2/bootstrap.min.css">
-        <link rel="stylesheet" href="/css2/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="/js2/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="main-site">
@@ -32,13 +32,13 @@
 
             <section class="main-content">
                 <div class="mk-minibar-menu">
-                    <a href="/reports" class="mk-minibar-menu-item">
+                    <a href="thongke.html" class="mk-minibar-menu-item">
                         <i class="fas fa-chart-line"></i>
                     </a>
-                    <a href="/users" class="mk-minibar-menu-item">
+                    <a href="danhsachhoivien.html" class="mk-minibar-menu-item">
                         <i class="fas fa-child"></i>
                     </a>
-                    <a href="/accounts" class="mk-minibar-menu-item active">
+                    <a href="danhsachtaikhoan.html" class="mk-minibar-menu-item active">
                         <i class="fas fa-user-circle"></i>
                     </a>
                 </div>
@@ -52,7 +52,7 @@
                         <div class="bar-right">
                             <div class="text-right bar-right-item">
                                 <strong class="mb-0 fs-12">Tổng số tài khoản: 
-                                    <span class="color-brand-secondary"><%= data.length%></span>
+                                    <span class="color-brand-secondary"><%= data.length %></span>
                                 </strong>
                             </div> 
                             <div class="bar-right-item">
@@ -116,38 +116,37 @@
                                   <tr>
                                     <th scope="col"></th>
                                     <th scope="col"><%= session.account.username%></th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Thời gian đăng nhập lần cuối </th>
                                     <th scope="col">Thao tác</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                <% for (var i = 0 ; i < data.length ; i++){ %>
-
-                                  <tr>
-                                    <td>
-                                      <div class="custom-control custom-checkbox">
-                                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                                      </div>
-                                    </td>
-                                    <td><%= data[i].name %></td>
-                                    <td><%= data[i].last_login %></td>
-                                    <td class="cell-operation cell-pinned">
-                                        <div class="input-group input-group-options p-0 border-0">
-                                            <a title="Khóa" class="item mk-action-delete active">
-                                                <i class="fas fa-lock"></i>
-                                            </a> 
-                                        </div>
-                                    </td>
-                                  </tr>
-                                  <% } %>
-                                </tbody>
+                                    <% for (var i = 0 ; i < data.length ; i++){ %>
+    
+                                      <tr>
+                                        <td>
+                                          <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                          </div>
+                                        </td>
+                                        <td><%= data[i].name %></td>
+                                        <td><%= data[i].phone %></td>
+                                        <td><%= data[i].email %></td>
+                                        <td><%= data[i].last_login %></td>
+                                        <td class="cell-operation cell-pinned">
+                                            <div class="input-group input-group-options p-0 border-0">
+                                                <a title="Delete" class="item mk-action-delete active">
+                                                    <i class="fas fa-lock"></i>
+                                                </a> 
+                                            </div>
+                                        </td>
+                                      </tr>
+                                    <% } %>
+                                    
+                                    </tbody>
                             </table>
-
-                            <!-- Không tìm thấy tài khoản -->
-                            <!-- <div class="mk-search-notfound">
-                                <i class="fas fa-user-circle"></i><br>
-                                <p>Không tìm thấy tài khoản nào</p>
-                            </div> -->
                         </div>
                         
                         <div class="pagination-wrap">

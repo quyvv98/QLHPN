@@ -5,10 +5,10 @@
         <title>QUẢN LÝ HỘI VIÊN- DANH SÁCH HỘI VIÊN</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css2/bootstrap.min.css">
-        <link rel="stylesheet" href="/css2/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="/js2/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="main-site">
@@ -17,7 +17,7 @@
                 <div class="main-header-right">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <%= session.account.username %>
+                          <%= session.account.username%>
                           <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownName">
@@ -32,13 +32,13 @@
 
             <section class="main-content">
                 <div class="mk-minibar-menu">
-                    <a href="/reports" class="mk-minibar-menu-item">
+                    <a href="thongke.html" class="mk-minibar-menu-item">
                         <i class="fas fa-chart-line"></i>
                     </a>
-                    <a href="/users" class="mk-minibar-menu-item active">
+                    <a href="danhsachhoivien.html" class="mk-minibar-menu-item active">
                         <i class="fas fa-child"></i>
                     </a>
-                    <a href="/accounts" class="mk-minibar-menu-item">
+                    <a href="danhsachtaikhoan.html" class="mk-minibar-menu-item">
                         <i class="fas fa-user-circle"></i>
                     </a>
                 </div>
@@ -51,10 +51,10 @@
                         </div>
                         <div class="bar-right">
                             <div class="text-right bar-right-item">
-                                <strong class="mb-0 fs-12">Tổng số hội viên: <span class="color-brand-secondary"><%= data.length %></span></strong>
+                                <strong class="mb-0 fs-12">Tổng số hội viên: <span class="color-brand-secondary">150</span></strong>
                             </div> 
                             <div class="bar-right-item">
-                                <a href="/users/add" class="mk-btn mk-btn-primary">
+                                <a href="themmoihoivien.html" class="mk-btn mk-btn-primary">
                                     <i class="fas fa-plus"></i>
                                     Thêm mới hội viên
                                 </a>
@@ -140,21 +140,20 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                <% for (var i = 0 ; i < data.length ; i++){ %>
                                   <tr>
                                     <td>
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
                                         </div>
                                     </td>
-                                    <td><%=data[i].name %></td>
-                                    <td><%=data[i].capbac %></td>
-                                    <td><%=data[i].level %></td>
-                                    <td><%=data[i].donvi %></td>
-                                    <td><%=data[i].title %></td>
+                                    <td>Nguyễn Thị A</td>
+                                    <td>1</td>
+                                    <td>Cao đẳng</td>
+                                    <td>P1</td>
+                                    <td>Nhân viên</td>
                                     <td class="cell-operation cell-pinned">
                                         <div class="input-group input-group-options p-0 border-0">
-                                            <a title="Edit" href='/users/<%=data[i].id %>'' class="item active" >
+                                            <a title="Sửa" href="javascript:void(0)" class="item">
                                                 <i class="fas fa-pen"></i>
                                             </a>
                                             <a title="Xóa" class="item mk-action-delete">
@@ -163,7 +162,50 @@
                                         </div>
                                     </td>
                                   </tr>
-                                <% } %>
+                                  <tr>
+                                    <td>
+                                      <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                      </div>
+                                    </td>
+                                    <td>Nguyễn Thị A</td>
+                                    <td>1</td>
+                                    <td>Cao đẳng</td>
+                                    <td>P1</td>
+                                    <td>Nhân viên</td>
+                                    <td class="cell-operation cell-pinned">
+                                        <div class="input-group input-group-options p-0 border-0">
+                                            <a title="Sửa" href="javascript:void(0)" class="item">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                            <a title="Xóa" class="item mk-action-delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a> 
+                                        </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                      </div>
+                                    </td>
+                                    <td>Nguyễn Thị A</td>
+                                    <td>1</td>
+                                    <td>Cao đẳng</td>
+                                    <td>P1</td>
+                                    <td>Nhân viên</td>
+                                    <td class="cell-operation cell-pinned">
+                                        <div class="input-group input-group-options p-0 border-0">
+                                            <a title="Sửa" href="javascript:void(0)" class="item">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                            <a title="Xóa" class="item mk-action-delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a> 
+                                        </div>
+                                    </td>
+                                  </tr>
                                 </tbody>
                             </table>
 

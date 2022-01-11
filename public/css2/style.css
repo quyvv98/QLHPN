@@ -25,6 +25,12 @@ h1,h2 {
 h6 ,h5{
   font-weight: 700;
 }
+
+ul, li{
+  list-style: none;
+  padding-left: 0;
+  margin : 0;
+}
 header {
   width: 100%;
   position: fixed;
@@ -71,7 +77,18 @@ button {
   border-right: 1px solid #e5e5e5;
   text-align: center;
 }
+.main-header {
+  display: flex;
+  justify-content: space-between;
+}
+.main-header-right {
+  padding-right: 55px;
+}
 
+.main-header-right .dropdown-menu {
+  right: 0 !important;
+  left: auto !important
+}
 .tab-content-topbar {
   display: flex;
   align-items: center;
@@ -147,9 +164,26 @@ button {
   background: #f0f0f0;
     color: inherit;
 }
+.mk-product-filter {
+  padding: 10px 15px;
+}
 .mk-product-filter-dropdown {
   display: flex;
-  padding: 10px 15px;
+}
+
+.mk-list-action {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.mk-list-action a{
+  display: inline-block;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.mk-list-action strong {
+  margin-left: 2px;
 }
 
 .mk-product-filter-dropdown strong {
@@ -211,6 +245,10 @@ button {
   padding: 8px;
   border: solid #e5e5e5;
   border-width: 1px 1px 0;
+}
+
+.mk-header-checkall .mk-custom-checkbox{
+  margin-top: 3px;
 }
 
 .mk-custom-checkbox input {
@@ -525,6 +563,36 @@ button {
 }
 .main-site {
   position: relative;
+}
+
+.mk-product-filter-selected{
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.mk-product-filter-selected li {
+  display: inline-block;
+  margin: 8px 8px 0 0;
+  padding: 4px 10px;
+  background: #e5e5e5;
+  color: #191919;
+  border-radius: 4px;
+}
+.mk-product-filter-selected li  i {
+  cursor: pointer;
+  display: inline-block;
+}
+.mk-product-filter-selected li strong {
+  padding-right: 6px;
+}
+.mk-search-notfound {
+  text-align: center;
+}
+.mk-search-notfound i{
+  padding-top: 15px;
+  font-size: 18px;
+}
+.mk-search-notfound p {
+  margin-top: 5px;
 }
 @media (min-width: 768px){
   .modal-dialog {

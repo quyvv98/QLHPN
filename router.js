@@ -18,7 +18,7 @@ function route(app){
     app.get('/',homeController.index)
    
     app.get('/login',(req,res)=>{    
-        if(!req.session.account){
+        if(!req.session || !req.session.account){
             res.render('login',{status: null})
         }else{
             res.redirect("/");
@@ -53,6 +53,7 @@ function route(app){
 
 
     app.get('/reports',reportController.getReports)
+    app.get('/reports/:id',reportController.getReports)
    
 } 
 

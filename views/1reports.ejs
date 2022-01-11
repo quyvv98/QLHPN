@@ -23,7 +23,7 @@
                           <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownName">
-                          <a class="dropdown-item" href="/users/<%= session.account.id %>/change-password" 
+                          <a class="dropdown-item" href="javascript(0)" 
                           data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
                           <a class="dropdown-item" href="/logout">Đăng xuất</a>
                         </div>
@@ -57,17 +57,16 @@
                             <div class="col-lg-3 col-md-6">
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Cấp bậc'
-
+                                      Cấp hội
                                       <i class="fas fa-angle-down"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownCo">
-                                      <a class="dropdown-item active" href="/reports/1">Hội phụ nữ</a>
-                                      <a class="dropdown-item" href="/reports/2">Hội công đoàn</a>
+                                      <a class="dropdown-item active" href="reports/1">Hội phụ nữ</a>
+                                      <a class="dropdown-item" href="reports/2">Hội công đoàn</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+                            <!-- <div class="col-lg-3 col-md-6">
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker1' style="position:relative">
                                        <input type='text' class="form-control" data-provide='datepicker' data-date-container='#datetimepicker1' placeholder="Chọn thời gian" />
@@ -76,11 +75,11 @@
                                        </span>
                                     </div>
                                  </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6 col-md-10">
+                            <div class="col-lg-10 col-md-10">
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>

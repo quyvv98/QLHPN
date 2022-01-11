@@ -35,12 +35,16 @@ class AccountRepository {
                   console.log("check permission fail");
                 } else {
                   
-                  const user ={
+                  const group_ids ={
                     'admin': permissions[0].group_ids,
                   }
                   console.log("check permission success");
+                  return handle({
+                    account: rows[0],
+                    group_ids: group_ids,
+                  });
                 }
-                return handle(rows[0]);
+                
 
               })
             });
@@ -57,13 +61,10 @@ class AccountRepository {
         user.name name,
         active,
         user.id userId,
-        email,
-        last_login,
-        account.phone phone
+        last_login
       FROM
         account
-      JOIN user ON account.user_id = user.id
-      JOIN user_group on user_group.user_id = user.id
+      JOIN user ON account.user_id = user.id;
 
       `;
       //query database
