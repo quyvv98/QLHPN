@@ -5,10 +5,10 @@
         <title>QUẢN LÝ HỘI VIÊN- DANH SÁCH TÀI KHOẢN</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css2/bootstrap.min.css">
-        <link rel="stylesheet" href="/css2/style.css">
+        <link rel="stylesheet" href="./css2/bootstrap.min.css">
+        <link rel="stylesheet" href="./css2/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="/js2/bootstrap.min.js"></script>
+        <script src="./js2/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="main-site">
@@ -52,7 +52,7 @@
                         <div class="bar-right">
                             <div class="text-right bar-right-item">
                                 <strong class="mb-0 fs-12">Tổng số tài khoản: 
-                                    <span class="color-brand-secondary"><%= data.length%></span>
+                                    <span class="color-brand-secondary"><%= data.length %></span>
                                 </strong>
                             </div> 
                             <div class="bar-right-item">
@@ -67,17 +67,12 @@
                     <div class="mk-product-filter">
                         <div class="mk-product-filter-dropdown mk-dropdowns-inline">
                             <strong>Phân loại theo:</strong>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Trạng thái
-                                  <i class="fas fa-angle-down"></i>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                  <a class="dropdown-item active" href="#">Tất cả</a>
-                                  <a class="dropdown-item" href="#">Mở khóa</a>
-                                  <a class="dropdown-item" href="#">Khóa</a>
-                                </div>
-                            </div>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected> Trạng thái</option>
+                                <option value="Tất cả">Tất cả</option>
+                                <option value="Mở khóa">Mở khóa</option>
+                                <option value="Khóa">Khóa</option>
+                            </select>
                         </div>
                     </div>
                     <div class="mk-product-wrap">
@@ -121,25 +116,25 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                <% for (var i = 0 ; i < data.length ; i++){ %>
+                                    <% for (var i = 0 ; i < data.length ; i++){ %>
 
-                                  <tr>
-                                    <td>
-                                      <div class="custom-control custom-checkbox">
-                                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                                      </div>
-                                    </td>
-                                    <td><%= data[i].name %></td>
-                                    <td><%= data[i].last_login %></td>
-                                    <td class="cell-operation cell-pinned">
-                                        <div class="input-group input-group-options p-0 border-0">
-                                            <a title="Khóa" class="item mk-action-delete active">
-                                                <i class="fas fa-lock"></i>
-                                            </a> 
-                                        </div>
-                                    </td>
-                                  </tr>
-                                  <% } %>
+                                        <tr>
+                                          <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                            </div>
+                                          </td>
+                                          <td><%= data[i].name %></td>
+                                          <td><%= data[i].last_login %></td>
+                                          <td class="cell-operation cell-pinned">
+                                              <div class="input-group input-group-options p-0 border-0">
+                                                  <a title="Khóa" class="item mk-action-delete active">
+                                                      <i class="fas fa-lock"></i>
+                                                  </a> 
+                                              </div>
+                                          </td>
+                                        </tr>
+                                        <% } %>
                                 </tbody>
                             </table>
 

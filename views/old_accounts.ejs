@@ -52,7 +52,7 @@
                         <div class="bar-right">
                             <div class="text-right bar-right-item">
                                 <strong class="mb-0 fs-12">Tổng số tài khoản: 
-                                    <span class="color-brand-secondary"><%= data.length %></span>
+                                    <span class="color-brand-secondary"><%= data.length%></span>
                                 </strong>
                             </div> 
                             <div class="bar-right-item">
@@ -116,37 +116,38 @@
                                   <tr>
                                     <th scope="col"></th>
                                     <th scope="col"><%= session.account.username%></th>
-                                    <th scope="col">Số điện thoại</th>
-                                    <th scope="col">Email</th>
                                     <th scope="col">Thời gian đăng nhập lần cuối </th>
                                     <th scope="col">Thao tác</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    <% for (var i = 0 ; i < data.length ; i++){ %>
-    
-                                      <tr>
-                                        <td>
-                                          <div class="custom-control custom-checkbox">
-                                              <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                                          </div>
-                                        </td>
-                                        <td><%= data[i].name %></td>
-                                        <td><%= data[i].phone %></td>
-                                        <td><%= data[i].email %></td>
-                                        <td><%= data[i].last_login %></td>
-                                        <td class="cell-operation cell-pinned">
-                                            <div class="input-group input-group-options p-0 border-0">
-                                                <a title="Delete" class="item mk-action-delete active">
-                                                    <i class="fas fa-lock"></i>
-                                                </a> 
-                                            </div>
-                                        </td>
-                                      </tr>
-                                    <% } %>
-                                    
-                                    </tbody>
+                                <% for (var i = 0 ; i < data.length ; i++){ %>
+
+                                  <tr>
+                                    <td>
+                                      <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                      </div>
+                                    </td>
+                                    <td><%= data[i].name %></td>
+                                    <td><%= data[i].last_login %></td>
+                                    <td class="cell-operation cell-pinned">
+                                        <div class="input-group input-group-options p-0 border-0">
+                                            <a title="Khóa" class="item mk-action-delete active">
+                                                <i class="fas fa-lock"></i>
+                                            </a> 
+                                        </div>
+                                    </td>
+                                  </tr>
+                                  <% } %>
+                                </tbody>
                             </table>
+
+                            <!-- Không tìm thấy tài khoản -->
+                            <!-- <div class="mk-search-notfound">
+                                <i class="fas fa-user-circle"></i><br>
+                                <p>Không tìm thấy tài khoản nào</p>
+                            </div> -->
                         </div>
                         
                         <div class="pagination-wrap">

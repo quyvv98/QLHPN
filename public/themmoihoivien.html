@@ -24,7 +24,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownName">
                           <a class="dropdown-item" href="javascript(0)" 
                           data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
-                          <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                          <a class="dropdown-item" href="javascript(0)">Đăng xuất</a>
                         </div>
                     </div>
                 </div>
@@ -68,43 +68,30 @@
                             </div>
                             <div class="col-lg-3 col-md-6 mk-form-group">
                                 <label class="mk-label">Cấp bậc <span class="color-error">*</span></label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownLevel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Cấp bậc
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownLevel">
-                                      <a class="dropdown-item active" href="#">1</a>
-                                      <a class="dropdown-item" href="#">2</a>
-                                      <a class="dropdown-item" href="#">3</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Cấp bậc</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Đơn vị <span class="color-error">*</span></label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownPos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Đơn vị
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownPos">
-                                      <a class="dropdown-item active" href="#">Đơn vị 1</a>
-                                      <a class="dropdown-item" href="#">Đơn vị 2</a>
-                                      <a class="dropdown-item" href="#">Đơn vị 3</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Đơn vị</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Dân tộc </label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownDan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Dân tộc
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownDan">
-                                      <a class="dropdown-item active" href="#">Kinh</a>
-                                      <a class="dropdown-item" href="#">Tày</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Dân tộc</option>
+                                    <option value="Kinh">Kinh</option>
+                                </select>
                             </div>
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Tôn giáo</label>
@@ -114,79 +101,59 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Trình độ văn hóa <span class="color-error">*</span></label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownVan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     Trình độ văn hóa
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownVan">
-                                      <a class="dropdown-item active" href="#">Đơn vị 1</a>
-                                      <a class="dropdown-item" href="#">Đơn vị 2</a>
-                                      <a class="dropdown-item" href="#">Đơn vị 3</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Trình độ văn hóa</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label"> Trình độ chính trị </label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownChinh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Trình độ chính trị
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownChinh">
-                                      <a class="dropdown-item active" href="#">Kinh</a>
-                                      <a class="dropdown-item" href="#">Tày</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Trình độ chính trị</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Chức danh <span class="color-error">*</span></label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownChuc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Chức danh
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownChuc">
-                                      <a class="dropdown-item active" href="#">Kinh</a>
-                                      <a class="dropdown-item" href="#">Tày</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Chức danh</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Chức vụ đảng <span class="color-error">*</span></label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownDang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     Chức vụ đảng
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownDang">
-                                      <a class="dropdown-item active" href="#">Đơn vị 1</a>
-                                      <a class="dropdown-item" href="#">Đơn vị 2</a>
-                                      <a class="dropdown-item" href="#">Đơn vị 3</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Chức vụ đảng</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label"> Chức vụ chính quyền </label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownQuyen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Chức vụ chính quyền
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownQuyen">
-                                      <a class="dropdown-item active" href="#">Kinh</a>
-                                      <a class="dropdown-item" href="#">Tày</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Chức vụ chính quyền</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                             <div class="col-lg-4 col-md-6 mk-form-group">
                                 <label class="mk-label">Chức vụ quần chúng <span class="color-error">*</span></label>
-                                <div class="dropdown">
-                                    <button  class="form-control text-left" type="button" id="dropdownChung" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Chức vụ quần chúng
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownChung">
-                                      <a class="dropdown-item active" href="#">Kinh</a>
-                                      <a class="dropdown-item" href="#">Tày</a>
-                                    </div>
-                                </div>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected> Chức vụ quần chúng</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                         </div>
 

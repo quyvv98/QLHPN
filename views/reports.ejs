@@ -5,12 +5,12 @@
         <title>QUẢN LÝ HỘI VIÊN- THỐNG KÊ</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css2/bootstrap.min.css">
-        <link rel="stylesheet" href="/css2/style.css">
+        <link rel="stylesheet" href="./css2/bootstrap.min.css">
+        <link rel="stylesheet" href="./css2/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-        <script src="/js2/bootstrap.min.js"></script>
+        <script src="./js2/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="main-site">
@@ -23,7 +23,7 @@
                           <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownName">
-                          <a class="dropdown-item" href="/users/<%= session.account.id %>/change-password" 
+                          <a class="dropdown-item" href="javascript(0)" 
                           data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
                           <a class="dropdown-item" href="/logout">Đăng xuất</a>
                         </div>
@@ -54,20 +54,19 @@
                     </div>
                     <div class="mk-product-wrap mk-space">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Cấp bậc'
-
-                                      <i class="fas fa-angle-down"></i>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownCo">
-                                      <a class="dropdown-item active" href="/reports/1">Hội phụ nữ</a>
-                                      <a class="dropdown-item" href="/reports/2">Hội công đoàn</a>
-                                    </div>
-                                </div>
+                            <!-- <div class="col-lg-3 col-md-6">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="1">
+                                        <a href="/reports/1">hihi</a>
+                                        
+                                        Hội phụ nữ</option>
+                                    <option value="2">Hội công đoàn</option>
+                                </select>
+                            </div> -->
+                            <div class="col-lg-3 mb-6" style="margin-bottom: 20px; cursor: pointer;"> 
+                              <a href="/reports" style="color: #337ab7;">Hội phụ nữ</a>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+                            <!-- <div class="col-lg-3 col-md-6">
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker1' style="position:relative">
                                        <input type='text' class="form-control" data-provide='datepicker' data-date-container='#datetimepicker1' placeholder="Chọn thời gian" />
@@ -76,7 +75,7 @@
                                        </span>
                                     </div>
                                  </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row">

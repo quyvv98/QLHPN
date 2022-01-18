@@ -1,591 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description"
-          content="" />
-    <meta name="author"
-          content="" />
-    <title>Quản lý hội viên </title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-          rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-          rel="stylesheet" />
-
-
-    <link href="../css/styles.css"
-          rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-            crossorigin="anonymous"></script>
-</head>
-
-<body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3"
-           href="/users">HỘI VIÊN</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-                id="sidebarToggle"
-                href="#!"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <!-- <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-
-                    
-                    
-                    ="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div> -->
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   id="navbarDropdown"
-                   href="#"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdown">
-                    <!--<li><a class="dropdown-item" href="#!">Settings</a></li> -->
-                    <li><a class="dropdown-item"    data-bs-toggle="modal"
-                        data-bs-target="#changePassword"
-                           href="#!">Đổi mật khẩu</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        href="/logout">Đăng xuất</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark"
-                 id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
-                        <a class="nav-link nav-item active" 
-                           href="/users">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            QUẢN LÝ HỘI VIÊN
-                        </a>
-                        <a class="nav-link" 
-                        href="/accounts">
-                         <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
-                         QUẢN LÝ TÀI KHOẢN
-                     </a>
-                        <a class="nav-link"
-                           href="/reports">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            THÔNG KÊ
-                        </a>
-                      
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>QUẢN LÝ HỘI VIÊN - THÊM MỚI HỘI VIÊN</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="main-site">
+            <header class="main-header">
+                <h2>QUẢN LÝ HỘI VIÊN</h2>
+                <div class="main-header-right">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <%= session.account.username%>
+                          <i class="fas fa-angle-down"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownName">
+                          <a class="dropdown-item" href="javascript(0)" 
+                          data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
+                          <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                        </div>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <!-- <div class="small">Logged in as:</div>
-                        Start Bootstrap -->
+            </header>
+            <!-- main-header -->
+
+            <section class="main-content">
+                <div class="mk-minibar-menu">
+                    <a href="/reports" class="mk-minibar-menu-item">
+                        <i class="fas fa-chart-line"></i>
+                    </a>
+                    <a href="/users" class="mk-minibar-menu-item">
+                        <i class="fas fa-child"></i>
+                    </a>
+                    <a href="/accounts" class="mk-minibar-menu-item active">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
                 </div>
-            </nav>
-        </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h3 class="mt-4 text-uppercase">Thêm mới hội viên</h3>
-                    <form action="/users/add" method="POST">
-                        <div class="row py-4">
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                        Họ và tên
-                                    </label>
-                                    <input type="text"
-                                            name="name"
-                                           class="form-control"
-                                           id="validationDefaultUsername"
-                                           placeholder="Họ và tên"
-                                           aria-describedby="inputGroupPrepend2"
-                                           required>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="loaihoivien">
-                                        Loại hội viên
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="lhv">
-                                          <option></option>
-                                            <option value="SQ">SQ</option>
-                                        ...
-                                        <option value="QNCN">QNCN</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                        Ngày sinh
-                                    </label>
-                                    <input type="datetime-local"
-                                            name="nSinh"
-                                           placeholder="01-01-1999"
-                                           class="form-control">
-                                </div>
-                            </div>
+                <div class="mk-panel-tab-content">
+                    <div class="tab-content-topbar">
+                        <div class="bar-left">
+                            <h6 class="mb-0">
+                                <a href="/users">Danh sách hội viên</a> >
+                                <span>Thêm mới hội viên</span>
+                            </h6> 
                         </div>
-                        <div class="row py-4">
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                        Giới tính
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="gTinh">
-                                          <option></option>
-                                            <option value="1">Nam</option>
-
-                                        <option value="0">Nữ</option>
-                                        
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
+                    </div>
+                    <div class="mk-product-wrap mk-space">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 mk-form-group">
+                                <label class="mk-label">Họ và Tên <span class="color-error">*</span></label>
+                                <input type="text" placeholder="Nhập Họ và Tên" class="form-control">
                             </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="loaihoivien">
-                                        Dân tộc
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="dToc">
-                                          <option></option>
-                                            <option value="KINH">Kinh</option>
-                                        ...
-                                        <option value="mong">Mông</option>
-                                        <option value="thai">Thái</option>
-                                        <option value="tai">Tày</option>
-                                    </select>
-                                </div>
+                            <div class="col-lg-3 col-md-6 mk-form-group">
+                                <label class="mk-label">Năm sinh </label>
+                                <input type="text" placeholder="Nhập Năm sinh" class="form-control">
                             </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                    Năm nhập ngũ
-                                    </label>
-                                    <input type="datetime-local"
-                                            name="nNNgu"
-                                           placeholder="20-12-1997"
-                                           class="form-control">
-                                </div>
+                            <div class="col-lg-3 col-md-6 mk-form-group">
+                                <label class="mk-label">Năm nhập ngũ </label>
+                                <input type="text" placeholder="Nhập Năm nhập ngũ" class="form-control">
                             </div>
-                        </div>
-                        <div class="row py-4">
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                        Đơn vị
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="dVi">
-                                          <option></option>
-                                            <option value="HTTT">HTTT</option>
-
-                                        <option value="TTMT">TTMT</option>
-                                        <option value="ATTT">ATTT</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="loaihoivien">
-                                      Hội
-                                    </label>
-                                    <select class="js-example-basic-multiple form-control"
-                                    name="hoi" multiple="multiple">
-                                      <option></option>    
-                                    <option value="phuNu">Phụ nữ</option>
-                                        ...
-                                        <option value="congDoan">Công đoàn</option>
-                                  
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                 Thời gian vào hội
-                                    </label>
-                                    <input type="datetime-local"
-                                            name="tGVHoi"
-                                           placeholder="20-12-1998"
-                                           class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row py-4">
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
+                            <div class="col-lg-3 col-md-6 mk-form-group">
+                                <label class="mk-label">Cấp bậc <span class="color-error">*</span></label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownLevel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       Cấp bậc
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="cBac">
-                                          <option></option>
-                                            <option value="trungTa">   2//</option>
-
-                                        <option value="thieuTaChuyenNghiep">   1//CN</option>
-                                        <option value="thuonTaChuyenNghiep">   3//</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                      Bậc thợ
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="bTho">
-                                          <option></option>
-                                            <option value="2">   bậc 2</option>
-
-                                        <option value="3">   bậc 3</option>
-                                        <option value="4">   bậc 4</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md-2 d-flex align-items-end">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                              Đảng viên
-                                    </label>
-                                    <input class="form-check-input" type="checkbox" name="dVien" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                   
-                                    </label>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Đảng viên" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="loaihoivien">
-                                    Vị trí
-                                    </label>
-                                    <select class="js-example-basic-multiple form-control"
-                                    name="vTri" multiple="multiple">
-                                      <option></option>    
-                                    <option value="hoiVien">Hội viên</option>
-                                        ...
-                                        <option value="dangVien">Đảng viên</option>
-                                        <option value="hocVien">Học viên</option>
-                                  
-                                    </select>
-                                </div>
-                            </div>
-                          
-                        </div>
-                        <div class="row py-4">
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                      Chức danh
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="cDanh">
-                                          <option></option>
-                                            <option value="chuNhiemKhoa">   CN Khoa</option>
-
-                                        <option value="phoCNKhoa">  Phó CN Khoa</option>
-                                        <option value="CNBoMon">   CN Bộ môn</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                    Lao động sáng tạo
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="lDSTao">
-                                          <option></option>
-                                            <option value="deTaiCapNhaNuoc">   Đề tài cấp nhà nước</option>
-
-                                        <option value="deTaiCapBoQuocPhong">   Đề tài cấp Bộ quốc phòng</option>
-                                        <option value="deTaiCapHocVien">   Đề tài cấp Học viện</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                    Trình độ
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="tDo">
-                                          <option ></option>
-                                            <option value="soCap">   Sơ cấp</option>
-
-                                        <option value="trungCap">  Trung cấp</option>
-                                        <option value="caoDang">Cao đẳng</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                   Danh hiệu
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="dHieu">
-                                          <option></option>
-                                            <option value="troGiang">   Trợ giảng</option>
-
-                                        <option value="giangVien">  Giảng viên</option>
-                                        <option value="giangVienChinh">Giảng viên chính</option>
-                                    </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLevel">
+                                      <a class="dropdown-item active" href="#">1</a>
+                                      <a class="dropdown-item" href="#">2</a>
+                                      <a class="dropdown-item" href="#">3</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                            <div class="row py-4">
-                            <div class="col-md 2">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                   Tình trạng hôn nhân
-                                    </label>
-                                    <select class="js-example-basic-single form-control" 
-                                            name="tTHNhan">
-                                          <option></option>
-                                            <option value="docThanTren35Tuoi">  Độc thân trên 35 tuổi</option>
-
-                                        <option value="daKetHon">  Đã kết hôn</option>
-                                       
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Đơn vị <span class="color-error">*</span></label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownPos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Đơn vị
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownPos">
+                                      <a class="dropdown-item active" href="#">Đơn vị 1</a>
+                                      <a class="dropdown-item" href="#">Đơn vị 2</a>
+                                      <a class="dropdown-item" href="#">Đơn vị 3</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Dân tộc </label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownDan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Dân tộc
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownDan">
+                                      <a class="dropdown-item active" href="#">Kinh</a>
+                                      <a class="dropdown-item" href="#">Tày</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Tôn giáo</label>
+                                <input type="text" placeholder="Nhập Tôn giáo" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Trình độ văn hóa <span class="color-error">*</span></label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownVan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Trình độ văn hóa
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownVan">
+                                      <a class="dropdown-item active" href="#">Đơn vị 1</a>
+                                      <a class="dropdown-item" href="#">Đơn vị 2</a>
+                                      <a class="dropdown-item" href="#">Đơn vị 3</a>
+                                    </div>
+                                    <select class="dropdown-menu js-example-basic-single form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
                                     </select>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                   Nhà ở
-                                    </label>
-                                  
-                                    <input type="text" name="nhaO" class="form-control" id="validationDefaultUsername" placeholder="Địa chỉ nhà" aria-describedby="inputGroupPrepend2" >
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label"> Trình độ chính trị </label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownChinh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Trình độ chính trị
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownChinh">
+                                      <a class="dropdown-item active" href="#">Kinh</a>
+                                      <a class="dropdown-item" href="#">Tày</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 d-flex align-items-end">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                               Chồng cùng đơn vị
-                                    </label>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                   
-                                    </label>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                    
-                        </div>
-                        <div class="row py-4">
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                   Tiền sử bệnh án của bản thân
-                                    </label>
-                                    <textarea  class="form-control" id="w3review" placeholder="Tiền sử bệnh lý...." name="tSBACBThan" rows="4" cols="50">
- 
-                                    </textarea>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
-                                </div>
-                            </div>
-                      
-                       
-                            <div class="col-md">
-                                <div class="group">
-                                    <label class="text-uppercase pb-2"
-                                           for="name">
-                                   Tiền sử bệnh án của con cái
-                                    </label>
-                                    <textarea  class="form-control" id="w3review" placeholder="Tiền sử bệnh lý...." name="tSBACCCai" rows="4" cols="50">
- 
-                                    </textarea>
-                                    <!-- <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required> -->
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Chức danh <span class="color-error">*</span></label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownChuc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Chức danh
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownChuc">
+                                      <a class="dropdown-item active" href="#">Kinh</a>
+                                      <a class="dropdown-item" href="#">Tày</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                   
-                        <div class="d-flex justify-content-end">
-                            <a class="btn btn-light text-uppercase text-end px-3" style="margin-right: 20px;"  href="/users"
-                                    type="submit"> Quay lại</a>
-                            <input class="btn btn-primary text-uppercase text-end"
-                                    type="submit" value="Lưu"> 
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Chức vụ đảng <span class="color-error">*</span></label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownDang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Chức vụ đảng
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownDang">
+                                      <a class="dropdown-item active" href="#">Đơn vị 1</a>
+                                      <a class="dropdown-item" href="#">Đơn vị 2</a>
+                                      <a class="dropdown-item" href="#">Đơn vị 3</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label"> Chức vụ chính quyền </label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownQuyen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Chức vụ chính quyền
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownQuyen">
+                                      <a class="dropdown-item active" href="#">Kinh</a>
+                                      <a class="dropdown-item" href="#">Tày</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mk-form-group">
+                                <label class="mk-label">Chức vụ quần chúng <span class="color-error">*</span></label>
+                                <div class="dropdown">
+                                    <button  class="form-control text-left" type="button" id="dropdownChung" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Chức vụ quần chúng
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownChung">
+                                      <a class="dropdown-item active" href="#">Kinh</a>
+                                      <a class="dropdown-item" href="#">Tày</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
 
-
-            </main>
-            <!--<footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 mk-form-group">
+                                <label class="mk-label">Khen thưởng </label>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1' style="position:relative">
+                                       <input type='text' class="form-control" data-provide='datepicker' data-date-container='#datetimepicker1' placeholder="Chọn thời gian" />
+                                       <span class="input-group-addon" style="display: none;">
+                                        <i class="fas fa-calendar-times"></i>
+                                       </span>
+                                    </div>
+                                 </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mk-form-group">
+                                <label class="mk-label" style="opacity: 0;">Khen thưởng </label>
+                                <input type="text" placeholder="Nhập Nội dung" class="form-control">
+                            </div>
+                            <div class="col-lg-6 col-md-6 mk-form-group">
+                                <label class="mk-label">Hoàn cảnh gia đình</label>
+                                <input type="text" placeholder="Nhập Nội dung" class="form-control">
                             </div>
                         </div>
+                        
+                        <button type="button" class="mk-btn mk-btn-primary" data-toggle="modal" data-target="#modalHistory">
+                            Lịch sửa thay đổi
+                        </button>
                     </div>
-                </footer> -->
+                </div>
+            </section>
+            
+            <div class="mk-detail-bottom">
+                <button class="mk-btn mk-btn-secondary mr6">
+                    <i class="fas fa-ban mr6"></i>Hủy
+                </button> 
+                <button class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i>Lưu</button>
+            </div>
+            <!-- main-content -->
         </div>
-
-        <!-- modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
+        
+        <!-- Modal -->
+        <div class="modal fade" id="modalHistory" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Đăng xuất</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title">Lịch sử thay đổi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 </div>
                 <div class="modal-body">
-               Bạn chắc chắn muốn đăng xuất ?
-                </div>
-                <div class="modal-footer">
-                  <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</a>
-                  <a href="/login" type="button" class="btn btn-primary">Đăng xuất</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end modal -->
-
-                <!-- Modal  change password-->
-        <form class="modal fade"
-                action="/accounts/1/change-password"
-                method="POST"
-             id="changePassword"
-             tabindex="-1"
-             aria-labelledby="changePasswordlLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-uppercase"
-                            id="changePasswordlLabel">
-                            Đổi mật khẩu
-                        </h5>
-                        <button type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="pb-3">
-                                    <label class="pb-2">Mật khẩu hiện tại</label>
-                                    <div class="form-group pass_show">
-                                        <input type="password"
-                                            name="pass"
-                                               value=""
-                                               class="form-control"
-                                               placeholder="faisalkhan@123" />
-                                    </div>
-                                </div>
-                                <div class="pb-3">
-                                    <label class="pb-2">Mật khẩu mới</label>
-                                    <div class="form-group pass_show">
-                                        <input type="password"
-                                                name="passNew"
-                                               class="form-control"
-                                               placeholder="*******" />
-                                    </div>
-                                </div>
-                                <div class="pb-3">
-                                    <label class="pb-2">Xác nhận mật khẩu</label>
-                                    <div class="form-group pass_show">
-                                        <input type="password"
-                                                name="passNew1"
-                                               class="form-control"
-                                               placeholder="*******" />
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label">Cấp bậc </label>
+                            <div class="form-group">
+                                <ul>
+                                    <li>Ngày 1/1/1998</li>
+                                    <li>Ngày 1/1/1998</li>
+                                </ul>
+                             </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label" style="opacity: 0;">Cấp bậc</label>
+                            <ul>
+                                <li>1</li>
+                                <li>2   </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <input type="button"
-                           class="btn btn-secondary"
-                           data-bs-dismiss="modal" value="Đóng"></input>
-                        <input type="submit"
-                           class="btn btn-primary" value="Xác nhận"></input>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label">Trình độ chuyên môn </label>
+                            <div class="form-group">
+                                <ul>
+                                    <li>Ngày 1/1/1998</li>
+                                    <li>Ngày 1/1/1998</li>
+                                </ul>
+                             </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label" style="opacity: 0;">Trình độ chuyên môn</label>
+                            <ul>
+                                <li>Đại học</li>
+                                <li>Thạc sĩ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label">Chức danh </label>
+                            <div class="form-group">
+                                <ul>
+                                    <li>Ngày 1/1/1998</li>
+                                    <li>Ngày 1/1/1998</li>
+                                </ul>
+                             </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label" style="opacity: 0;">Chức danh</label>
+                            <ul>
+                                <li>Nhân viên</li>
+                                <li>Phó CN khoa</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label">Khen thưởng </label>
+                            <div class="form-group">
+                                <ul>
+                                    <li>Ngày 1/1/1998</li>
+                                    <li>Ngày 1/1/1998</li>
+                                </ul>
+                             </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <label class="mk-label" style="opacity: 0;">Khen thưởng</label>
+                            <ul>
+                                <li>CSTT</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="mk-btn mk-btn-secondary" data-dismiss="modal"> 
+                        <i class="fas fa-times mr6"></i>Đóng</button>
+                </div>
             </div>
-        </form>
+            </div>
+        </div>
 
-   <!-- end modal -->
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-            crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-            crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
-    <script>
-    $(".js-example-placeholder-single").select2({
-    placeholder: "Chọn",
-    allowClear: true
-});
-        $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
-    </script>
-</body>
-
+        <div class="modal fade" id="modalChangePass" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Đổi mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mk-form-group">
+                        <label class="mk-label">Mật khẩu cũ </label>
+                        <input type="text" placeholder="Nhập Mật khẩu cũ" class="form-control">
+                    </div>
+                    <div class="mk-form-group">
+                        <label class="mk-label">Mật khẩu mới </label>
+                        <input type="text" placeholder="Nhập Mật khẩu mới" class="form-control">
+                    </div>
+                    <div class="mk-form-group">
+                        <label class="mk-label">Nhập lại mật khẩu </label>
+                        <input type="text" placeholder="Nhập lại mật khẩu" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
+                    <button type="button" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        $('#datetimepicker').datepicker({format: "dd.mm.yyyy"});
+     </script>
 </html>
