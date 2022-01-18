@@ -23,10 +23,25 @@ class AccountController {
   getAccounts = (req, res) => {
     if(!req.session || !req.session.account){
       res.redirect("/login")
+      return
     }
-    accountRepository.getAccounts().then(function (accounts) {
-      res.render("accounts", { data: accounts , session: req.session});
-    });
+   
+
+    let admin = req.session.account.permission
+    if(!admin){
+      const accountId = req.session.account.id
+      accountRepository.getAccount(accountId).then((accounts) => {
+        res.render("accounts", { data: accounts, session: req.session });
+      });
+    }else{
+      let admin_group_id =  admin
+      if(admin == '3'){
+        admin_group_id = null
+      }
+      accountRepository.getAccounts(admin_group_id).then((users) => {
+        res.render("accounts", { data: users, session: req.session });
+      });
+    }
   };
 
   //edit user

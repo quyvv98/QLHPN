@@ -29,19 +29,19 @@ class AccountRepository {
               }
               
             // get permission
-              let getUserInfo = "select GROUP_CONCAT(group_id) group_ids from user_group where user_id = ? and is_admin=1"
+              let getUserInfo = "select sum(group_id) admin from user_group where user_id = ? and is_admin=1"
               conn.query(getUserInfo, [userId], (err, permissions) => {
                 if (err) {
                   console.log("check permission fail");
                 } else {
                   
-                  const group_ids ={
-                    'admin': permissions[0].group_ids,
-                  }
                   console.log("check permission success");
+                  const permission = permissions[0].admin;
+
+                  let account = rows[0]
+                  account.permission = permission
                   return handle({
-                    account: rows[0],
-                    group_ids: group_ids,
+                    account: account
                   });
                 }
                 
@@ -54,7 +54,7 @@ class AccountRepository {
     });
   };
 
-  getAccounts = () => {
+  getAccounts = (permission) => {
     return new Promise(function (handle) {
       let sql = `
       SELECT
@@ -64,11 +64,44 @@ class AccountRepository {
         last_login
       FROM
         account
-      JOIN user ON account.user_id = user.id;
+      JOIN user ON account.user_id = user.id
+      JOIN user_group ON user_group.user_id = user.id
+      
+      `;
+      if(permission){
+        sql += ` where user_group.group_id =  ` + permission
+      }
+
+      // sql  += ` GROUP BY user.id`
+      //query database
+      conn.query(sql, (err, rows) => {
+        if (err) {
+          console.log(err);
+        } else {
+          handle(rows);
+        }
+      });
+    });
+  };
+
+
+  getAccount = (accountId) => {
+    return new Promise(function (handle) {
+      let sql = `
+      SELECT
+        user.name name,
+        active,
+        user.id userId,
+        last_login
+      FROM
+        account
+      JOIN user ON account.user_id = user.id
+      Where account.id = ?
+      ;
 
       `;
       //query database
-      conn.query(sql, (err, rows) => {
+      conn.query(sql, [accountId], (err, rows) => {
         if (err) {
           console.log(err);
         } else {

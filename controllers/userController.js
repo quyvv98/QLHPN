@@ -7,10 +7,24 @@ class UserController {
   getUsers = (req, res) => {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
+      return
     }
-    userRepository.getUsers().then((users) => {
-      res.render("users", { data: users, session: req.session });
-    });
+    let admin = req.session.account.permission
+    if(!admin){
+      const userId = req.session.account.user_id
+      userRepository.getUser(userId).then((users) => {
+        res.render("users", { data: users, session: req.session });
+      });
+    }else{
+      let admin_group_id =  admin
+      if(admin == '3'){
+        admin_group_id = null
+      }
+      userRepository.getUsers(admin_group_id).then((users) => {
+        res.render("users", { data: users, session: req.session });
+      });
+    }
+    
   };
   add(req, res) {
     if (!req.session || !req.session.account) {

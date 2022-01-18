@@ -7,12 +7,25 @@ const userRepository = require('../models/userRepository')
 
 class HomeController {
   index = (req, res) => {
-      if(!req.session || !req.session.account){
-        res.redirect('/login')
+    if(!req.session || !req.session.account){
+      res.redirect('/login')
     }else{
-      userRepository.getUsers().then((users)=>{
-        res.render('users',{data: users , session: req.session})
-    })
+      const admin = req.session.account.permission
+      if(! admin){
+        const userId = req.session.account.user_id
+        userRepository.getUser(userId).then((users) => {
+          res.render("users", { data: users, session: req.session });
+        });
+      }else{
+        let admin_group_id =  admin
+        if(admin == '3'){
+          admin_group_id = null
+        }
+        userRepository.getUsers(admin_group_id).then((users) => {
+          res.render("users", { data: users, session: req.session });
+        });
+      }
+    
     }   
     ;
   };
