@@ -32,9 +32,11 @@
 
             <section class="main-content">
                 <div class="mk-minibar-menu">
-                    <a href="/reports" class="mk-minibar-menu-item">
-                        <i class="fas fa-chart-line"></i>
-                    </a>
+                    <% if(session.group_ids == '2' || session.group_ids == '1' || session.group_ids == '3'){ %>
+                        <a href="/reports" class="mk-minibar-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                        </a>
+                    <% } %>
                     <a href="/users" class="mk-minibar-menu-item">
                         <i class="fas fa-child"></i>
                     </a>

@@ -54,6 +54,7 @@ function route(app){
 
     app.get('/reports',reportController.getReports)
     app.get('/reports/:id',reportController.getReports)
+    app.get('/reports/:id/data',reportController.getData)
    
 } 
 

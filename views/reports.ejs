@@ -1,183 +1,287 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>QUẢN LÝ HỘI VIÊN- THỐNG KÊ</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css2/bootstrap.min.css">
-        <link rel="stylesheet" href="/css2/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-        <script src="/js2/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="main-site">
-            <header class="main-header">
-                <h2>QUẢN LÝ HỘI VIÊN</h2>
-                <div class="main-header-right">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <%= session.account.username%>
-                          <i class="fas fa-angle-down"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownName">
-                          <a class="dropdown-item" href="javascript(0)" 
-                          data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
-                          <a class="dropdown-item" href="/logout">Đăng xuất</a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- main-header -->
-
-            <section class="main-content">
-                <div class="mk-minibar-menu">
-                    <a href="/reports" class="mk-minibar-menu-item active">
-                        <i class="fas fa-chart-line"></i>
-                    </a>
-                    <a href="/users" class="mk-minibar-menu-item">
-                        <i class="fas fa-child"></i>
-                    </a>
-                    <a href="/accounts" class="mk-minibar-menu-item">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
-                </div>
-                <div class="mk-panel-tab-content">
-                    <div class="tab-content-topbar">
-                        <div class="bar-left">
-                            <h6 class="mb-0">
-                                Thống kê
-                            </h6> 
-                        </div>
-                    </div>
-                    <div class="mk-product-wrap mk-space">
-                        <div class="row">
-                            <!-- <div class="col-lg-3 col-md-6">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="1"> 
-                                        <a href="/reports/1">hihi</a>
-                                        
-                                        Hội phụ nữ</option>
-                                    <option value="2">Hội công đoàn</option>
-                                </select>
-                            </div> -->
-                            <div class="col-lg-3 mb-6" style="margin-bottom: 20px; cursor: pointer;"> 
-                              <a href= "<%= group.other_link %>" style="color: #337ab7;"><%= group.name %></a>
-                            </div>
-                            <!-- <div class="col-lg-3 col-md-6">
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1' style="position:relative">
-                                       <input type='text' class="form-control" data-provide='datepicker' data-date-container='#datetimepicker1' placeholder="Chọn thời gian" />
-                                       <span class="input-group-addon" style="display: none;">
-                                        <i class="fas fa-calendar-times"></i>
-                                       </span>
-                                    </div>
-                                 </div>
-                            </div> -->
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-10">
-                                <canvas id="myChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- main-content -->
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="modalChangePass" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document" style="width: 500px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Đổi mật khẩu</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mk-form-group">
-                        <label class="mk-label">Mật khẩu cũ </label>
-                        <input type="text" placeholder="Nhập Mật khẩu cũ" class="form-control">
-                    </div>
-                    <div class="mk-form-group">
-                        <label class="mk-label">Mật khẩu mới </label>
-                        <input type="text" placeholder="Nhập Mật khẩu mới" class="form-control">
-                    </div>
-                    <div class="mk-form-group">
-                        <label class="mk-label">Nhập lại mật khẩu </label>
-                        <input type="text" placeholder="Nhập lại mật khẩu" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
-                    <button type="button" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
-                </div>
+  <head>
+    <meta charset="utf-8" />
+    <title>QUẢN LÝ HỘI VIÊN- THỐNG KÊ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css2/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css2/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js2/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="main-site">
+      <header class="main-header">
+        <h2>QUẢN LÝ HỘI VIÊN</h2>
+        <div class="main-header-right">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownName"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <%= session.account.username%>
+              <i class="fas fa-angle-down"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownName">
+              <a
+                class="dropdown-item"
+                href="javascript(0)"
+                data-toggle="modal"
+                data-target="#modalChangePass"
+                >Đổi mật khẩu</a
+              >
+              <a class="dropdown-item" href="/logout">Đăng xuất</a>
             </div>
-            </div>
+          </div>
         </div>
-    </body>
-    <script type="text/javascript">
-        $('#datetimepicker').datepicker({format: "dd.mm.yyyy"});
-        let myChart = document.getElementById('myChart').getContext('2d');
-        // Global Options
-        Chart.defaults.global.defaultFontFamily = 'Roboto';
-        Chart.defaults.global.defaultFontSize = 12;
-        Chart.defaults.global.defaultFontColor = '#777';
+      </header>
+      <!-- main-header -->
 
-        let massPopChart = new Chart(myChart, {
-        type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-        data:{
-            labels:['Nhân viên', 'Trợ lý', 'CB Bộ môn', 'Giáo viên', 'Văn thư',],
-            datasets:[{
-            label:'',
-            data:[
-                5,
-                10,
-                15,
-                20,
-                10,
-                20
-            ],
-            //backgroundColor:'green',
-            backgroundColor:[
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)',
-            ],
-            borderWidth:1,
-            borderColor:'#777',
-            hoverBorderWidth:1,
-            hoverBorderColor:'#000'
-            }]
-        },
-        options:{
-            legend:{
-            display:false,
-            position:'right',
-            labels:{
-                fontColor:'#000'
-            }
+      <section class="main-content">
+        <div class="mk-minibar-menu">
+          <% if(session.group_ids == '2' || session.group_ids == '1' || session.group_ids == '3'){ %>
+            <a href="/reports" class="mk-minibar-menu-item">
+                <i class="fas fa-chart-line"></i>
+            </a>
+        <% } %>
+          <a href="/users" class="mk-minibar-menu-item">
+            <i class="fas fa-child"></i>
+          </a>
+          <a href="/accounts" class="mk-minibar-menu-item">
+            <i class="fas fa-user-circle"></i>
+          </a>
+        </div>
+        <div class="mk-panel-tab-content">
+          <div class="tab-content-topbar">
+            <div class="bar-left">
+              <h6 class="mb-0">Thống kê</h6>
+            </div>
+          </div>
+          <div class="mk-product-wrap mk-space">
+            <div class="row">
+              <div
+                class="col-lg-3 mb-6"
+                style="margin-bottom: 20px; cursor: pointer"
+              >
+                <a href="<%= group.other_link %>" style="color: #337ab7" id="name"
+                  ><%= group.name %></a
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-10">
+                <canvas id="capbac"></canvas>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-10">
+                <canvas id="chuyenmon"></canvas>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-10">
+                <canvas id="donvi"></canvas>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-10">
+                <canvas id="title"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- main-content -->
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalChangePass"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document" style="width: 500px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Đổi mật khẩu</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="mk-form-group">
+              <label class="mk-label">Mật khẩu cũ </label>
+              <input
+                type="text"
+                placeholder="Nhập Mật khẩu cũ"
+                class="form-control"
+              />
+            </div>
+            <div class="mk-form-group">
+              <label class="mk-label">Mật khẩu mới </label>
+              <input
+                type="text"
+                placeholder="Nhập Mật khẩu mới"
+                class="form-control"
+              />
+            </div>
+            <div class="mk-form-group">
+              <label class="mk-label">Nhập lại mật khẩu </label>
+              <input
+                type="text"
+                placeholder="Nhập lại mật khẩu"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="mk-btn mk-btn-secondary mr6"
+              data-dismiss="modal"
+            >
+              <i class="fas fa-ban mr6"></i>Hủy bỏ
+            </button>
+            <button type="button" class="mk-btn mk-btn-primary">
+              <i class="fas fa-save mr6"></i> Lưu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    // $("#datetimepicker").datepicker({ format: "dd.mm.yyyy" });
+      // Global Options
+    Chart.defaults.global.defaultFontFamily = "Roboto";
+    Chart.defaults.global.defaultFontSize = 12;
+    Chart.defaults.global.defaultFontColor = "#777";
+
+    // charts
+
+    function getLabels(list) {
+      return list.map((x) => x.name);
+    }
+
+    function getValues(list) {
+      return list.map((x) => x.value);
+    }
+
+    function getColors(list) {
+      return (colors = [
+        "rgba(255, 99, 132, 0.6)",
+        "rgba(54, 162, 235, 0.6)",
+        "rgba(255, 206, 86, 0.6)",
+        "rgba(75, 192, 192, 0.6)",
+        "rgba(153, 102, 255, 0.6)",
+        "rgba(255, 159, 64, 0.6)",
+
+        "rgba(255, 99, 132, 0.6)",
+        "rgba(54, 162, 235, 0.6)",
+        "rgba(255, 206, 86, 0.6)",
+        "rgba(75, 192, 192, 0.6)",
+        "rgba(153, 102, 255, 0.6)",
+        "rgba(255, 159, 64, 0.6)",
+
+        "rgba(255, 99, 132, 0.6)",
+        "rgba(54, 162, 235, 0.6)",
+        "rgba(255, 206, 86, 0.6)",
+        "rgba(75, 192, 192, 0.6)",
+        "rgba(153, 102, 255, 0.6)",
+        "rgba(255, 159, 64, 0.6)",
+      ].slice(list.length));
+    }
+    const actionName = document.getElementById("name").text
+    console.log(actionName)
+    var link = "/reports/1/data"
+    if(actionName == "Hội công đoàn"){
+      console.log("change link to HCD", actionName, "Hội công đoàn")
+      link = "/reports/2/data"
+    }
+    let myFetch = fetch(link);
+    myFetch.then(function (response) {
+      response.json().then(function (res) {
+        const reports = res.reports;
+        console.log(reports);
+
+        for (report of reports) {
+          var labels = getLabels(report.data);
+          var values = getValues(report.data);
+          var colors = getColors(report.data);
+          new Chart(document.getElementById(report.name).getContext("2d"), {
+            type: "bar", // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  labels: labels,
+                  data: values,
+                  //backgroundColor:'green',
+                  backgroundColor: colors,
+                  borderWidth: 1,
+                  borderColor: "#777",
+                  hoverBorderWidth: 1,
+                  hoverBorderColor: "#000",
+                },
+              ],
             },
-            layout:{
-            padding:{
-                left:50,
-                right:0,
-                bottom:0,
-                top:0
-            }
+            options: {
+              legend: {
+                display: false,
+                position: "right",
+                labels: {
+                  fontColor: "#000",
+                },
+              },
+              layout: {
+                padding: {
+                  left: 50,
+                  right: 0,
+                  bottom: 0,
+                  top: 0,
+                },
+              },
+              tooltips: {
+                enabled: true,
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Custom Chart Title",
+                  padding: {
+                    top: 10,
+                    bottom: 30,
+                  },
+                },
+              },
             },
-            tooltips:{
-            enabled:true
-            }
+          });
         }
-        });
-     </script>
+      });
+    });
+  </script>
 </html>

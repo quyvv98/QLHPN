@@ -9,7 +9,46 @@
 DROP DATABASE IF EXISTS QLHPN;
 CREATE DATABASE QLHPN;
 USE QLHPN;
-show tables;
+-- show tables;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+DROP TABLE IF EXISTS `group`;
+DROP TABLE IF EXISTS `capbac`;
+
+DROP TABLE IF EXISTS `donvi`;
+DROP TABLE IF EXISTS `position`;
+DROP TABLE IF EXISTS `level`;
+DROP TABLE IF EXISTS `award`;
+DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `user_group`;
+
+DROP TABLE IF EXISTS `title`;
+DROP TABLE IF EXISTS `account`;
+DROP TABLE IF EXISTS `history`;
+
+
+-- -------------------------------------------------------------
+-- TablePlus 4.5.0(396)
+--
+-- https://tableplus.com/
+--
+-- Database: QLHPN
+-- Generation Time: 2021-12-12 13:41:38.2130
+-- -------------------------------------------------------------
+DROP DATABASE IF EXISTS QLHPN;
+CREATE DATABASE QLHPN;
+USE QLHPN;
+-- show tables;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,50 +72,68 @@ CREATE TABLE `level` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 39);
+VALUES ('12/12', 'vanhoa', 1);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 40);
+VALUES ('12/12', 'vanhoa', 2);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 41);
+VALUES ('12/12', 'vanhoa', 3);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 42);
+VALUES ('12/12', 'vanhoa', 4);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 43);
+VALUES ('12/12', 'vanhoa', 5);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 44);
-INSERT INTO level (value, type ,user_id)
-VALUES ('10/10', 'vanhoa', 100);
+VALUES ('12/12', 'vanhoa', 6);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 39);
+VALUES ('12/12', 'vanhoa', 7);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 100);
+VALUES ('12/12', 'vanhoa', 8);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 41);
+VALUES ('12/12', 'vanhoa', 9);
+INSERT INTO level (value, type ,user_ide)
+VALUES ('10/10', 'vanhoa', 61);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 42);
+VALUES ('Sơ cấp', 'chinhtri', 1);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 43);
+VALUES ('Sơ cấp', 'chinhtri', 61);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 44);
+VALUES ('Sơ cấp', 'chinhtri', 3);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 4);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 5);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 6);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 7);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 8);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 9);
 INSERT INTO level (value, type,user_id)
-VALUES ('Trung cấp', 'chinhtri', 40);
+VALUES ('Trung cấp', 'chinhtri', 2);
 INSERT INTO level (value, type, user_id)
-VALUES ('Cao đẳng', 'chuyenmon',39);
+VALUES ('Cao đẳng', 'chuyenmon',1);
 INSERT INTO level (value, type, user_id)
-VALUES ('Cao đẳng', 'chuyenmon',42);
+VALUES ('Cao đẳng', 'chuyenmon',4);
 INSERT INTO level (value, type, user_id)
-VALUES ('Cao đẳng', 'chuyenmon',44);
+VALUES ('Cao đẳng', 'chuyenmon',6);
 INSERT INTO level (value, type,user_id)
-VALUES ('Thạc sĩ', 'chuyenmon',40);
+VALUES ('Thạc sĩ', 'chuyenmon',2);
 INSERT INTO level (value, type,user_id)
-VALUES ('Đại học', 'chuyenmon',41);
+VALUES ('Đại học', 'chuyenmon',3);
 INSERT INTO level (value, type,user_id)
-VALUES ('Sơ cấp', 'chuyenmon',43);
+VALUES ('Đại học', 'chuyenmon',9);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chuyenmon',5);
 INSERT INTO level (value, type, user_id)
-VALUES ('Trung cấp', 'chuyenmon', 100);
+VALUES ('Trung cấp', 'chuyenmon', 61);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 7);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 8);
 INSERT INTO level (value, type)
 VALUES ('Tiến sĩ', 'chuyenmon');
 INSERT INTO level (value, type)
@@ -96,25 +153,25 @@ CREATE TABLE `position` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `position_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',39);
+VALUES ('Đảng viên', 'dang',1);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',40);
+VALUES ('Đảng viên', 'dang',2);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',41);
+VALUES ('Đảng viên', 'dang',3);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',42);
+VALUES ('Đảng viên', 'dang',4);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',44);
+VALUES ('Đảng viên', 'dang',6);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',45);
+VALUES ('Đảng viên', 'dang',7);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',46);
+VALUES ('Đảng viên', 'dang',8);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',47);
+VALUES ('Đảng viên', 'dang',9);
 INSERT INTO position (value, type)
 VALUES ('Chi ủy viên', 'dang');
 INSERT INTO position (value, type)
@@ -124,25 +181,26 @@ VALUES ('PBT Chi bộ', 'dang');
 INSERT INTO position (value, type)
 VALUES ('PBT dang ủy', 'dang');
 INSERT INTO position (value, type,user_id)
-VALUES ('Chủ tịch HPN', 'quanchung', 39);
+VALUES ('Chủ tịch HPN', 'quanchung', 1);
 INSERT INTO position (value, type,user_id)
-VALUES ('Chủ tịch HPN', 'quanchung', 45);
+VALUES ('Chủ tịch HPN', 'quanchung', 7);
 INSERT INTO position (value, type, user_id)
-VALUES ('Hội viên HPN', 'quanchung', 40);
+VALUES ('Hội viên HPN', 'quanchung', 2);
 INSERT INTO position (value, type, user_id)
-VALUES ('Hội viên HPN', 'quanchung', 43);
+VALUES ('Hội viên HPN', 'quanchung', 5);
 INSERT INTO position (value, type, user_id)
-VALUES ('Hội viên HPN', 'quanchung', 44);
+VALUES ('Hội viên HPN', 'quanchung', 6);
+
 INSERT INTO position (value, type,user_id)
-VALUES ('Ủy viên BCH CĐ', 'quanchung',40);
+VALUES ('Ủy viên BCH CĐ', 'quanchung',2);
 INSERT INTO position (value, type, user_id)
-VALUES ('Ủy viên HPN', 'quanchung', 41);
+VALUES ('Ủy viên HPN', 'quanchung', 3);
 INSERT INTO position (value, type, user_id)
-VALUES ('Ủy viên HPN', 'quanchung', 46);
+VALUES ('Ủy viên HPN', 'quanchung', 8);
 INSERT INTO position (value, type, user_id)
-VALUES ('Phó CT HPN', 'quanchung', 42);
+VALUES ('Phó CT HPN', 'quanchung', 4);
 INSERT INTO position (value, type, user_id)
-VALUES ('Đoàn viên CĐ', 'quanchung', 43);
+VALUES ('Đoàn viên CĐ', 'quanchung', 5);
 INSERT INTO position (value, type)
 VALUES ('BCH Hội đồng QN', 'quanchung');
 INSERT INTO position (value, type)
@@ -165,14 +223,15 @@ INSERT INTO position (value, type)
 VALUES ('Chủ tịch CĐ', 'quanchung');
 
 
+
 DROP TABLE IF EXISTS `title`;
 CREATE TABLE `title` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'chucdanh',
-  `name` varchar(2435) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO title (name)
 VALUES ('Nhân viên');
 INSERT INTO title (name)
@@ -367,9 +426,7 @@ CREATE TABLE `user` (
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`donvi_id`) REFERENCES `donvi` (`id`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`capbac_id`) REFERENCES `capbac` (`id`),
   CONSTRAINT `user_ibfk_3` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-Select * from user;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
 VALUES ('Nguyễn Thị Bích Hạnh',1970, '1', 1, 1989, 1, 1);
@@ -592,8 +649,29 @@ VALUES ('Trần Thị Phương Lan',1969, '1', 1, 2005, 1, 1);
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
 VALUES ('Nguyễn Thị Hải',1970, '1', 1, 1988, 1, 1);
 
+select * from donvi;
 
-
+update user set capbac_id = 12, title_id = 15 where id = 39;
+update user set capbac_id = 9, title_id = 16 where id = 40;
+update user set donvi_id = 2,  capbac_id = 4, title_id = 15 where id = 41;
+update user set donvi_id = 3, capbac_id = 4, title_id = 15 where id = 42;
+update user set donvi_id = 3, capbac_id = 16, title_id = 15 where id = 43;
+update user set donvi_id = 4, capbac_id = 12, title_id = 15 where id = 44;
+update user set donvi_id = 3, capbac_id = 4, title_id = 15 where id = 45;
+update user set donvi_id = 5, capbac_id = 10, title_id = 15 where id = 46;
+update user set donvi_id = 5, capbac_id = 8, title_id = 15 where id = 47;
+update user set donvi_id = 5, capbac_id = 4, title_id = 15 where id = 48;
+update user set donvi_id = 5, capbac_id = 4, title_id = 15 where id = 49;
+update user set donvi_id = 5, capbac_id = 4, title_id = 15 where id = 50;
+update user set donvi_id = 5, capbac_id = 4, title_id = 15 where id = 51;
+update user set donvi_id = 7, capbac_id = 4, title_id = 15 where id = 52;
+update user set donvi_id = 7, capbac_id = 9, title_id = 16 where id = 53;
+update user set donvi_id = 7, capbac_id = 6, title_id = 15 where id = 54;
+update user set donvi_id = 7, capbac_id = 3, title_id = 16 where id = 55;
+update user set donvi_id = 8, capbac_id = 14, title_id = 15 where id = 56;
+update user set donvi_id = 9, capbac_id = 8, title_id = 15 where id = 57;
+update user set donvi_id = 9, capbac_id = 8, title_id = 15 where id = 58;
+update user set donvi_id = 10, capbac_id = 4, title_id = 15 where id = 59;
 
 
 
@@ -610,35 +688,35 @@ CREATE TABLE `award` (
   CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'Bằng khen TCCT', 2016);
+values (1, 'Bằng khen TCCT', 2016);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'Bằng khen TCCT', 2020);
+values (1, 'Bằng khen TCCT', 2020);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'Giấy khen Đảng', 2017);
+values (1, 'Giấy khen Đảng', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'Giấy khen PN', 2017);
+values (1, 'Giấy khen PN', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'Giấy khen PN', 2019);
+values (1, 'Giấy khen PN', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'CSTĐ', 2017);
+values (1, 'CSTĐ', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'CSTT', 2018);
+values (1, 'CSTT', 2018);
 INSERT INTO award (user_id, name, namkhen)
-values (39, 'CSTT', 2019);
+values (1, 'CSTT', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (40, 'CSTT', 2018);
+values (2, 'CSTT', 2018);
 INSERT INTO award (user_id, name, namkhen)
-values (40, 'CSTT', 2019);
+values (2, 'CSTT', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (41, 'CSTĐ', 2016);
+values (3, 'CSTĐ', 2016);
 INSERT INTO award (user_id, name, namkhen)
-values (41, 'Giấy khen PN', 2016);
+values (3, 'Giấy khen PN', 2016);
 INSERT INTO award (user_id, name, namkhen)
-values (41, 'Giấy khen PN', 2019);
+values (3, 'Giấy khen PN', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (41, 'CSTT', 2017);
+values (3, 'CSTT', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (41, 'CSTT', 2019);
+values (3, 'CSTT', 2019);
 
 
 
@@ -658,10 +736,10 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO account (username,password, user_id, active)
-VALUES ('admin', '123', 39, 1);
-INSERT INTO account (username,password, user_id, active)
-VALUES ('CTHPN', '123', 40, 1);
-INSERT INTO account (username,password, user_id, active)
+VALUES ('admin', '123', 1, 1);
+INSERT INTO account (username,password, user_id)
+VALUES ('CTHPN', '123', 2, 1);
+INSERT INTO account (username,password, user_id)
 VALUES ('CTCD', '123', 66, 1);
 
 
@@ -706,15 +784,16 @@ CREATE TABLE `user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (39,1,1);
+VALUES (1,1,1);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (39,2,1);
+VALUES (1,2,1);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (40,2,0);
+VALUES (2,2,0);
 INSERT INTO user_group (user_id,group_id,is_admin)
 VALUES (66,2,1);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (41,1,0);
+VALUES (3,1,0);
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -723,4 +802,5 @@ VALUES (41,1,0);
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
 

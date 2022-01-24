@@ -13,7 +13,7 @@ class AccountController {
     accountRepository.login(username, password).then(function (sess) {
       if (sess) {
         req.session.account = sess.account
-        req.session.group_ids = sess.group_ids
+        req.session.group_ids = sess.account.permission
         res.redirect("/");
       } else {
         res.render("login", { status: false, session: null });

@@ -32,9 +32,11 @@
 
             <section class="main-content">
                 <div class="mk-minibar-menu">
-                    <a href="/reports" class="mk-minibar-menu-item">
-                        <i class="fas fa-chart-line"></i>
-                    </a>
+                    <% if(session.group_ids == '2' || session.group_ids == '1' || session.group_ids == '3'){ %>
+                        <a href="/reports" class="mk-minibar-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                        </a>
+                    <% } %>
                     <a href="/users" class="mk-minibar-menu-item active">
                         <i class="fas fa-child"></i>
                     </a>
@@ -54,7 +56,7 @@
                                 <strong class="mb-0 fs-12">Tổng số hội viên: <span class="color-brand-secondary"><%= data.length %></span></strong>
                             </div> 
                             <div class="bar-right-item">
-                                <a href="themmoihoivien.html" class="mk-btn mk-btn-primary">
+                                <a href="/users/add" class="mk-btn mk-btn-primary">
                                     <i class="fas fa-plus"></i>
                                     Thêm mới hội viên
                                 </a>
