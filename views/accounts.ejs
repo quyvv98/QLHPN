@@ -70,7 +70,7 @@
                         </div>
                         
                     </div>
-                    <div class="mk-product-filter">
+                    <!-- <div class="mk-product-filter">
                         <div class="mk-product-filter-dropdown mk-dropdowns-inline">
                             <strong>Phân loại theo:</strong>
                             <select class="form-select" aria-label="Default select example">
@@ -80,13 +80,13 @@
                                 <option value="Khóa">Khóa</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                     <% } %>
                     <div class="mk-product-wrap">
                     <% if (session.group_ids == '1' || session.group_ids == '2' || session.group_ids == '3'){ %>
 
-                        <div class="mk-header-checkall justify-content-start">
-                            <div class="mk-custom-checkbox custom-control custom-checkbox">
+                        <!-- <div class="mk-header-checkall justify-content-start"> -->
+                            <!-- <div class="mk-custom-checkbox custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" 
                                 value="true" id="__BVID__5316">
                                 <label class="custom-control-label" for="__BVID__5316">
@@ -108,13 +108,13 @@
                                     <i class="fas fa-lock-open mr6"></i>
                                     <strong>Khóa</strong>
                                 </a> 
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div> -->
 
-                        <div class="mk-search-form">
+                        <!-- <div class="mk-search-form">
                             <i class="fas fa-search"></i>
                             <input type="search" placeholder="Tìm kiếm theo <%= session.account.username%>, số điện thoại, email" class="form-control">
-                        </div>
+                        </div> -->
                     <% } %>
 
                         <div id="mk-table" class="mk-table-list">
@@ -122,7 +122,7 @@
                                 <thead>
                                   <tr>
                                     <!-- <th scope="col"></th> -->
-                                    <th scope="col">name</th>
+                                    <th scope="col">Tên</th>
                                     <th scope="col">Thời gian đăng nhập lần cuối </th>
                                     <th scope="col">Thao tác</th>
                                   </tr>

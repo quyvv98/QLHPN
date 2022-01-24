@@ -15,8 +15,6 @@ class UserRepository {
       donvi.name donvi,
       title.name title,
       capbac.name capbac,
-      GROUP_CONCAT(award.name) award,
-      GROUP_CONCAT(level.value) level
     FROM
       user
       LEFT JOIN capbac ON user.capbac_id = capbac.id
@@ -24,7 +22,6 @@ class UserRepository {
       LEFT JOIN donvi on user.donvi_id = donvi.id
       LEFT JOIN award ON award.user_id = user.id
       LEFT JOIN level on level.user_id = user.id
-      LEFT JOIN user_group ON user.id = user_group.user_id
     Where user.id = ?
       group by user.id`;
       //query database
