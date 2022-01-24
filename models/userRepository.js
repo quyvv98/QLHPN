@@ -110,8 +110,7 @@ class UserRepository {
           LEFT JOIN title ON user.title_id = title.id
           LEFT JOIN donvi on user.donvi_id = donvi.id
           LEFT JOIN award ON award.user_id = user.id
-          LEFT JOIN level on level.user_id = user.id
-          LEFT JOIN user_group ON user.id = user_group.user_id
+          LEFT JOIN (select * from level where type ="chuyenmon") level on level.user_id = user.id
         Where user.id = ?;
     `;
       conn.query(sql, [userId], (err, rows) => {
