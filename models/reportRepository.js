@@ -10,10 +10,10 @@ class ReportRepository {
       let sql = `
           SELECT
           capbac.name name,
-          count(*) value
+          count(user.capbac_id) value
         FROM
           capbac
-          JOIN user
+          LEFT JOIN user
         WHERE
           user.capbac_id = capbac.id
         GROUP BY
@@ -36,7 +36,7 @@ class ReportRepository {
             count(*) value
           FROM
             level
-            JOIN user
+            LEFT JOIN user
             ON
             user.id = level.user_id
           WHERE level.type = ?
@@ -52,52 +52,77 @@ class ReportRepository {
   }
   getReports = (groupId) => {
     let capbacSql = `
-          SELECT
-          capbac.name name,
-          count(user.id) value
+    SELECT
+      capbac.name,
+      count(u.capbac_id)
+      value
+    FROM
+      capbac
+      LEFT JOIN (
+        SELECT
+          user.*
         FROM
-          capbac
-          LEFT JOIN user ON user.capbac_id = capbac.id` + ` LEFT JOIN user_group ON user_group.group_id = ` + groupId + `
+          user
+          JOIN user_group ON user.id = user_group.user_id
         WHERE
-          user.capbac_id = capbac.id
-        GROUP BY
-          capbac.id;
+          user_group.group_id = `+ groupId + `) u ON capbac.id = u.capbac_id
+    GROUP BY
+      capbac.id;
+
       `;
     let chuyenmonSql = `
+    SELECT
+      level.value name,
+      count(u.id) value
+    FROM
+      level
+      LEFT JOIN (
         SELECT
-          level.value name,
-          count(level.user_id) value
+          user.*
         FROM
-          level
-          LEFT JOIN user
-          ON
-          user.id = level.user_id ` + ` LEFT JOIN user_group ON user_group.group_id = ` + groupId + `
-        WHERE level.type = 'chuyenmon'
-        GROUP BY level.id;
+          user
+          JOIN user_group ON user.id = user_group.user_id
+        WHERE
+          user_group.group_id = `+ groupId + `) u ON u.id = level.user_id
+    WHERE
+      level.type = 'chuyenmon'
+    GROUP BY
+      level.id;
       `;
 
     let donviSql = `
     SELECT
-    donvi.name name,
-    count(user.donvi_id) value
-  FROM
-    donvi
-    LEFT JOIN user
-    ON
-    user.donvi_id = donvi.id ` + ` LEFT JOIN user_group ON user_group.group_id = ` + groupId + `
-  GROUP BY donvi.id;
+      donvi.name name,
+      count(u.donvi_id) value
+    FROM
+      donvi
+      LEFT JOIN (
+        SELECT
+          user.*
+        FROM
+          user
+          JOIN user_group ON user.id = user_group.user_id
+        WHERE
+          user_group.group_id = `+ groupId + `) u ON u.donvi_id = donvi.id
+    GROUP BY
+      donvi.id;
     `;
 
     let titleSql = `
     
     SELECT
       title.name name,
-      count(user.title_id) value
+      count(u.title_id) value
     FROM
       title
-      LEFT JOIN user
-      ON
-      user.title_id = title.id ` + ` LEFT JOIN user_group ON user_group.group_id = ` + groupId + `
+      LEFT JOIN (
+        SELECT
+          user.*
+        FROM
+          user
+          JOIN user_group ON user.id = user_group.user_id
+        WHERE
+          user_group.group_id = `+ groupId + `) u ON u.title_id = title.id
     GROUP BY title.id;
     `
     return new Promise(function (handle) {

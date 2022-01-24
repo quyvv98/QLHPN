@@ -231,6 +231,7 @@
         for (report of reports) {
           var labels = getLabels(report.data);
           var values = getValues(report.data);
+          console.log(report.name, values)
           var colors = getColors(report.data);
           new Chart(document.getElementById(report.name).getContext("2d"), {
             type: "bar", // bar, horizontalBar, pie, line, doughnut, radar, polarArea
