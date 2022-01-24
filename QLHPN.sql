@@ -20,8 +20,6 @@ USE QLHPN;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
-
 DROP TABLE IF EXISTS `group`;
 DROP TABLE IF EXISTS `capbac`;
 
@@ -37,30 +35,6 @@ DROP TABLE IF EXISTS `account`;
 DROP TABLE IF EXISTS `history`;
 
 
--- -------------------------------------------------------------
--- TablePlus 4.5.0(396)
---
--- https://tableplus.com/
---
--- Database: QLHPN
--- Generation Time: 2021-12-12 13:41:38.2130
--- -------------------------------------------------------------
-DROP DATABASE IF EXISTS QLHPN;
-CREATE DATABASE QLHPN;
-USE QLHPN;
--- show tables;
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
-
 DROP TABLE IF EXISTS `level`;
 CREATE TABLE `level` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'trinhdo',
@@ -72,7 +46,7 @@ CREATE TABLE `level` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO level (value, type, user_id)
 VALUES ('12/12', 'vanhoa', 1);
@@ -649,7 +623,6 @@ VALUES ('Trần Thị Phương Lan',1969, '1', 1, 2005, 1, 1);
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
 VALUES ('Nguyễn Thị Hải',1970, '1', 1, 1988, 1, 1);
 
-select * from donvi;
 
 update user set capbac_id = 12, title_id = 15 where id = 39;
 update user set capbac_id = 9, title_id = 16 where id = 40;
@@ -672,8 +645,43 @@ update user set donvi_id = 8, capbac_id = 14, title_id = 15 where id = 56;
 update user set donvi_id = 9, capbac_id = 8, title_id = 15 where id = 57;
 update user set donvi_id = 9, capbac_id = 8, title_id = 15 where id = 58;
 update user set donvi_id = 10, capbac_id = 4, title_id = 15 where id = 59;
+update user set donvi_id = 9, capbac_id = 6, title_id = 15 where id = 60;
+update user set donvi_id = 11, capbac_id = 4, title_id = 15 where id = 61;
+update user set donvi_id = 9, capbac_id = 4, title_id = 15 where id = 62;
+update user set donvi_id = 12, capbac_id = 12, title_id = 15 where id = 63;
+update user set donvi_id = 12, capbac_id = 4, title_id = 15 where id = 64;
+update user set donvi_id = 13, capbac_id = 4, title_id = 15 where id = 65;
+update user set donvi_id = 13, capbac_id = 11, title_id = 15 where id = 66;
+update user set donvi_id = 13, capbac_id = 8, title_id = 15 where id = 67;
+update user set donvi_id = 14, capbac_id = 7, title_id = 18 where id = 68;
+update user set donvi_id = 14, capbac_id = 11, title_id = 18 where id = 69;
+update user set donvi_id = 14, capbac_id = 8, title_id = 15 where id = 70;
+update user set donvi_id = 15, capbac_id = 7, title_id = 18 where id = 71;
+update user set donvi_id = 15, capbac_id = 3, title_id = 18 where id = 72;
+update user set donvi_id = 15, capbac_id = 3, title_id = 18 where id = 73;
+update user set donvi_id = 15, capbac_id = 11, title_id = 19 where id = 74;
+update user set donvi_id = 15, capbac_id = 10, title_id = 15 where id = 75;
+update user set donvi_id = 16, capbac_id = 7, title_id = 18 where id = 76;
+update user set donvi_id = 16, capbac_id = 3, title_id = 18 where id = 77;
+update user set donvi_id = 18, capbac_id = 10, title_id = 20 where id = 78;
+update user set donvi_id = 17, capbac_id = 4, title_id = 15 where id = 79;
+update user set donvi_id = 19, capbac_id = 4, title_id = 21 where id = 80;
+update user set donvi_id = 20, capbac_id = 4, title_id = 15 where id = 81;
+update user set donvi_id = 20, capbac_id = 3, title_id = 18 where id = 82;
+update user set donvi_id = 20, capbac_id = 4, title_id = 21 where id = 83;
+update user set donvi_id = 21, capbac_id = 3, title_id = 22 where id = 84;
+update user set donvi_id = 22, capbac_id = 3, title_id = 18 where id = 85;
+update user set donvi_id = 22, capbac_id = 3, title_id = 18 where id = 86;
+update user set donvi_id = 23, capbac_id = 4, title_id = 21 where id = 87;
+update user set donvi_id = 24, capbac_id = 12, title_id = 20 where id = 88;
+update user set donvi_id = 25, capbac_id = 4, title_id = 20 where id = 89;
+update user set donvi_id = 26, capbac_id = 4, title_id = 15 where id = 90;
+update user set donvi_id = 26, capbac_id = 10, title_id = 23 where id = 91;
+update user set donvi_id = 30, capbac_id = 10, title_id = 15 where id = 104;
 
 
+
+select * from donvi;
 
 DROP TABLE IF EXISTS `award`;
 CREATE TABLE `award` (
@@ -688,35 +696,35 @@ CREATE TABLE `award` (
   CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'Bằng khen TCCT', 2016);
+values (39, 'Bằng khen TCCT', 2016);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'Bằng khen TCCT', 2020);
+values (39, 'Bằng khen TCCT', 2020);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'Giấy khen Đảng', 2017);
+values (39, 'Giấy khen Đảng', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'Giấy khen PN', 2017);
+values (39, 'Giấy khen PN', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'Giấy khen PN', 2019);
+values (39, 'Giấy khen PN', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'CSTĐ', 2017);
+values (39, 'CSTĐ', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'CSTT', 2018);
+values (39, 'CSTT', 2018);
 INSERT INTO award (user_id, name, namkhen)
-values (1, 'CSTT', 2019);
+values (39, 'CSTT', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (2, 'CSTT', 2018);
+values (40, 'CSTT', 2018);
 INSERT INTO award (user_id, name, namkhen)
-values (2, 'CSTT', 2019);
+values (40, 'CSTT', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (3, 'CSTĐ', 2016);
+values (41, 'CSTĐ', 2016);
 INSERT INTO award (user_id, name, namkhen)
-values (3, 'Giấy khen PN', 2016);
+values (41, 'Giấy khen PN', 2016);
 INSERT INTO award (user_id, name, namkhen)
-values (3, 'Giấy khen PN', 2019);
+values (41, 'Giấy khen PN', 2019);
 INSERT INTO award (user_id, name, namkhen)
-values (3, 'CSTT', 2017);
+values (41, 'CSTT', 2017);
 INSERT INTO award (user_id, name, namkhen)
-values (3, 'CSTT', 2019);
+values (41, 'CSTT', 2019);
 
 
 
@@ -736,11 +744,11 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO account (username,password, user_id, active)
-VALUES ('admin', '123', 1, 1);
-INSERT INTO account (username,password, user_id)
-VALUES ('CTHPN', '123', 2, 1);
-INSERT INTO account (username,password, user_id)
-VALUES ('CTCD', '123', 66, 1);
+VALUES ('admin', '123', 39, 1);
+INSERT INTO account (username,password, user_id, active)
+VALUES ('CTHPN', '123', 40, 1);
+INSERT INTO account (username,password, user_id, active)
+VALUES ('CTCD', '123', 104, 1);
 
 
 
@@ -784,15 +792,79 @@ CREATE TABLE `user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (1,1,1);
+VALUES (39,1,1);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (1,2,1);
+VALUES (39,2,1);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (2,2,0);
+VALUES (40,2,0);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (66,2,1);
+VALUES (104,2,1);
 INSERT INTO user_group (user_id,group_id,is_admin)
-VALUES (3,1,0);
+VALUES (41,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (42,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (43,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (43,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (44,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (45,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (46,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (47,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (48,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (49,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (50,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (51,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (51,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (52,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (53,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (54,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (55,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (56,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (57,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (58,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (59,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (60,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (61,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (62,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (63,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (64,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (65,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (66,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (67,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (68,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (69,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (70,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (71,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (72,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (73,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (74,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (74,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (75,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (76,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (77,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (78,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (78,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (79,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (80,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (81,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (82,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (83,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (84,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (85,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (86,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (87,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (87,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (88,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (88,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (88,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (89,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (90,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (91,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (92,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (93,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (93,2,0);
+
+
+
+
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -802,5 +874,4 @@ VALUES (3,1,0);
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
 

@@ -65,11 +65,11 @@ class AccountRepository {
       FROM
         account
       JOIN user ON account.user_id = user.id
-      JOIN user_group ON user_group.user_id = user.id
-      
       `;
       if(permission){
-        sql += ` where user_group.group_id =  ` + permission
+        sql +=
+          ` JOIN (select * from user_group where group_id = ` + group_id + ` ) user_group ON user.id = user_group.user_id;
+          `;
       }
 
       // sql  += ` GROUP BY user.id`

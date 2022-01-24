@@ -42,28 +42,24 @@ class UserRepository {
     return new Promise(function (handle) {
       let sql =
         `
-              SELECT
-              DISTINCT user.id id,
-              user.name name,
-              donvi.name donvi,
-              title.name title,
-              capbac.name capbac,
-              --                   GROUP_CONCAT(award.name) 
-              level.value level
-            FROM
-              user
-              LEFT JOIN capbac ON user.capbac_id = capbac.id
-              LEFT JOIN title ON user.title_id = title.id
-              LEFT JOIN donvi ON user.donvi_id = donvi.id
-              LEFT JOIN award ON award.user_id = user.id
-                                LEFT JOIN level on level.user_id = user.id
-              LEFT JOIN user_group ON user.id = user_group.user_id
-            WHERE
-              level.type = "chuyenmon" `;
+        SELECT DISTINCT
+        user.id id,
+        user.name name,
+        donvi.name donvi,
+        title.name title,
+        capbac.name capbac,
+        level.value level
+      FROM
+        user
+        LEFT JOIN capbac ON user.capbac_id = capbac.id
+        LEFT JOIN title ON user.title_id = title.id
+        LEFT JOIN donvi ON user.donvi_id = donvi.id
+        LEFT JOIN award ON award.user_id = user.id
+        LEFT JOIN (select * from level where type = "chuyenmon") level ON level.user_id = user.id
+         `;
       if (group_id) {
         sql +=
-          ` and user_group.group_id =  
-          group_id +
+          ` JOIN (select * from user_group where group_id = ` + group_id + ` ) user_group ON user.id = user_group.user_id;
           `;
       } 
       //query database
