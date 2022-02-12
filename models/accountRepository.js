@@ -74,11 +74,22 @@ class AccountRepository {
 
       // sql  += ` GROUP BY user.id`
       //query database
-      conn.query(sql, (err, rows) => {
+      conn.query(sql, (err, accounts) => {
         if (err) {
           console.log(err);
         } else {
-          handle(rows);
+          conn.query("select id, name from user", (err, users) => {
+            if (err) {
+              console.log("get fail");
+            } else {
+              return handle({
+                users: users,
+                accounts: accounts,
+              });
+            }
+            
+
+          })
         }
       });
     });
@@ -102,6 +113,23 @@ class AccountRepository {
       `;
       //query database
       conn.query(sql, [accountId], (err, rows) => {
+        if (err) {
+          console.log(err);
+        } else {
+          handle(rows);
+        }
+      });
+    });
+  };
+
+  addAccount = (data) => {
+    return new Promise(function (handle) {
+      let sql = `
+      INSERT INTO account(username, password, user_id, active)
+      VALUES(?, ?, ?, 1);
+      `;
+      //query database
+      conn.query(sql, [data['name'], data['password'], data['user_id']], (err, rows) => {
         if (err) {
           console.log(err);
         } else {

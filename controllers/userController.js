@@ -33,6 +33,14 @@ class UserController {
       res.render("new_user", {data: {}, session: req.session});
     }
   }
+  new_user(req, res) {
+    if (!req.session || !req.session.account) {
+      res.redirect("/login");
+    }
+    userRepository.newUser(req.body).then((userId) => {
+      res.redirect("/users/" + userId);
+    });
+  }
 
   getUser(req, res) {
     if (!req.session || !req.session.account) {

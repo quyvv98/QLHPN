@@ -38,8 +38,8 @@ class AccountController {
       if(admin == '3'){
         admin_group_id = null
       }
-      accountRepository.getAccounts(admin_group_id).then((users) => {
-        res.render("accounts", { data: users, session: req.session });
+      accountRepository.getAccounts(admin_group_id).then((data) => {
+        res.render("accounts", { data: data.accounts, session: req.session, users: data.users });
       });
     }
   };
@@ -54,7 +54,9 @@ class AccountController {
       res.redirect("/login")
       return
     }
-    res.render("user");
+    accountRepository.addAccount(req.body).then((data) => {
+      res.redirect("/accounts");
+    });
   };
   //detail user
   getAccount = (req, res) => {

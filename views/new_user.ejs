@@ -1,321 +1,516 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>QUẢN LÝ HỘI VIÊN - THÊM MỚI HỘI VIÊN</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css2/bootstrap.min.css">
-        <link rel="stylesheet" href="/css2/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-        <script src="/js2/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="main-site">
-            <header class="main-header">
-                <h2>QUẢN LÝ HỘI VIÊN</h2>
-                <div class="main-header-right">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <%= session.account.username%>
-                          <i class="fas fa-angle-down"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownName">
-                          <a class="dropdown-item" href="javascript(0)" 
-                          data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
-                          <a class="dropdown-item" href="/logout">Đăng xuất</a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- main-header -->
+  <head>
+    <meta charset="utf-8" />
+    <title>QUẢN LÝ HỘI VIÊN - THÊM MỚI HỘI VIÊN</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css2/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css2/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js2/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="main-site">
+      <header class="main-header">
+        <h2>QUẢN LÝ HỘI VIÊN</h2>
+        <div class="main-header-right">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownName"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <%= session.account.username%>
+              <i class="fas fa-angle-down"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownName">
+              <a
+                class="dropdown-item"
+                href="javascript(0)"
+                data-toggle="modal"
+                data-target="#modalChangePass"
+                >Đổi mật khẩu</a
+              >
+              <a class="dropdown-item" href="/logout">Đăng xuất</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- main-header -->
 
-            <section class="main-content">
-                <div class="mk-minibar-menu">
-                    <% if(session.group_ids == '2' || session.group_ids == '1' || session.group_ids == '3'){ %>
-                        <a href="/reports" class="mk-minibar-menu-item">
-                            <i class="fas fa-chart-line"></i>
-                        </a>
-                    <% } %>
-                    <a href="/users" class="mk-minibar-menu-item">
-                        <i class="fas fa-child"></i>
-                    </a>
-                    <a href="/accounts" class="mk-minibar-menu-item active">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
+      <section class="main-content">
+        <div class="mk-minibar-menu">
+          <% if(session.group_ids == '2' || session.group_ids == '1' ||
+          session.group_ids == '3'){ %>
+          <a href="/reports" class="mk-minibar-menu-item">
+            <i class="fas fa-chart-line"></i>
+          </a>
+          <% } %>
+          <a href="/users" class="mk-minibar-menu-item">
+            <i class="fas fa-child"></i>
+          </a>
+          <a href="/accounts" class="mk-minibar-menu-item active">
+            <i class="fas fa-user-circle"></i>
+          </a>
+        </div>
+        <div class="mk-panel-tab-content">
+          <div class="tab-content-topbar">
+            <div class="bar-left">
+              <h6 class="mb-0">
+                <a href="/users">Danh sách hội viên</a> >
+                <span>Thêm mới hội viên</span>
+              </h6>
+            </div>
+          </div>
+          <form action="/users" method="post">
+            <div class="mk-product-wrap mk-space">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Họ và Tên <span class="color-error">*</span></label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Nhập Họ và Tên"
+                    name="name"
+                    class="form-control"
+                    required
+                  />
                 </div>
-                <div class="mk-panel-tab-content">
-                    <div class="tab-content-topbar">
-                        <div class="bar-left">
-                            <h6 class="mb-0">
-                                <a href="/users">Danh sách hội viên</a> >
-                                <span>Thêm mới hội viên</span>
-                            </h6> 
-                        </div>
-                    </div>
-                    <div class="mk-product-wrap mk-space">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 mk-form-group">
-                                <label class="mk-label">Họ và Tên <span class="color-error">*</span></label>
-                                <input type="text" placeholder="Nhập Họ và Tên" class="form-control">
-                            </div>
-                            <div class="col-lg-3 col-md-6 mk-form-group">
-                                <label class="mk-label">Năm sinh </label>
-                                <input type="text" placeholder="Nhập Năm sinh" class="form-control">
-                            </div>
-                            <div class="col-lg-3 col-md-6 mk-form-group">
-                                <label class="mk-label">Năm nhập ngũ </label>
-                                <input type="text" placeholder="Nhập Năm nhập ngũ" class="form-control">
-                            </div>
-                            <div class="col-lg-3 col-md-6 mk-form-group">
-                                <label class="mk-label">Cấp bậc <span class="color-error">*</span></label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Cấp bậc</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Đơn vị <span class="color-error">*</span></label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Đơn vị</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Dân tộc </label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Dân tộc</option>
-                                    <option value="Kinh">Kinh</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Tôn giáo</label>
-                                <input type="text" placeholder="Nhập Tôn giáo" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Trình độ văn hóa <span class="color-error">*</span></label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Trình độ văn hóa</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label"> Trình độ chính trị </label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Trình độ chính trị</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Chức danh <span class="color-error">*</span></label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Chức danh</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Chức vụ đảng <span class="color-error">*</span></label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Chức vụ đảng</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label"> Chức vụ chính quyền </label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Chức vụ chính quyền</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6 mk-form-group">
-                                <label class="mk-label">Chức vụ quần chúng <span class="color-error">*</span></label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> Chức vụ quần chúng</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                        </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Năm sinh </label>
+                  <input
+                    type="number"
+                    placeholder="Nhập Năm sinh"
+                    name="birthday"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Địa chỉ </label>
+                  <input
+                    type="text"
+                    placeholder="Nhập địa chỉ"
+                    name="address"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                    <label class="mk-label"
+                      >Giới tính <span class="color-error">*</span></label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      name="male"
+                    >
+                      <option selected value=0>Giới tính</option>
+                      <option value=0>Name</option>
+                      <option value=1>Nữ/</option>
+                    </select>
+                  </div>
 
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 mk-form-group">
-                                <label class="mk-label">Khen thưởng </label>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1' style="position:relative">
-                                       <input type='text' class="form-control" data-provide='datepicker' data-date-container='#datetimepicker1' placeholder="Chọn thời gian" />
-                                       <span class="input-group-addon" style="display: none;">
-                                        <i class="fas fa-calendar-times"></i>
-                                       </span>
-                                    </div>
-                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 mk-form-group">
-                                <label class="mk-label" style="opacity: 0;">Khen thưởng </label>
-                                <input type="text" placeholder="Nhập Nội dung" class="form-control">
-                            </div>
-                            <div class="col-lg-6 col-md-6 mk-form-group">
-                                <label class="mk-label">Hoàn cảnh gia đình</label>
-                                <input type="text" placeholder="Nhập Nội dung" class="form-control">
-                            </div>
-                        </div>
-                    </div>
+                  <div class="col-lg-3 col-md-6 mk-form-group">
+                    <label class="mk-label"
+                      >Đảng viên <span class="color-error">*</span></label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      name="dangvien"
+                    >
+                      <option selected value=0>Đảng viên</option>
+                      <option value=0>Không</option>
+                      <option value=1>Có/</option>
+                    </select>
+                  </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Năm nhập ngũ </label>
+                  <input
+                    type="number"
+                    placeholder="Nhập Năm nhập ngũ"
+                    name="nhapngu"
+                    class="form-control"
+                  />
                 </div>
-            </section>
-            
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Cấp bậc <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="capbac"
+                  >
+                    <option selected value="">Cấp bậc</option>
+                    <option value="1/">1/</option>
+                    <option value="2/">2/</option>
+                    <option value="3/">3/</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Đơn vị <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="donvi"
+                  >
+                    <option selected value="">Đơn vị</option>
+                    <option value="P1">P1</option>
+                    <option value="P2">P2</option>
+                    <option value="P3">P3</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label">Dân tộc </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="dantoc"
+                  >
+                    <option selected value="">Dân tộc</option>
+                    <option value="Kinh">Kinh</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label">Tôn giáo</label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Tôn giáo"
+                    class="form-control"
+                    name="religious"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Trình độ văn hóa <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected value=0>Trình độ văn hóa</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"> Trình độ chính trị </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected value="">Trình độ chính trị</option>
+                    <option value="Sơ cấp">Sơ cấp</option>
+                    <option value="Trung cấp">Trung cấp</option>
+                    <option value="Đại học">Đại học</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Chức danh <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected value="">Chức danh</option>
+                    <option value="Nhân viên">Nhân viên</option>
+                    <option value="Trợ lý">Trợ lý</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Chức vụ đảng <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected value="">Chức vụ đảng</option>
+                    <option value="Đảng viên">1</option>
+                    <option value="Bí thư chi bộ">2</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"> Chức vụ chính quyền </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected>Chức vụ chính quyền</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Chức vụ quần chúng
+                    <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected value="">Chức vụ quần chúng</option>
+                    <option value="Chủ tịch HPN">1</option>
+                    <option value="Hội viên HPN">2</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Khen thưởng </label>
+                  <div class="form-group">
+                    <div
+                      class="input-group date"
+                      id="datetimepicker1"
+                      style="position: relative"
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        data-provide="datepicker"
+                        data-date-container="#datetimepicker1"
+                        placeholder="Chọn thời gian"
+                      />
+                      <span class="input-group-addon" style="display: none">
+                        <i class="fas fa-calendar-times"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label" style="opacity: 0"
+                    >Khen thưởng
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Nội dung"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-lg-6 col-md-6 mk-form-group">
+                  <label class="mk-label">Hoàn cảnh gia đình</label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Nội dung"
+                    class="form-control"
+                    name="family_situation"
+                  />
+                </div>
+              </div>
+            </div>
             <div class="mk-detail-bottom">
-                <button class="mk-btn mk-btn-secondary mr6">
-                    <i class="fas fa-ban mr6"></i>Hủy
-                </button> 
-                <button class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i>Lưu</button>
-            </div>
-            <!-- main-content -->
-        </div>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="modalHistory" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Lịch sử thay đổi</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label">Cấp bậc </label>
-                            <div class="form-group">
-                                <ul>
-                                    <li>Ngày 1/1/1998</li>
-                                    <li>Ngày 1/1/1998</li>
-                                </ul>
-                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label" style="opacity: 0;">Cấp bậc</label>
-                            <ul>
-                                <li>1</li>
-                                <li>2   </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label">Trình độ chuyên môn </label>
-                            <div class="form-group">
-                                <ul>
-                                    <li>Ngày 1/1/1998</li>
-                                    <li>Ngày 1/1/1998</li>
-                                </ul>
-                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label" style="opacity: 0;">Trình độ chuyên môn</label>
-                            <ul>
-                                <li>Đại học</li>
-                                <li>Thạc sĩ</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label">Chức danh </label>
-                            <div class="form-group">
-                                <ul>
-                                    <li>Ngày 1/1/1998</li>
-                                    <li>Ngày 1/1/1998</li>
-                                </ul>
-                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label" style="opacity: 0;">Chức danh</label>
-                            <ul>
-                                <li>Nhân viên</li>
-                                <li>Phó CN khoa</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label">Khen thưởng </label>
-                            <div class="form-group">
-                                <ul>
-                                    <li>Ngày 1/1/1998</li>
-                                    <li>Ngày 1/1/1998</li>
-                                </ul>
-                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label class="mk-label" style="opacity: 0;">Khen thưởng</label>
-                            <ul>
-                                <li>CSTT</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="mk-btn mk-btn-secondary" data-dismiss="modal"> 
-                        <i class="fas fa-times mr6"></i>Đóng</button>
-                </div>
-            </div>
-            </div>
-        </div>
+              <a href="/users" class="mk-btn mk-btn-secondary mr6">
+                  <i class="fas fa-ban mr6"></i>Hủy
+              </a>
 
-        <div class="modal fade" id="modalChangePass" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document" style="width: 500px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Đổi mật khẩu</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mk-form-group">
-                        <label class="mk-label">Mật khẩu cũ </label>
-                        <input type="text" placeholder="Nhập Mật khẩu cũ" class="form-control">
-                    </div>
-                    <div class="mk-form-group">
-                        <label class="mk-label">Mật khẩu mới </label>
-                        <input type="text" placeholder="Nhập Mật khẩu mới" class="form-control">
-                    </div>
-                    <div class="mk-form-group">
-                        <label class="mk-label">Nhập lại mật khẩu </label>
-                        <input type="text" placeholder="Nhập lại mật khẩu" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
-                    <button type="button" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
-                </div>
+              <button class="mk-btn mk-btn-primary">
+                <i class="fas fa-save mr6"></i>Lưu
+              </button>
             </div>
-            </div>
+          </form>
         </div>
-    </body>
-    <script type="text/javascript">
-        $('#datetimepicker').datepicker({format: "dd.mm.yyyy"});
-     </script>
+      </section>
+
+      <!-- main-content -->
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalHistory"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Lịch sử thay đổi</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label">Cấp bậc </label>
+                <div class="form-group">
+                  <ul>
+                    <li>Ngày 1/1/1998</li>
+                    <li>Ngày 1/1/1998</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label" style="opacity: 0">Cấp bậc</label>
+                <ul>
+                  <li>1</li>
+                  <li>2</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label">Trình độ chuyên môn </label>
+                <div class="form-group">
+                  <ul>
+                    <li>Ngày 1/1/1998</li>
+                    <li>Ngày 1/1/1998</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label" style="opacity: 0"
+                  >Trình độ chuyên môn</label
+                >
+                <ul>
+                  <li>Đại học</li>
+                  <li>Thạc sĩ</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label">Chức danh </label>
+                <div class="form-group">
+                  <ul>
+                    <li>Ngày 1/1/1998</li>
+                    <li>Ngày 1/1/1998</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label" style="opacity: 0">Chức danh</label>
+                <ul>
+                  <li>Nhân viên</li>
+                  <li>Phó CN khoa</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label">Khen thưởng </label>
+                <div class="form-group">
+                  <ul>
+                    <li>Ngày 1/1/1998</li>
+                    <li>Ngày 1/1/1998</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label" style="opacity: 0">Khen thưởng</label>
+                <ul>
+                  <li>CSTT</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="mk-btn mk-btn-secondary"
+              data-dismiss="modal"
+            >
+              <i class="fas fa-times mr6"></i>Đóng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalChangePass"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document" style="width: 500px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Đổi mật khẩu</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="mk-form-group">
+              <label class="mk-label">Mật khẩu cũ </label>
+              <input
+                type="text"
+                placeholder="Nhập Mật khẩu cũ"
+                class="form-control"
+              />
+            </div>
+            <div class="mk-form-group">
+              <label class="mk-label">Mật khẩu mới </label>
+              <input
+                type="text"
+                placeholder="Nhập Mật khẩu mới"
+                class="form-control"
+              />
+            </div>
+            <div class="mk-form-group">
+              <label class="mk-label">Nhập lại mật khẩu </label>
+              <input
+                type="text"
+                placeholder="Nhập lại mật khẩu"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="mk-btn mk-btn-secondary mr6"
+              data-dismiss="modal"
+            >
+              <i class="fas fa-ban mr6"></i>Hủy bỏ
+            </button>
+            <button type="button" class="mk-btn mk-btn-primary">
+              <i class="fas fa-save mr6"></i> Lưu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $("#datetimepicker").datepicker({ format: "dd.mm.yyyy" });
+  </script>
 </html>

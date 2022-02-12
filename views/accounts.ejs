@@ -185,7 +185,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="account-form row">
-                        <div class="account-left col">
+                        <!-- <div class="account-left col">
                             <div class="mk-card-row mk-image-preview">
                                 <div class="aspect-ratio-1-1 w-100">
                                     <img alt="" class="mk-favicon-preview lazyLoad isLoaded" 
@@ -212,35 +212,37 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="account-right col">
-                            <div class="mk-form-group">
-                                <label class="mk-label">Tên tài khoản <span class="color-error">*</span></label> 
-                                <input type="text" placeholder="Nhập Tên tài khoản" class="form-control">
-                            </div> 
-                            <div class="mk-form-group">
-                                <label class="mk-label">Số điện thoại
-                                    <span class="color-error">*</span>
-                                </label> 
-                                <input placeholder="Nhập Số điện thoại" type="text" class="form-control">
-                            </div>  
-                            <div class="mk-form-group">
-                                <label class="mk-label">Email
-                                </label> 
-                                <input type="email"  placeholder="Nhập Email" value="debra.holt@example.com" class="form-control">
-                            </div> 
-                            <div class="mk-form-group">
-                                <label class="mk-label">Mật khẩu
-                                </label> 
-                                <input type="email"  placeholder="Nhập Mật khẩu"  value="*******" class="form-control">
-                            </div> 
-                        </div>    
+                        </div> -->
+                        <form action="/accounts" method="post">
+                            <div class="account-right col">
+                                <div class="mk-form-group">
+                                    <label class="mk-label">Tên tài khoản <span class="color-error">*</span></label> 
+                                    <input type="text" placeholder="Nhập Tên tài khoản" class="form-control" name="name" required>
+                                </div> 
+                                <div class="col mk-form-group">
+                                    <label class="mk-label">Chọn người dùng</label>
+                                    <select class="form-select" aria-label="Default select example" name="user_id" required name="user_id">
+                                        <% for (var i = 0 ; i < users.length ; i++){ %>
+                                            <% users[i].name %>
+                                            <option value=<%= users[i].id %>><%= users[i].name %></option>
+                                        <% }%>
+                                    </select>
+                                </div>
+                                <div class="mk-form-group">
+                                    <label class="mk-label">Mật khẩu
+                                    </label> 
+                                    <input type="password"  placeholder="Nhập Mật khẩu"  class="form-control" name="password" required>
+                                </div> 
+                            </div>   
+                            <div class="modal-footer">
+                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
+                    <button type="submit" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
+                </div>
+                        </form>
+                         
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
-                    <button type="button" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
-                </div>
+                
             </div>
             </div>
         </div>

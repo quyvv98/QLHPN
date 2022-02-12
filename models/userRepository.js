@@ -14,7 +14,7 @@ class UserRepository {
       user.religious religious,
       donvi.name donvi,
       title.name title,
-      capbac.name capbac,
+      capbac.name capbac
     FROM
       user
       LEFT JOIN capbac ON user.capbac_id = capbac.id
@@ -115,6 +115,23 @@ class UserRepository {
           console.log(err);
         } else {
           handle(rows);
+        }
+      });
+    });
+  };
+
+  newUser = (data) => {
+    return new Promise(function (handle) {
+      let sql = `
+      INSERT INTO user(name, birthday, address, male, family_situation, dangvien, religious, nhapngu)
+      VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+    `;
+      conn.query(sql, [data['name'], data['birthday'], data['address'], data['male'], data['family_situation'],
+       data['dangvien'], data['religious'], data['nhapngu']], (err, rows) => {
+        if (err) {
+          console.log(err);
+        } else {
+          handle(rows['insertId']);
         }
       });
     });
