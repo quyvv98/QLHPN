@@ -36,6 +36,7 @@ function route(app){
     app.get('/users',userController.getUsers)
     app.get('/users/add',userController.add)
     app.get('/users/:id',userController.getUser)
+    app.put('/users/:id',userController.update_user)
     app.get('/users/:id/edit',userController.editUser)
     app.post('/users/:id/delete',userController.removeUser)
     app.post('/users',userController.new_user)

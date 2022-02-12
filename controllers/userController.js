@@ -42,6 +42,16 @@ class UserController {
     });
   }
 
+  update_user(req, res) {
+    if (!req.session || !req.session.account) {
+      res.redirect("/login");
+    }
+    const id = req.params.id
+    userRepository.updateUser(req.body, id).then((userId) => {
+      res.redirect("/users/" + userId);
+    });
+  }
+
   getUser(req, res) {
     if (!req.session || !req.session.account) {
       res.redirect("/login");

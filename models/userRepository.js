@@ -137,6 +137,23 @@ class UserRepository {
     });
   };
 
+  updateUser = (data, userId) => {
+    return new Promise(function (handle) {
+      let sql = `
+      UPDATE user SET name = ?, birthday = ?, address = ?, male =?, family_situation =?, dangvien = ?, religious =?, nhapngu = ? 
+      WHERE id = ?
+    `;
+      conn.query(sql, [data['name'], data['birthday'], data['address'], data['male'], data['family_situation'],
+       data['dangvien'], data['religious'], data['nhapngu'], userId], (err, rows) => {
+        if (err) {
+          console.log(err);
+        } else {
+          handle(rows['insertId']);
+        }
+      });
+    });
+  };
+
   getHistory = (userId) => {
     return new Promise(function (handle) {
       let sql = `
