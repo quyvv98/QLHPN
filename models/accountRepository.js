@@ -1,5 +1,5 @@
 const { reject } = require("async");
-const session = require('express-session');
+const session = require("express-session");
 const { get } = require("express/lib/response");
 const { use } = require("express/lib/router");
 
@@ -18,7 +18,7 @@ class AccountRepository {
             return handle(null);
           } else {
             const accountId = rows[0].id;
-            const userId = rows[0].user_id 
+            const userId = rows[0].user_id;
             let updateLastLogin =
               "update account set last_login = now() where id = ?";
             conn.query(updateLastLogin, [accountId], (err, res) => {
@@ -27,26 +27,24 @@ class AccountRepository {
               } else {
                 console.log("update last_login success");
               }
-              
-            // get permission
-              let getUserInfo = "select sum(group_id) admin from user_group where user_id = ? and is_admin=1"
+
+              // get permission
+              let getUserInfo =
+                "select sum(group_id) admin from user_group where user_id = ? and is_admin=1";
               conn.query(getUserInfo, [userId], (err, permissions) => {
                 if (err) {
                   console.log("check permission fail");
                 } else {
-                  
                   console.log("check permission success");
                   const permission = permissions[0].admin;
 
-                  let account = rows[0]
-                  account.permission = permission
+                  let account = rows[0];
+                  account.permission = permission;
                   return handle({
-                    account: account
+                    account: account,
                   });
                 }
-                
-
-              })
+              });
             });
           }
         }
@@ -66,9 +64,11 @@ class AccountRepository {
         account
       JOIN user ON account.user_id = user.id
       `;
-      if(permission){
+      if (permission) {
         sql +=
-          ` JOIN (select * from user_group where group_id = ` + group_id + ` ) user_group ON user.id = user_group.user_id;
+          ` JOIN (select * from user_group where group_id = ` +
+          group_id +
+          ` ) user_group ON user.id = user_group.user_id;
           `;
       }
 
@@ -87,14 +87,11 @@ class AccountRepository {
                 accounts: accounts,
               });
             }
-            
-
-          })
+          });
         }
       });
     });
   };
-
 
   getAccount = (accountId) => {
     return new Promise(function (handle) {
@@ -129,13 +126,17 @@ class AccountRepository {
       VALUES(?, ?, ?, 1);
       `;
       //query database
-      conn.query(sql, [data['name'], data['password'], data['user_id']], (err, rows) => {
-        if (err) {
-          console.log(err);
-        } else {
-          handle(rows);
+      conn.query(
+        sql,
+        [data["name"], data["password"], data["user_id"]],
+        (err, rows) => {
+          if (err) {
+            console.log(err);
+          } else {
+            handle(rows);
+          }
         }
-      });
+      );
     });
   };
 

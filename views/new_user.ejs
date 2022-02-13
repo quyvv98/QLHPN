@@ -107,34 +107,38 @@
                   />
                 </div>
                 <div class="col-lg-3 col-md-6 mk-form-group">
-                    <label class="mk-label"
-                      >Giới tính <span class="color-error">*</span></label
-                    >
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                      name="male"
-                    >
-                      <option selected value=0>Giới tính</option>
-                      <option value=0>Name</option>
-                      <option value=1>Nữ/</option>
-                    </select>
-                  </div>
+                  <label class="mk-label"
+                    >Giới tính <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="male"
+                  >
+                    <option selected value="0">Giới tính</option>
+                    <option value="0">Nam</option>
+                    <option value="1">Nữ</option>
+                  </select>
+                </div>
 
-                  <div class="col-lg-3 col-md-6 mk-form-group">
-                    <label class="mk-label"
-                      >Đảng viên <span class="color-error">*</span></label
-                    >
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                      name="dangvien"
-                    >
-                      <option selected value=0>Đảng viên</option>
-                      <option value=0>Không</option>
-                      <option value=1>Có/</option>
-                    </select>
-                  </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Đảng viên <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="dangvien"
+                  >
+                    <option selected value="0">Đảng viên</option>
+                    <option value="0">Chi ủy viên</option>
+                    <option value="1">Bí thư chi bộ</option>
+                    <option value="1">PBT Chi bộ</option>
+                    <option value="1">PBT Đảng</option>
+                    ủy
+                    <option value="1">Chi ủy viên</option>
+                  </select>
+                </div>
                 <div class="col-lg-3 col-md-6 mk-form-group">
                   <label class="mk-label">Năm nhập ngũ </label>
                   <input
@@ -155,8 +159,21 @@
                   >
                     <option selected value="">Cấp bậc</option>
                     <option value="1/">1/</option>
+                    <option value="1/CN">1/CN</option>
+                    <option value="1//">1//</option>
+                    <option value="1//CN">1//CN</option>
                     <option value="2/">2/</option>
+                    <option value="2/CN">2/CN</option>
+                    <option value="2//">2//</option>
+                    <option value="2//CN/">2//CN</option>
                     <option value="3/">3/</option>
+                    <option value="3/CN">3/CN</option>
+                    <option value="3//">3//</option>
+                    <option value="3//CN">3//CN</option>
+                    <option value="4/">4/</option>
+                    <option value="4/CN">4/CN</option>
+                    <option value="4//">4//</option>
+                    <option value="4//CN">4//CN</option>
                   </select>
                 </div>
               </div>
@@ -173,7 +190,28 @@
                     <option selected value="">Đơn vị</option>
                     <option value="P1">P1</option>
                     <option value="P2">P2</option>
+                    <option value="P13">P13</option>
+                    <option value="P7">P7</option>
                     <option value="P3">P3</option>
+                    <option value="P4">P4</option>
+                    <option value="P5">P5</option>
+                    <option value="P8">P8</option>
+                    <option value="TTCNTT">TTCNTT</option>
+                    <option value="P9">P9</option>
+                    <option value="K11">K11</option>
+                    <option value="K12">K12</option>
+                    <option value="K13">K13</option>
+                    <option value="K21">K21</option>
+                    <option value="K23">K23</option>
+                    <option value="K22">K22</option>
+                    <option value="K11">K24</option>
+                    <option value="K11">K31</option>
+                    <option value="K11">K32</option>
+                    <option value="K11">K51</option>
+                    <option value="K11">K7</option>
+                    <option value="K11">K52</option>
+                    <option value="K11">K6</option>
+                    <option value="K11">K9</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -206,10 +244,9 @@
                     class="form-select"
                     aria-label="Default select example"
                   >
-                    <option selected value=0>Trình độ văn hóa</option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
+                    <option selected value="0">Trình độ văn hóa</option>
+                    <option value="1">12/12</option>
+                    <option value="2">10/10</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -221,7 +258,6 @@
                     <option selected value="">Trình độ chính trị</option>
                     <option value="Sơ cấp">Sơ cấp</option>
                     <option value="Trung cấp">Trung cấp</option>
-                    <option value="Đại học">Đại học</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -235,6 +271,10 @@
                     <option selected value="">Chức danh</option>
                     <option value="Nhân viên">Nhân viên</option>
                     <option value="Trợ lý">Trợ lý</option>
+                    <option value="CN Bộ môn">CN Bộ môn</option>
+                    <option value="Giáo viên">Giáo viên</option>
+                    <option value="Phó CN Khoa">Phó CN Khoa</option>
+                    <option value="Văn thư">Văn thư</option>
                   </select>
                 </div>
               </div>
@@ -248,8 +288,12 @@
                     aria-label="Default select example"
                   >
                     <option selected value="">Chức vụ đảng</option>
-                    <option value="Đảng viên">1</option>
-                    <option value="Bí thư chi bộ">2</option>
+                    <option value="0">Chi ủy viên</option>
+                    <option value="1">Bí thư chi bộ</option>
+                    <option value="2">PBT Chi bộ</option>
+                    <option value="3">PBT Đảng</option>
+                    ủy
+                    <option value="4">Chi ủy viên</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -259,9 +303,12 @@
                     aria-label="Default select example"
                   >
                     <option selected>Chức vụ chính quyền</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option value="Nhân viên">Nhân viên</option>
+                    <option value="Trợ lý">Trợ lý</option>
+                    <option value="CN Bộ môn">CN Bộ môn</option>
+                    <option value="Giáo viên">Giáo viên</option>
+                    <option value="Phó CN Khoa">Phó CN Khoa</option>
+                    <option value="Văn thư">Văn thư</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -274,8 +321,11 @@
                     aria-label="Default select example"
                   >
                     <option selected value="">Chức vụ quần chúng</option>
-                    <option value="Chủ tịch HPN">1</option>
-                    <option value="Hội viên HPN">2</option>
+                    <option value="Chủ tịch HPN">Chủ tịch HPN</option>
+                    <option value="Hội viên HPN">Hội viên HPN</option>
+                    <option value="Ủy viên HPN">Uỷ viên HPN</option>
+                    <option value="Ủy viên BCH CĐ">Uỷ viên BCH CĐ</option>
+                    <option value="Doàn viên CĐ">Doàn viên CĐ</option>
                   </select>
                 </div>
               </div>
@@ -325,7 +375,7 @@
             </div>
             <div class="mk-detail-bottom">
               <a href="/users" class="mk-btn mk-btn-secondary mr6">
-                  <i class="fas fa-ban mr6"></i>Hủy
+                <i class="fas fa-ban mr6"></i>Hủy
               </a>
 
               <button class="mk-btn mk-btn-primary">

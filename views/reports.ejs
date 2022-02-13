@@ -52,11 +52,12 @@
 
       <section class="main-content">
         <div class="mk-minibar-menu">
-          <% if(session.group_ids == '2' || session.group_ids == '1' || session.group_ids == '3'){ %>
-            <a href="/reports" class="mk-minibar-menu-item active">
-                <i class="fas fa-chart-line"></i>
-            </a>
-        <% } %>
+          <% if(session.group_ids == '2' || session.group_ids == '1' ||
+          session.group_ids == '3'){ %>
+          <a href="/reports" class="mk-minibar-menu-item active">
+            <i class="fas fa-chart-line"></i>
+          </a>
+          <% } %>
           <a href="/users" class="mk-minibar-menu-item">
             <i class="fas fa-child"></i>
           </a>
@@ -73,35 +74,38 @@
           <div class="mk-product-wrap mk-space">
             <div class="row">
               <div
-                class="col-lg-3 mb-6"
+                class="col-lg-3 mb-4"
                 style="margin-bottom: 20px; cursor: pointer"
               >
-                <a href="<%= group.other_link %>" style="color: #337ab7" id="name"
+                <a
+                  href="<%= group.other_link %>"
+                  style="color: #337ab7"
+                  id="name"
                   ><%= group.name %></a
                 >
               </div>
             </div>
 
             <div class="row">
-              <div class="col-lg-6 col-md-10">
+              <div class="col-lg-6 col-md-4 center">
                 <canvas id="capbac"></canvas>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-lg-6 col-md-10">
+              <div class="col-lg-6 col-md-4">
                 <canvas id="chuyenmon"></canvas>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-lg-6 col-md-10">
+              <div class="col-lg-6 col-md-4">
                 <canvas id="donvi"></canvas>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-lg-6 col-md-10">
+              <div class="col-lg-6 col-md-4">
                 <canvas id="title"></canvas>
               </div>
             </div>
@@ -176,7 +180,7 @@
   </body>
   <script type="text/javascript">
     // $("#datetimepicker").datepicker({ format: "dd.mm.yyyy" });
-      // Global Options
+    // Global Options
     Chart.defaults.global.defaultFontFamily = "Roboto";
     Chart.defaults.global.defaultFontSize = 12;
     Chart.defaults.global.defaultFontColor = "#777";
@@ -215,12 +219,12 @@
         "rgba(255, 159, 64, 0.6)",
       ].slice(list.length));
     }
-    const actionName = document.getElementById("name").text
-    console.log(actionName)
-    var link = "/reports/1/data"
-    if(actionName == "Hội công đoàn"){
-      console.log("change link to HCD", actionName, "Hội công đoàn")
-      link = "/reports/2/data"
+    const actionName = document.getElementById("name").text;
+    console.log(actionName);
+    var link = "/reports/1/data";
+    if (actionName == "Hội công đoàn") {
+      console.log("change link to HCD", actionName, "Hội công đoàn");
+      link = "/reports/2/data";
     }
     let myFetch = fetch(link);
     myFetch.then(function (response) {
@@ -231,7 +235,7 @@
         for (report of reports) {
           var labels = getLabels(report.data);
           var values = getValues(report.data);
-          console.log(report.name, values)
+          console.log(report.name, values);
           var colors = getColors(report.data);
           new Chart(document.getElementById(report.name).getContext("2d"), {
             type: "bar", // bar, horizontalBar, pie, line, doughnut, radar, polarArea

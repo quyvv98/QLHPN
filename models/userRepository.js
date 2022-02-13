@@ -37,8 +37,7 @@ class UserRepository {
 
   getUsers = (group_id) => {
     return new Promise(function (handle) {
-      let sql =
-        `
+      let sql = `
         SELECT DISTINCT
         user.id id,
         user.name name,
@@ -56,9 +55,11 @@ class UserRepository {
          `;
       if (group_id) {
         sql +=
-          ` JOIN (select * from user_group where group_id = ` + group_id + ` ) user_group ON user.id = user_group.user_id;
+          ` JOIN (select * from user_group where group_id = ` +
+          group_id +
+          ` ) user_group ON user.id = user_group.user_id;
           `;
-      } 
+      }
       //query database
       conn.query(sql, (err, rows) => {
         if (err) {
@@ -126,31 +127,57 @@ class UserRepository {
       INSERT INTO user(name, birthday, address, male, family_situation, dangvien, religious, nhapngu)
       VALUES(?, ?, ?, ?, ?, ?, ?, ?);
     `;
-      conn.query(sql, [data['name'], data['birthday'], data['address'], data['male'], data['family_situation'],
-       data['dangvien'], data['religious'], data['nhapngu']], (err, rows) => {
-        if (err) {
-          console.log(err);
-        } else {
-          handle(rows['insertId']);
+      conn.query(
+        sql,
+        [
+          data["name"],
+          data["birthday"],
+          data["address"],
+          data["male"],
+          data["family_situation"],
+          data["dangvien"],
+          data["religious"],
+          data["nhapngu"],
+        ],
+        (err, rows) => {
+          if (err) {
+            console.log(err);
+          } else {
+            handle(rows["insertId"]);
+          }
         }
-      });
+      );
     });
   };
 
   updateUser = (data, userId) => {
     return new Promise(function (handle) {
       let sql = `
-      UPDATE user SET name = ?, birthday = ?, address = ?, male =?, family_situation =?, dangvien = ?, religious =?, nhapngu = ? 
+      UPDATE user SET name = ?, birthday = ?, address = ?, male =?, family_situation =?, dangvien = ?, religious =?, nhapngu = ? , 
+      donvi_id = ?, title_id = ?, capbac_id = ?
       WHERE id = ?
     `;
-      conn.query(sql, [data['name'], data['birthday'], data['address'], data['male'], data['family_situation'],
-       data['dangvien'], data['religious'], data['nhapngu'], userId], (err, rows) => {
-        if (err) {
-          console.log(err);
-        } else {
-          handle(rows['insertId']);
+      conn.query(
+        sql,
+        [
+          data["name"],
+          data["birthday"],
+          data["address"],
+          data["male"],
+          data["family_situation"],
+          data["dangvien"],
+          data["religious"],
+          data["nhapngu"],
+          userId,
+        ],
+        (err, rows) => {
+          if (err) {
+            console.log(err);
+          } else {
+            handle(rows["insertId"]);
+          }
         }
-      });
+      );
     });
   };
 

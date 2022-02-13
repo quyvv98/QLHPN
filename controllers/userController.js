@@ -7,30 +7,29 @@ class UserController {
   getUsers = (req, res) => {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
-      return
+      return;
     }
-    let admin = req.session.account.permission
-    if(!admin){
-      const userId = req.session.account.user_id
+    let admin = req.session.account.permission;
+    if (!admin) {
+      const userId = req.session.account.user_id;
       userRepository.getUser(userId).then((users) => {
         res.render("users", { data: users, session: req.session });
       });
-    }else{
-      let admin_group_id =  admin
-      if(admin == '3'){
-        admin_group_id = null
+    } else {
+      let admin_group_id = admin;
+      if (admin == "3") {
+        admin_group_id = null;
       }
       userRepository.getUsers(admin_group_id).then((users) => {
         res.render("users", { data: users, session: req.session });
       });
     }
-    
   };
   add(req, res) {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
-    }else{
-      res.render("new_user", {data: {}, session: req.session});
+    } else {
+      res.render("new_user", { data: {}, session: req.session });
     }
   }
   new_user(req, res) {
@@ -46,7 +45,7 @@ class UserController {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
     }
-    const id = req.params.id
+    const id = req.params.id;
     userRepository.updateUser(req.body, id).then((userId) => {
       res.redirect("/users/" + userId);
     });
@@ -55,7 +54,7 @@ class UserController {
   getUser(req, res) {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
-      return
+      return;
     }
     const userId = req.params.id;
     userRepository.get(userId).then((user) => {
@@ -66,18 +65,16 @@ class UserController {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
     }
-    res.render("edit_user", { data: {} , session: req.session});
+    res.render("edit_user", { data: {}, session: req.session });
   }
   removeUser(req, res) {
     if (!req.session || !req.session.account) {
       res.redirect("/login");
     }
-    const userId = req.params.id
-    const groupId =  req.session.user.groupId
-    userRepository.removeUser(userId, groupId).then((result)=>{
-
-    })
-    res.redirect("/users")
+    const userId = req.params.id;
+    const groupId = req.session.user.groupId;
+    userRepository.removeUser(userId, groupId).then((result) => {});
+    res.redirect("/users");
   }
 }
 module.exports = new UserController();
