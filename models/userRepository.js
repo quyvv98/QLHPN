@@ -4,26 +4,27 @@ const conn = require("./connect");
 class UserRepository {
   get = (userId) => {
     return new Promise(function (handle) {
-      let sql = `SELECT
-      user.id id,
-      user.birthday birthday,
-      user.nhapngu nhapngu,
-      user.name name,
-      user.family_situation family_situation,
-      user.address address,
-      user.religious religious,
-      donvi.name donvi,
-      title.name title,
-      capbac.name capbac
-    FROM
-      user
-      LEFT JOIN capbac ON user.capbac_id = capbac.id
-      LEFT JOIN title ON user.title_id = title.id
-      LEFT JOIN donvi on user.donvi_id = donvi.id
-      LEFT JOIN award ON award.user_id = user.id
-      LEFT JOIN level on level.user_id = user.id
-    Where user.id = ?
-      group by user.id`;
+      let sql =
+       `
+SELECT
+          user.id id,
+          user.birthday birthday,
+          user.nhapngu nhapngu,
+          user.name name,
+          user.family_situation family_situation,
+          user.address address,
+          user.religious religious,
+          donvi.name donvi,
+          title.name title,
+          capbac.name capbac
+        FROM
+          user
+          LEFT JOIN capbac ON user.capbac_id = capbac.id
+          LEFT JOIN title ON user.title_id = title.id
+          LEFT JOIN donvi on user.donvi_id = donvi.id
+          LEFT JOIN award ON award.user_id = user.id
+        Where user.id = ?
+          group by user.id`;
       //query database
       conn.query(sql, [userId], (err, rows) => {
         if (err) {
