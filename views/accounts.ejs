@@ -1,98 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>QUẢN LÝ HỘI VIÊN- DANH SÁCH TÀI KHOẢN</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css2/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css2/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="./js2/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="main-site">
-      <header class="main-header">
-        <h2>QUẢN LÝ HỘI VIÊN</h2>
-        <div class="main-header-right">
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownName"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <%= session.account.username%>
-              <i class="fas fa-angle-down"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownName">
-              <a
-                class="dropdown-item"
-                href="javascript(0)"
-                data-toggle="modal"
-                data-target="#modalChangePass"
-                >Đổi mật khẩu</a
-              >
-              <a class="dropdown-item" href="/logout">Đăng xuất</a>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- main-header -->
+    <head>
+        <meta charset="utf-8">
+        <title>QUẢN LÝ HỘI VIÊN- DANH SÁCH TÀI KHOẢN</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css2/bootstrap.min.css">
+        <link rel="stylesheet" href="./css2/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="./js2/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="main-site">
+            <header class="main-header">
+                <h2>QUẢN LÝ HỘI VIÊN</h2>
+                <div class="main-header-right">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <%= session.account.username%>
+                          <i class="fas fa-angle-down"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownName">
+                          <a class="dropdown-item" href="javascript(0)" 
+                          data-toggle="modal" data-target="#modalChangePass">Đổi mật khẩu</a>
+                          <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- main-header -->
 
-      <section class="main-content">
-        <div class="mk-minibar-menu">
-          <% if(session.group_ids == '2' || session.group_ids == '1' ||
-          session.group_ids == '3'){ %>
-          <a href="/reports" class="mk-minibar-menu-item">
-            <i class="fas fa-chart-line"></i>
-          </a>
-          <% } %>
-          <a href="/users" class="mk-minibar-menu-item">
-            <i class="fas fa-child"></i>
-          </a>
-          <a href="/accounts" class="mk-minibar-menu-item active">
-            <i class="fas fa-user-circle"></i>
-          </a>
-        </div>
-        <div class="mk-panel-tab-content">
-          <% if (session.group_ids == '1' || session.group_ids == '2' ||
-          session.group_ids == '3'){ %>
+            <section class="main-content">
+                <div class="mk-minibar-menu">
+                    <% if(session.group_ids == '2' || session.group_ids == '1' || session.group_ids == '3'){ %>
+                        <a href="/reports" class="mk-minibar-menu-item">
+                            <i class="fas fa-chart-line"></i>
+                        </a>
+                    <% } %>
+                    <a href="/users" class="mk-minibar-menu-item">
+                        <i class="fas fa-child"></i>
+                    </a>
+                    <a href="/accounts" class="mk-minibar-menu-item active">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </div>
+                <div class="mk-panel-tab-content">
+                    <% if (session.group_ids == '1' || session.group_ids == '2' || session.group_ids == '3'){ %>
 
-          <div class="tab-content-topbar">
-            <div class="bar-left">
-              <h6 class="mb-0">Danh sách tài khoản</h6>
-            </div>
+                    <div class="tab-content-topbar">
+                        <div class="bar-left">
+                            <h6 class="mb-0">
+                                Danh sách tài khoản
+                            </h6> 
+                        </div>
 
-            <div class="bar-right">
-              <div class="text-right bar-right-item">
-                <strong class="mb-0 fs-12"
-                  >Tổng số tài khoản:
-                  <span class="color-brand-secondary"><%= data.length %></span>
-                </strong>
-              </div>
-              <div class="bar-right-item">
-                <button
-                  type="button"
-                  class="mk-btn mk-btn-primary"
-                  data-toggle="modal"
-                  data-target="#modalAccount"
-                >
-                  <i class="fas fa-plus"></i>
-                  Thêm mới tài khoản
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="mk-product-filter">
+                        <div class="bar-right">
+                            <div class="text-right bar-right-item">
+                                <strong class="mb-0 fs-12">Tổng số tài khoản: 
+                                    <span class="color-brand-secondary"><%= data.length %></span>
+                                </strong>
+                            </div> 
+                            <div class="bar-right-item">
+                                <button type="button" class="mk-btn mk-btn-primary" data-toggle="modal" 
+                                data-target="#modalAccount">
+                                    <i class="fas fa-plus"></i>
+                                    Thêm mới tài khoản
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- <div class="mk-product-filter">
                         <div class="mk-product-filter-dropdown mk-dropdowns-inline">
                             <strong>Phân loại theo:</strong>
                             <select class="form-select" aria-label="Default select example">
@@ -103,13 +81,12 @@
                             </select>
                         </div>
                     </div> -->
-          <% } %>
-          <div class="mk-product-wrap">
-            <% if (session.group_ids == '1' || session.group_ids == '2' ||
-            session.group_ids == '3'){ %>
+                    <% } %>
+                    <div class="mk-product-wrap">
+                    <% if (session.group_ids == '1' || session.group_ids == '2' || session.group_ids == '3'){ %>
 
-            <!-- <div class="mk-header-checkall justify-content-start"> -->
-            <!-- <div class="mk-custom-checkbox custom-control custom-checkbox">
+                        <!-- <div class="mk-header-checkall justify-content-start"> -->
+                            <!-- <div class="mk-custom-checkbox custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" 
                                 value="true" id="__BVID__5316">
                                 <label class="custom-control-label" for="__BVID__5316">
@@ -132,55 +109,55 @@
                                     <strong>Khóa</strong>
                                 </a> 
                             </div> -->
-            <!-- </div> -->
+                        <!-- </div> -->
 
-            <!-- <div class="mk-search-form">
+                        <!-- <div class="mk-search-form">
                             <i class="fas fa-search"></i>
                             <input type="search" placeholder="Tìm kiếm theo <%= session.account.username%>, số điện thoại, email" class="form-control">
                         </div> -->
-            <% } %>
+                    <% } %>
 
-            <div id="mk-table" class="mk-table-list">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <!-- <th scope="col"></th> -->
-                    <th scope="col">Tên</th>
-                    <th scope="col">Thời gian đăng nhập lần cuối</th>
-                    <th scope="col">Thao tác</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% for (var i = 0 ; i < data.length ; i++){ %>
+                        <div id="mk-table" class="mk-table-list">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <!-- <th scope="col"></th> -->
+                                    <th scope="col">Tên</th>
+                                    <th scope="col">Thời gian đăng nhập lần cuối </th>
+                                    <th scope="col">Thao tác</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var i = 0 ; i < data.length ; i++){ %>
 
-                  <tr>
-                    <!-- <td>
+                                        <tr>
+                                          <!-- <td>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
                                             </div>
                                           </td> -->
-                    <td><%= data[i].name %></td>
-                    <td><%= data[i].last_login %></td>
-                    <td class="cell-operation cell-pinned">
-                      <div class="input-group input-group-options p-0 border-0">
-                        <a title="Khóa" class="item mk-action-delete active">
-                          <i class="fas fa-lock"></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <% } %>
-                </tbody>
-              </table>
+                                          <td><%= data[i].name %></td>
+                                          <td><%= data[i].last_login %></td>
+                                          <td class="cell-operation cell-pinned">
+                                              <div class="input-group input-group-options p-0 border-0">
+                                                  <a title="Khóa" class="item mk-action-delete active">
+                                                      <i class="fas fa-lock"></i>
+                                                  </a> 
+                                              </div>
+                                          </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
 
-              <!-- Không tìm thấy tài khoản -->
-              <!-- <div class="mk-search-notfound">
+                            <!-- Không tìm thấy tài khoản -->
+                            <!-- <div class="mk-search-notfound">
                                 <i class="fas fa-user-circle"></i><br>
                                 <p>Không tìm thấy tài khoản nào</p>
                             </div> -->
-            </div>
-
-            <!-- <div class="pagination-wrap">
+                        </div>
+                        
+                        <!-- <div class="pagination-wrap">
                             <ul  class="pagination mk-pagination b-pagination">
                                 <li role="presentation" class="page-item active">
                                     <button class="page-link">1</button>
@@ -190,36 +167,25 @@
                                 </li>
                             </ul> 
                         </div> -->
-          </div>
+                    </div>
+                </div>
+            </section>
+            <!-- main-content -->
         </div>
-      </section>
-      <!-- main-content -->
-    </div>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="modalAccount"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Thêm mới thông tin tài khoản</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="account-form row">
-              <!-- <div class="account-left col">
+        <!-- Modal -->
+        <div class="modal fade" id="modalAccount" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Thêm mới thông tin tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="account-form row">
+                        <!-- <div class="account-left col">
                             <div class="mk-card-row mk-image-preview">
                                 <div class="aspect-ratio-1-1 w-100">
                                     <img alt="" class="mk-favicon-preview lazyLoad isLoaded" 
@@ -247,127 +213,69 @@
                                 </div>
                             </div>
                         </div> -->
-              <form action="/accounts" method="post">
-                <div class="account-right col">
-                  <div class="mk-form-group">
-                    <label class="mk-label"
-                      >Tên tài khoản <span class="color-error">*</span></label
-                    >
-                    <input
-                      type="text"
-                      placeholder="Nhập Tên tài khoản"
-                      class="form-control"
-                      name="name"
-                      required
-                    />
-                  </div>
-                  <div class="col mk-form-group">
-                    <label class="mk-label">Chọn người dùng</label>
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                      name="user_id"
-                      required
-                      name="user_id"
-                    >
-                      <% for (var i = 0 ; i < users.length ; i++){ %> <%
-                      users[i].name %>
-                      <option value="<%" ="users[i].id" %>
-                        ><%= users[i].name %>
-                      </option>
-                      <% }%>
-                    </select>
-                  </div>
-                  <div class="mk-form-group">
-                    <label class="mk-label">Mật khẩu </label>
-                    <input
-                      type="password"
-                      placeholder="Nhập Mật khẩu"
-                      class="form-control"
-                      name="password"
-                      required
-                    />
-                  </div>
+                        <form action="/accounts" method="post">
+                            <div class="account-right col">
+                                <div class="mk-form-group">
+                                    <label class="mk-label">Tên tài khoản <span class="color-error">*</span></label> 
+                                    <input type="text" placeholder="Nhập Tên tài khoản" class="form-control" name="name" required>
+                                </div> 
+                                <div class="col mk-form-group">
+                                    <label class="mk-label">Chọn người dùng</label>
+                                    <select class="form-select" aria-label="Default select example" name="user_id" required name="user_id">
+                                        <% for (var i = 0 ; i < users.length ; i++){ %>
+                                            <% users[i].name %>
+                                            <option value=<%= users[i].id %>><%= users[i].name %></option>
+                                        <% }%>
+                                    </select>
+                                </div>
+                                <div class="mk-form-group">
+                                    <label class="mk-label">Mật khẩu
+                                    </label> 
+                                    <input type="password"  placeholder="Nhập Mật khẩu"  class="form-control" name="password" required>
+                                </div> 
+                            </div>   
+                            <div class="modal-footer">
+                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
+                    <button type="submit" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
+                </div>
+                        </form>
+                         
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalChangePass" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Đổi mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mk-form-group">
+                        <label class="mk-label">Mật khẩu cũ </label>
+                        <input type="text" placeholder="Nhập Mật khẩu cũ" class="form-control">
+                    </div>
+                    <div class="mk-form-group">
+                        <label class="mk-label">Mật khẩu mới </label>
+                        <input type="text" placeholder="Nhập Mật khẩu mới" class="form-control">
+                    </div>
+                    <div class="mk-form-group">
+                        <label class="mk-label">Nhập lại mật khẩu </label>
+                        <input type="text" placeholder="Nhập lại mật khẩu" class="form-control">
+                    </div>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="mk-btn mk-btn-secondary mr6"
-                    data-dismiss="modal"
-                  >
-                    <i class="fas fa-ban mr6"></i>Hủy bỏ
-                  </button>
-                  <button type="submit" class="mk-btn mk-btn-primary">
-                    <i class="fas fa-save mr6"></i> Lưu
-                  </button>
+                    <button type="button" class="mk-btn mk-btn-secondary mr6" data-dismiss="modal"> <i class="fas fa-ban mr6"></i>Hủy bỏ</button>
+                    <button type="button" class="mk-btn mk-btn-primary"><i class="fas fa-save mr6"></i> Lưu</button>
                 </div>
-              </form>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="modalChangePass"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document" style="width: 500px">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Đổi mật khẩu</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="mk-form-group">
-              <label class="mk-label">Mật khẩu cũ </label>
-              <input
-                type="text"
-                placeholder="Nhập Mật khẩu cũ"
-                class="form-control"
-              />
-            </div>
-            <div class="mk-form-group">
-              <label class="mk-label">Mật khẩu mới </label>
-              <input
-                type="text"
-                placeholder="Nhập Mật khẩu mới"
-                class="form-control"
-              />
-            </div>
-            <div class="mk-form-group">
-              <label class="mk-label">Nhập lại mật khẩu </label>
-              <input
-                type="text"
-                placeholder="Nhập lại mật khẩu"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="mk-btn mk-btn-secondary mr6"
-              data-dismiss="modal"
-            >
-              <i class="fas fa-ban mr6"></i>Hủy bỏ
-            </button>
-            <button type="button" class="mk-btn mk-btn-primary">
-              <i class="fas fa-save mr6"></i> Lưu
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
