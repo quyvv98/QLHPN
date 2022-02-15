@@ -30,8 +30,8 @@ SELECT
           LEFT JOIN capbac ON user.capbac_id = capbac.id
           LEFT JOIN title ON user.title_id = title.id
           LEFT JOIN donvi on user.donvi_id = donvi.id
+          LEFT JOIN award on user.award_id = award.id
           LEFT JOIN (select * from level where type = "chuyenmon") level ON level.user_id = user.id
-          LEFT JOIN (select * from award where award.user_id = ? ) award ON 1 = 1
           
         Where user.id = ?`;
       //query database
@@ -198,6 +198,7 @@ SELECT
           data["donvi"],
           data["title"],
           data["capbac"],
+          data["award"],
           userId,
         ],
         (err, rows) => {

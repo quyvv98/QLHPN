@@ -362,8 +362,10 @@
                     value="<%=data.user.award%>"
                     name="award"
                   >
-                    <option value="Giấy khen Đảng">Giấy khen Đảng</option>
-                    <option value="CSTT">CSTT</option>
+                  <option value=<%=data.user.award_id%>><%=data.user.award%></option>
+
+                    <option value=1>Giấy khen Đảng</option>
+                    <option value=2>CSTT</option>
                     <option value="Giấy khen PN">Giấy khen PN</option>
                     <option value="Bằng khen TCCT">Bằng khen TCCT</option>
                   </select>
