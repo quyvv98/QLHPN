@@ -48,7 +48,7 @@
         </div>
       </header>
       <!-- main-header -->
-      <form action="/users/<%=data.id%>/update" method="post">
+      <form action="/users/<%=data.user.id%>/update" method="post">
         <section class="main-content">
           <div class="mk-minibar-menu">
             <% if(session.group_ids == '2' || session.group_ids == '1' ||
@@ -83,7 +83,7 @@
                     type="text"
                     placeholder="Nhập Họ và Tên"
                     class="form-control"
-                    value="<%= data.name %>"
+                    value="<%= data.user.name %>"
                     name="name"
                   />
                 </div>
@@ -93,7 +93,7 @@
                     type="text"
                     placeholder="Nhập Năm sinh"
                     class="form-control"
-                    value="<%= data.birthday %>"
+                    value="<%= data.user.birthday %>"
                     name="birthday"
                   />
                 </div>
@@ -103,7 +103,7 @@
                     type="text"
                     placeholder="Nhập Năm nhập ngũ"
                     class="form-control"
-                    value="<%= data.nhapngu %>"
+                    value="<%= data.user.nhapngu %>"
                     name="nhapngu"
                   />
                 </div>
@@ -113,7 +113,7 @@
                     type="text"
                     placeholder="Nhập địa chỉ"
                     class="form-control"
-                    value="<%= data.address %>"
+                    value="<%= data.user.address %>"
                     name="address"
                   />
                 </div>
@@ -125,25 +125,27 @@
                     class="form-select"
                     aria-label="Default select example"
                     name="capbac"
-                    value="<%= data.capbac %>"
+                    value="<%= data.user.capbac %>"
                   >
-                  <option value="<%= data.capbac_id %>"><%= data.capbac %></option>
-                    <option value=1>1/</option>
-                    <option value=2>1/CN</option>
-                    <option value=3>1//</option>
-                    <option value=4>1//CN</option>
-                    <option value=5>2/</option>
-                    <option value=6>2/CN</option>
-                    <option value=7>2//</option>
-                    <option value=8>2//CN</option>
-                    <option value=9>3/</option>
-                    <option value=10>3/CN</option>
-                    <option value=11>3//</option>
-                    <option value=12>3//CN</option>
-                    <option value=13>4/</option>
-                    <option value=14>4/CN</option>
-                    <option value=15>4//</option>
-                    <option value=16>4//CN</option>
+                    <option value="<%= data.user.capbac_id %>">
+                      <%= data.user.capbac %>
+                    </option>
+                    <option value="1">1/</option>
+                    <option value="2">1/CN</option>
+                    <option value="3">1//</option>
+                    <option value="4">1//CN</option>
+                    <option value="5">2/</option>
+                    <option value="6">2/CN</option>
+                    <option value="7">2//</option>
+                    <option value="8">2//CN</option>
+                    <option value="9">3/</option>
+                    <option value="10">3/CN</option>
+                    <option value="11">3//</option>
+                    <option value="12">3//CN</option>
+                    <option value="13">4/</option>
+                    <option value="14">4/CN</option>
+                    <option value="15">4//</option>
+                    <option value="16">4//CN</option>
                   </select>
                 </div>
               </div>
@@ -156,34 +158,36 @@
                     class="form-select"
                     aria-label="Default select example"
                     name="donvi"
-                    value="<%=data.donvi_id%>"
+                    value="<%=data.user.donvi_id%>"
                   >
-                  <option  value="<%=data.donvi_id%>"><%=data.donvi%></option>
-                    <option value=0></option>
-                    <option value=1>P1</option>
-                    <option value=2>P2</option>
-                    <option value=3>P13</option>
-                    <option value=4>P7</option>
-                    <option value=5>P3</option>
-                    <option value=6>P4</option>
-                    <option value=7>P5</option>
-                    <option value=8>P8</option>
-                    <option value=9>TTCNTT</option>
-                    <option value=10>P9</option>
-                    <option value=11>K11</option>
-                    <option value=12>K12</option>
-                    <option value=13>K13</option>
-                    <option value=14>K21</option>
-                    <option value=15>K23</option>
-                    <option value=16>K22</option>
-                    <option value=17>K24</option>
-                    <option value=18>K31</option>
-                    <option value=19>K32</option>
-                    <option value=20>K51</option>
-                    <option value=21>K7</option>
-                    <option value=22>K52</option>
-                    <option value=23>K6</option>
-                    <option value=24>K9</option>
+                    <option value="<%=data.user.donvi_id%>">
+                      <%=data.user.donvi%>
+                    </option>
+                    <option value="0"></option>
+                    <option value="1">P1</option>
+                    <option value="2">P2</option>
+                    <option value="3">P13</option>
+                    <option value="4">P7</option>
+                    <option value="5">P3</option>
+                    <option value="6">P4</option>
+                    <option value="7">P5</option>
+                    <option value="8">P8</option>
+                    <option value="9">TTCNTT</option>
+                    <option value="10">P9</option>
+                    <option value="11">K11</option>
+                    <option value="12">K12</option>
+                    <option value="13">K13</option>
+                    <option value="14">K21</option>
+                    <option value="15">K23</option>
+                    <option value="16">K22</option>
+                    <option value="17">K24</option>
+                    <option value="18">K31</option>
+                    <option value="19">K32</option>
+                    <option value="20">K51</option>
+                    <option value="21">K7</option>
+                    <option value="22">K52</option>
+                    <option value="23">K6</option>
+                    <option value="24">K9</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -201,7 +205,7 @@
                     type="text"
                     placeholder="Nhập Tôn giáo"
                     class="form-control"
-                    value="<%=data.religious %>"
+                    value="<%=data.user.religious %>"
                     name="religious"
                   />
                 </div>
@@ -232,6 +236,19 @@
                     <option value="Trung cấp">Trung cấp</option>
                   </select>
                 </div>
+
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"> Trình độ chuyen mon </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="trinhdochinhtri"
+                  >
+                    <option value="<%=data.user.level%>"><%=data.user.level%></option>
+                    <option value="Sơ cấp">Sơ cấp</option>
+                    <option value="Trung cấp">Trung cấp</option>
+                  </select>
+                </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
                   <label class="mk-label"
                     >Chức danh <span class="color-error">*</span></label
@@ -241,23 +258,25 @@
                     aria-label="Default select example"
                     name="title"
                   >
-                    <option value="<%= data.title_id %>">
-                      <%= data.title %>/
-                    <option value=0></option>
-                    <option value=15>Nhân viên</option>
-                  <option value=16>Trợ lý</option>
-                  <option value=17>CN Bộ môn</option>
-                  <option value=18>Giáo viên</option>
-                  <option value=19>Phó CN Khoa</option>
-                  <option value=20>Văn thư</option>
-                  <option value=21>NVKT</option>
-                  <option value=22>Giảng viên</option>
-                  <option value=23>KTV</option>
-                  <option value=24>Bếp trưởng</option>
-                  <option value=25>Học viên</option>
-                  <option value=26>Quản lý bếp</option>
-                  <option value=27>Trợ lý CĐ-PN</option>
-                  <option value=28>Kế toán</option>
+                    <option value="<%= data.user.title_id %>">
+                      <%= data.user.title %>/
+                    </option>
+
+                    <option value="0"></option>
+                    <option value="15">Nhân viên</option>
+                    <option value="16">Trợ lý</option>
+                    <option value="17">CN Bộ môn</option>
+                    <option value="18">Giáo viên</option>
+                    <option value="19">Phó CN Khoa</option>
+                    <option value="20">Văn thư</option>
+                    <option value="21">NVKT</option>
+                    <option value="22">Giảng viên</option>
+                    <option value="23">KTV</option>
+                    <option value="24">Bếp trưởng</option>
+                    <option value="25">Học viên</option>
+                    <option value="26">Quản lý bếp</option>
+                    <option value="27">Trợ lý CĐ-PN</option>
+                    <option value="28">Kế toán</option>
                   </select>
                 </div>
               </div>
@@ -271,11 +290,11 @@
                     aria-label="Default select example"
                     name="chucvudang"
                   >
-                    <option value=1>Bí thư chi bộ</option>
-                    <option value=2>PBT Chi bộ</option>
-                    <option value=3>PBT Đảng</option>
+                    <option value="1">Bí thư chi bộ</option>
+                    <option value="2">PBT Chi bộ</option>
+                    <option value="3">PBT Đảng</option>
                     ủy
-                    <option value=4>Chi ủy viên</option>
+                    <option value="4">Chi ủy viên</option>
                   </select>
                 </div>
                 <div class="col-lg-4 col-md-6 mk-form-group">
@@ -337,19 +356,16 @@
                   </div>
                 </div> -->
                 <div class="col-lg-3 col-md-6 mk-form-group">
-                  <label class="mk-label"
-                    >Khen thưởng
-                  </label>
+                  <label class="mk-label">Khen thưởng </label>
                   <select
-                  class="form-control"
-                  value="<%=data.award%>"
-                  name="award"
+                    class="form-control"
+                    value="<%=data.user.award%>"
+                    name="award"
                   >
-                  <option value=2>Giấy khen Đảng</option>
-                  <option value="Hội viên HPN">Hội viên HPN</option>
-                  <option value="Ủy viên HPN">Uỷ viên HPN</option>
-                  <option value="Ủy viên BCH CĐ">Uỷ viên BCH CĐ</option>
-                  <option value="Doàn viên CĐ">Doàn viên CĐ</option>
+                    <option value="Giấy khen Đảng">Giấy khen Đảng</option>
+                    <option value="CSTT">CSTT</option>
+                    <option value="Giấy khen PN">Giấy khen PN</option>
+                    <option value="Bằng khen TCCT">Bằng khen TCCT</option>
                   </select>
                 </div>
                 <div class="col-lg-6 col-md-6 mk-form-group">
@@ -358,7 +374,7 @@
                     type="text"
                     placeholder="Nhập Nội dung"
                     class="form-control"
-                    value="<%= data.family_situation %>"
+                    value="<%= data.user.family_situation %>"
                   />
                 </div>
               </div>
@@ -374,9 +390,8 @@
             </div>
           </div>
         </section>
-
         <div class="mk-detail-bottom">
-          <a href="/users/<%=data.id%>" class="mk-btn mk-btn-secondary mr6"
+          <a href="/users/<%=data.user.id%>" class="mk-btn mk-btn-secondary mr6"
             ><i class="fas fa-ban mr6"></i>Hủy</a
           >
 
@@ -412,23 +427,47 @@
           <div class="modal-body">
             <div class="row">
               <div class="col-lg-3 col-md-3">
-                <label class="mk-label">Cấp bậc </label>
+                <label class="mk-label">Time</label>
+              </div>
+              <div class="col-lg-2 col-md-2">
+                <label class="mk-label">Cấp bậc</label>
+              </div>
+              <div class="col-lg-2 col-md-2">
+                <label class="mk-label">Title</label>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <label class="mk-label">Award</label>
+              </div>
+            </div>
+            <% for (var i = 0 ; i < data.history.length ; i++){ %>
+            <div class="row">
+              <div class="col-lg-3 col-md-3">
                 <div class="form-group">
                   <ul>
-                    <li>Ngày 1/1/1998</li>
-                    <li>Ngày 1/1/1998</li>
+                    <li><%=data.history[i].created_time%></li>
                   </ul>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-3">
-                <label class="mk-label" style="opacity: 0">Cấp bậc</label>
+              <div class="col-lg-2 col-md-2">
                 <ul>
-                  <li>1</li>
-                  <li>2</li>
+                  <li><%=data.history[i].capbac%></li>
+                </ul>
+              </div>
+              <div class="col-lg-2 col-md-2">
+                <ul>
+                  <li><%=data.history[i].title%></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-3">
+                <ul>
+                  <li><%=data.history[i].award%></li>
                 </ul>
               </div>
             </div>
-            <div class="row">
+
+            <%}%>
+            <!-- <div class="row">
               <div class="col-lg-3 col-md-3">
                 <label class="mk-label">Trình độ chuyên môn </label>
                 <div class="form-group">
@@ -482,7 +521,7 @@
                   <li>CSTT</li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="modal-footer">
             <button

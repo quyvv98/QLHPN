@@ -935,6 +935,7 @@ CREATE TABLE `user` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `capbac_id` int DEFAULT NULL,
   `title_id` int DEFAULT NULL,
+  `award_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `donvi_id` (`donvi_id`),
   KEY `capbac_id` (`capbac_id`),
@@ -1228,45 +1229,13 @@ select * from donvi;
 DROP TABLE IF EXISTS `award`;
 CREATE TABLE `award` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `namkhen` int DEFAULT NULL,
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'Bằng khen TCCT', 2016);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'Bằng khen TCCT', 2020);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'Giấy khen Đảng', 2017);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'Giấy khen PN', 2017);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'Giấy khen PN', 2019);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'CSTĐ', 2017);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'CSTT', 2018);
-INSERT INTO award (user_id, name, namkhen)
-values (39, 'CSTT', 2019);
-INSERT INTO award (user_id, name, namkhen)
-values (40, 'CSTT', 2018);
-INSERT INTO award (user_id, name, namkhen)
-values (40, 'CSTT', 2019);
-INSERT INTO award (user_id, name, namkhen)
-values (41, 'CSTĐ', 2016);
-INSERT INTO award (user_id, name, namkhen)
-values (41, 'Giấy khen PN', 2016);
-INSERT INTO award (user_id, name, namkhen)
-values (41, 'Giấy khen PN', 2019);
-INSERT INTO award (user_id, name, namkhen)
-values (41, 'CSTT', 2017);
-INSERT INTO award (user_id, name, namkhen)
-values (41, 'CSTT', 2019);
 
 
 

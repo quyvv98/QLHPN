@@ -1,5 +1,6 @@
 const { reject } = require("async");
 const { use } = require("express/lib/router");
+const { updatePassword } = require("./accountRepository");
 const conn = require("./connect");
 class UserRepository {
   get = (userId) => {
@@ -21,20 +22,42 @@ SELECT
           capbac.id capbac_id,
           capbac.name capbac,
           award.id award_id,
-          award.name award
+          award.name award,
+          level.id level_id,
+          level.value level
         FROM
           user
           LEFT JOIN capbac ON user.capbac_id = capbac.id
           LEFT JOIN title ON user.title_id = title.id
           LEFT JOIN donvi on user.donvi_id = donvi.id
-          LEFT JOIN award ON award.user_id = user.id
+          LEFT JOIN (select * from level where type = "chuyenmon") level ON level.user_id = user.id
+          LEFT JOIN (select * from award where award.user_id = ? ) award ON 1 = 1
+          
         Where user.id = ?`;
       //query database
-      conn.query(sql, [userId], (err, rows) => {
+      conn.query(sql, [userId, userId], (err, rows) => {
         if (err) {
           console.log(err);
         } else {
-          handle(rows[0]);
+          sql = `select title.name title,
+                capbac.name capbac,
+                 award.name award, 
+                 history.created_time created_time
+                from history 
+                left join title on history.title_id = title.id
+                left join capbac on history.capbac_id = capbac.id
+                left join award on history.award_id = award.id
+                where history.user_id = ? `
+                conn.query(sql, [userId], (err, history) => {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    handle({
+                      user: rows[0],
+                      history: history
+                    });
+                  }
+                })
         }
       });
     });
@@ -109,14 +132,12 @@ SELECT
           title.id title,
           capbac.id capbac,
           award.name award,
-          level.value level
         FROM
           user
           LEFT JOIN capbac ON user.capbac_id = capbac.id
           LEFT JOIN title ON user.title_id = title.id
           LEFT JOIN donvi on user.donvi_id = donvi.id
           LEFT JOIN award ON award.user_id = user.id
-          LEFT JOIN (select * from level where type ="chuyenmon") level on level.user_id = user.id
         Where user.id = ?;
     `;
       conn.query(sql, [userId], (err, rows) => {
@@ -162,7 +183,7 @@ SELECT
     return new Promise(function (handle) {
       let sql = `
       UPDATE user SET name = ?, birthday = ?, address = ?, family_situation =?, religious =?, nhapngu = ? , 
-      donvi_id = ?, title_id = ?, capbac_id = ?
+      donvi_id = ?, title_id = ?, capbac_id = ?, award_id =? 
       WHERE id = ?
     `;
       conn.query(

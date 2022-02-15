@@ -57,8 +57,8 @@ class UserController {
       return;
     }
     const userId = req.params.id;
-    userRepository.get(userId).then((user) => {
-      res.render("user", { data: user, session: req.session });
+    userRepository.get(userId).then((data) => {
+      res.render("user", { data: data, session: req.session, history: data.history});
     });
   }
   editUser(req, res) {

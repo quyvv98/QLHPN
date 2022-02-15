@@ -87,7 +87,7 @@ class ReportRepository {
     WHERE
       level.type = 'chuyenmon'
     GROUP BY
-      level.id;
+      level.value;
       `;
 
     let donviSql = `
