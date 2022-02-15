@@ -183,7 +183,26 @@ SELECT
           if (err) {
             console.log(err);
           } else {
-            handle(rows);
+            sql = `
+            INSERT history(title_id, user_id, capbac_id, award_id) 
+            VALUES (?, ?, ?, ?)
+          `;
+          conn.query(
+            sql,
+            [
+              data["title"],
+              userId,
+              data["capbac"],
+              data["award"],
+            ],
+            (err, rows) => {
+              if (err) {
+                console.log(err);
+              } else {
+                handle(rows);
+              }
+            }
+          );
           }
         }
       );

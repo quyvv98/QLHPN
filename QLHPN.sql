@@ -45,7 +45,7 @@ CREATE TABLE `level` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO level (value, type, user_id)
@@ -66,12 +66,114 @@ INSERT INTO level (value, type, user_id)
 VALUES ('12/12', 'vanhoa', 46);
 INSERT INTO level (value, type, user_id)
 VALUES ('12/12', 'vanhoa', 47);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 48);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 49);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 50);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 51);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 52);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 53);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 54);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 55);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 56);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 57);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 58);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 59);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 60);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 61);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 62);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 63);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 64);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 65);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 66);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 67);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 68);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 69);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 70);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 71);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 72);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 73);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 74);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 75);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 76);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 77);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 78);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 79);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 80);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 81);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 82);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 83);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 84);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 85);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 86);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 87);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 88);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 89);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 90);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 91);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 92);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 93);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 94);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 95);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 96);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 97);
+INSERT INTO level (value, type, user_id)
+VALUES ('12/12', 'vanhoa', 98);
 INSERT INTO level (value, type ,user_id)
 VALUES ('10/10', 'vanhoa', 99);
 INSERT INTO level (value, type, user_id)
 VALUES ('Sơ cấp', 'chinhtri', 39);
-INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 99);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 40);
 INSERT INTO level (value, type, user_id)
 VALUES ('Sơ cấp', 'chinhtri', 41);
 INSERT INTO level (value, type, user_id)
@@ -86,8 +188,104 @@ INSERT INTO level (value, type, user_id)
 VALUES ('Sơ cấp', 'chinhtri', 46);
 INSERT INTO level (value, type, user_id)
 VALUES ('Sơ cấp', 'chinhtri', 47);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 48);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 49);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 50);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 51);
 INSERT INTO level (value, type,user_id)
-VALUES ('Trung cấp', 'chinhtri', 40);
+VALUES ('Trung cấp', 'chinhtri', 52);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 53);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 54);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 55);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 57);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 58);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 59);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 60);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 61);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 62);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 63);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 64);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 65);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 66);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 67);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 68);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 69);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 70);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 71);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 72);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 73);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 74);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chinhtri', 75);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chinhtri', 76);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chinhtri', 77);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chinhtri', 78);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 79);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 80);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 81);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 82);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 83);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 84);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 85);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 86);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 87);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 88);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 89);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 90);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 91);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 92);
+INSERT INTO level (value, type, user_id)
+VALUES ('Sơ cấp', 'chinhtri', 93);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 94);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 95);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 96);
+INSERT INTO level (value, type,user_id)
+VALUES ('Trung cấp', 'chinhtri', 97);
 INSERT INTO level (value, type, user_id)
 VALUES ('Cao đẳng', 'chuyenmon',39);
 INSERT INTO level (value, type, user_id)
@@ -103,17 +301,113 @@ VALUES ('Đại học', 'chuyenmon',47);
 INSERT INTO level (value, type,user_id)
 VALUES ('Sơ cấp', 'chuyenmon',43);
 INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 48);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 49);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 50);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 51);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',52);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',53);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 54);
+INSERT INTO level (value, type, user_id)
 VALUES ('Trung cấp', 'chuyenmon', 99);
 INSERT INTO level (value, type, user_id)
 VALUES ('Trung cấp', 'chuyenmon', 45);
 INSERT INTO level (value, type, user_id)
 VALUES ('Trung cấp', 'chuyenmon', 46);
-INSERT INTO level (value, type)
-VALUES ('Tiến sĩ', 'chuyenmon');
-INSERT INTO level (value, type)
-VALUES ('Cử nhân', 'chuyenmon');
-INSERT INTO level (value, type)
-VALUES ('Kỹ sư', 'chuyenmon');
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',55);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',56);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',57);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',58);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',59);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',60);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',61);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',62);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',63);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',64);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',65);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',66);
+INSERT INTO level (value, type,user_id)
+VALUES ('Cử nhân', 'chuyenmon',67);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',68);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',69);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',70);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',71);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',72);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',73);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',74);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chuyenmon',75);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',76);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',77);
+INSERT INTO level (value, type, user_id)
+VALUES ('Cao đẳng', 'chuyenmon',78);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',79);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',80);
+INSERT INTO level (value, type,user_id)
+VALUES ('Cử nhân', 'chuyenmon',81);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',82);
+INSERT INTO level (value, type,user_id)
+VALUES ('Kỹ sư', 'chuyenmon',83);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',84);
+INSERT INTO level (value, type,user_id)
+VALUES ('Tiến sĩ', 'chuyenmon',85);
+INSERT INTO level (value, type, user_id)
+VALUES ('Cao đẳng', 'chuyenmon',86);
+INSERT INTO level (value, type, user_id)
+VALUES ('Cao đẳng', 'chuyenmon',87);
+INSERT INTO level (value, type, user_id)
+VALUES ('Cao đẳng', 'chuyenmon',88);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',89);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 90);
+INSERT INTO level (value, type,user_id)
+VALUES ('Sơ cấp', 'chuyenmon',91);
+INSERT INTO level (value, type, user_id)
+VALUES ('Trung cấp', 'chuyenmon', 92);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',93);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',94);
+INSERT INTO level (value, type,user_id)
+VALUES ('Thạc sĩ', 'chuyenmon',95);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',96);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',97);
+INSERT INTO level (value, type,user_id)
+VALUES ('Đại học', 'chuyenmon',98);
 
 
 DROP TABLE IF EXISTS `position`;
@@ -126,9 +420,8 @@ CREATE TABLE `position` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `position_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `position_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 
 INSERT INTO position (value, type,user_id)
 VALUES ('Đảng viên', 'dang',39);
@@ -146,14 +439,104 @@ INSERT INTO position (value, type,user_id)
 VALUES ('Đảng viên', 'dang',46);
 INSERT INTO position (value, type,user_id)
 VALUES ('Đảng viên', 'dang',47);
-INSERT INTO position (value, type)
-VALUES ('Chi ủy viên', 'dang');
-INSERT INTO position (value, type)
-VALUES ('Bí thư Chi bộ', 'dang');
-INSERT INTO position (value, type)
-VALUES ('PBT Chi bộ', 'dang');
-INSERT INTO position (value, type)
-VALUES ('PBT dang ủy', 'dang');
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',48);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',50);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',51);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',52);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',53);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',54);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',55);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',56);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',57);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',58);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',59);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi ủy viên', 'dang',60);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',61);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',62);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',63);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',64);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi ủy viên', 'dang',65);
+INSERT INTO position (value, type,user_id)
+VALUES ('Bí thư Chi bộ', 'dang',66);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',67);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',68);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',69);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',70);
+INSERT INTO position (value, type,user_id)
+VALUES ('PBT Chi bộ', 'dang',71);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',72);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',73);
+INSERT INTO position (value, type,user_id)
+VALUES ('PBT dang ủy', 'dang',74);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',75);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi ủy viên', 'dang',76);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',77);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',78);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',80);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',81);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',82);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',83);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',85);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',86);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',87);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',88);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',89);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',90);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',92);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',93);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',94);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',95);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',96);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',99);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',100);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',101);
+INSERT INTO position (value, type,user_id)
+VALUES ('Đảng viên', 'dang',104);
 INSERT INTO position (value, type,user_id)
 VALUES ('Chủ tịch HPN', 'quanchung', 39);
 INSERT INTO position (value, type,user_id)
@@ -164,7 +547,6 @@ INSERT INTO position (value, type, user_id)
 VALUES ('Hội viên HPN', 'quanchung', 43);
 INSERT INTO position (value, type, user_id)
 VALUES ('Hội viên HPN', 'quanchung', 44);
-
 INSERT INTO position (value, type,user_id)
 VALUES ('Ủy viên BCH CĐ', 'quanchung',40);
 INSERT INTO position (value, type, user_id)
@@ -175,26 +557,186 @@ INSERT INTO position (value, type, user_id)
 VALUES ('Phó CT HPN', 'quanchung', 42);
 INSERT INTO position (value, type, user_id)
 VALUES ('Đoàn viên CĐ', 'quanchung', 43);
-INSERT INTO position (value, type)
-VALUES ('BCH Hội đồng QN', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Nguyên Chủ tịch HPN', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Phó CT CĐ', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Tổ trưởng CĐ', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Chi hội trưởng', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Chi hội phó', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Nguyên Phó CT HPN', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('PBT Chi đoàn', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('PBT Liên chi', 'quanchung');
-INSERT INTO position (value, type)
-VALUES ('Chủ tịch CĐ', 'quanchung');
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 47);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 48);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 49);
+INSERT INTO position (value, type, user_id)
+VALUES ('Phó CT HPN', 'quanchung', 50);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 51);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 52);
+INSERT INTO position (value, type, user_id)
+VALUES ('Phó CT HPN', 'quanchung', 53);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 54);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 55);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 56);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Chủ tịch HPN', 'quanchung',57);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 58);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 59);
+INSERT INTO position (value, type, user_id)
+VALUES ('Phó CT HPN', 'quanchung', 60);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 61);
+INSERT INTO position (value, type,user_id)
+VALUES ('Ủy viên BCH CĐ', 'quanchung',61);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 62);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 63);
+INSERT INTO position (value, type,user_id)
+VALUES ('BCH Hội đồng QN', 'quanchung',63);
+INSERT INTO position (value, type, user_id)
+VALUES ('Phó CT HPN', 'quanchung', 64);
+INSERT INTO position (value, type, user_id)
+VALUES ('Phó CT HPN', 'quanchung', 65);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 66);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 67);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 68);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 69);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Chủ tịch HPN', 'quanchung',70);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 71);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 72);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 73);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 74);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 75);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 76);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 77);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 78);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 79);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Phó CT HPN', 'quanchung',80);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Chủ tịch HPN', 'quanchung',81);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 82);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 83);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 84);
+INSERT INTO position (value, type, user_id)
+VALUES ('Đoàn viên CĐ', 'quanchung', 84);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 85);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Chủ tịch HPN', 'quanchung',86);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 87);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 88);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT CĐ', 'quanchung',88);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Chủ tịch HPN', 'quanchung',89);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 90);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 91);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 92);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 93);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 94);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 95);
+INSERT INTO position (value, type, user_id)
+VALUES ('Ủy viên HPN', 'quanchung', 96);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 97);
+INSERT INTO position (value, type, user_id)
+VALUES ('Đoàn viên CĐ', 'quanchung', 97);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 98);
+INSERT INTO position (value, type, user_id)
+VALUES ('Đoàn viên CĐ', 'quanchung', 98);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Chủ tịch HPN', 'quanchung',99);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 100);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 101);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 102);
+INSERT INTO position (value, type,user_id)
+VALUES ('Tổ trưởng CĐ', 'quanchung',103);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 103);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch CĐ', 'quanchung',104);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 104);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 105);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 106);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 107);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 108);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội trưởng', 'quanchung',109);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội phó', 'quanchung',110);
+INSERT INTO position (value, type,user_id)
+VALUES ('Nguyên Phó CT HPN', 'quanchung',111);
+INSERT INTO position (value, type,user_id)
+VALUES ('PBT Chi đoàn', 'quanchung',112);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội trưởng', 'quanchung',112);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội trưởng', 'quanchung',113);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội phó', 'quanchung',114);
+INSERT INTO position (value, type,user_id)
+VALUES ('PBT Chi đoàn', 'quanchung',115);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 115);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội trưởng', 'quanchung',116);
+INSERT INTO position (value, type,user_id)
+VALUES ('PBT Liên chi', 'quanchung',117);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chi hội phó', 'quanchung',117);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 118);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 119);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 120);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT CĐ', 'quanchung',121);
+INSERT INTO position (value, type, user_id)
+VALUES ('Hội viên HPN', 'quanchung', 121);
+INSERT INTO position (value, type,user_id)
+VALUES ('Chủ tịch HPN', 'quanchung', 122);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 123);
+INSERT INTO position (value, type,user_id)
+VALUES ('Phó CT HPN', 'quanchung', 124);
 
 
 
@@ -397,9 +939,9 @@ CREATE TABLE `user` (
   KEY `donvi_id` (`donvi_id`),
   KEY `capbac_id` (`capbac_id`),
   KEY `title_id` (`title_id`),
-  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`donvi_id`) REFERENCES `donvi` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `user_ibfk_2` FOREIGN KEY (`capbac_id`) REFERENCES `capbac` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `user_ibfk_3` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`) ON DELETE CASCADE
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`donvi_id`) REFERENCES `donvi` (`id`),
+  CONSTRAINT `user_ibfk_2` FOREIGN KEY (`capbac_id`) REFERENCES `capbac` (`id`),
+  CONSTRAINT `user_ibfk_3` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
@@ -693,7 +1235,7 @@ CREATE TABLE `award` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO award (user_id, name, namkhen)
 values (39, 'Bằng khen TCCT', 2016);
@@ -740,7 +1282,7 @@ CREATE TABLE `account` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `member_id` (`user_id`),
-  CONSTRAINT `account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO account (username,password, user_id, active)
@@ -755,25 +1297,25 @@ VALUES ('CTCD', '123', 104, 1);
 DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title_id` int DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
+  
   `user_id` int NOT NULL,
   `level_id` int DEFAULT NULL,
-  `position_id` int DEFAULT NULL,
+  `capbac_id` int DEFAULT NULL,
+   `award_id` int DEFAULT NULL,
+   `title_id` int DEFAULT NULL,
   `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  `award_id` int DEFAULT NULL,
+ 
   PRIMARY KEY (`id`),
   KEY `title_id` (`title_id`),
   KEY `member_id` (`user_id`),
   KEY `level_id` (`level_id`),
-  KEY `position_id` (`position_id`),
   KEY `award_id` (`award_id`),
-  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `history_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `history_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `level` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `history_ibfk_4` FOREIGN KEY (`position_id`) REFERENCES `position` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `history_ibfk_5` FOREIGN KEY (`award_id`) REFERENCES `award` (`id`) ON DELETE CASCADE
+  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`),
+  CONSTRAINT `history_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `history_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `level` (`id`),
+  CONSTRAINT `history_ibfk_4` FOREIGN KEY (`capbac_id`) REFERENCES `capbac` (`id`),
+  CONSTRAINT `history_ibfk_5` FOREIGN KEY (`award_id`) REFERENCES `award` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `user_group`;
@@ -787,8 +1329,8 @@ CREATE TABLE `user_group` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `group_id` (`group_id`),
-  CONSTRAINT `user_group_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `user_group_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE
+  CONSTRAINT `user_group_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `user_group_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user_group (user_id,group_id,is_admin)
@@ -860,7 +1402,31 @@ INSERT INTO user_group (user_id,group_id,is_admin) VALUES (90,1,0);
 INSERT INTO user_group (user_id,group_id,is_admin) VALUES (91,1,0);
 INSERT INTO user_group (user_id,group_id,is_admin) VALUES (92,1,0);
 INSERT INTO user_group (user_id,group_id,is_admin) VALUES (93,1,0);
-INSERT INTO user_group (user_id,group_id,is_admin) VALUES (93,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (94,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (95,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (96,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (97,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (97,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (98,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (98,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (99,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (100,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (101,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (102,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (103,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (103,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (104,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (104,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (105,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (106,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (107,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (108,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (109,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (110,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (111,1,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (112,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (113,2,0);
+INSERT INTO user_group (user_id,group_id,is_admin) VALUES (114,2,0);
 
 
 
