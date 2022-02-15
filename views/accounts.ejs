@@ -140,9 +140,15 @@
                                           <td><%= data[i].last_login %></td>
                                           <td class="cell-operation cell-pinned">
                                               <div class="input-group input-group-options p-0 border-0">
-                                                  <a title="Khóa" class="item mk-action-delete active">
-                                                      <i class="fas fa-lock"></i>
-                                                  </a> 
+                                                <% if (data[i].active == 1) {%>
+                                                <a title="Khóa" class="item mk-action-delete active" href="/accounts/<%= data[i].account_id %>/lock">
+                                                    <i class="fas fa-lock"></i>
+                                                </a> 
+                                                  <%} else {%>
+                                                <a title="Mở khóa" class="item mk-action-delete active" href="/accounts/<%= data[i].account_id %>/unlock">
+                                                    <i class="fas fa-unlock"></i>
+                                                </a> 
+                                                <%}%>
                                               </div>
                                           </td>
                                         </tr>
@@ -185,7 +191,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="account-form row">
-                        <!-- <div class="account-left col">
+                        <div class="account-left col">
                             <div class="mk-card-row mk-image-preview">
                                 <div class="aspect-ratio-1-1 w-100">
                                     <img alt="" class="mk-favicon-preview lazyLoad isLoaded" 
@@ -212,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <form action="/accounts" method="post">
                             <div class="account-right col">
                                 <div class="mk-form-group">

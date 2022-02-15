@@ -45,69 +45,69 @@ CREATE TABLE `level` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `level_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 1);
+VALUES ('12/12', 'vanhoa', 39);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 2);
+VALUES ('12/12', 'vanhoa', 40);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 3);
+VALUES ('12/12', 'vanhoa', 41);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 4);
+VALUES ('12/12', 'vanhoa', 42);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 5);
+VALUES ('12/12', 'vanhoa', 43);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 6);
+VALUES ('12/12', 'vanhoa', 44);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 7);
+VALUES ('12/12', 'vanhoa', 45);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 8);
+VALUES ('12/12', 'vanhoa', 46);
 INSERT INTO level (value, type, user_id)
-VALUES ('12/12', 'vanhoa', 9);
-INSERT INTO level (value, type ,user_ide)
-VALUES ('10/10', 'vanhoa', 61);
+VALUES ('12/12', 'vanhoa', 47);
+INSERT INTO level (value, type ,user_id)
+VALUES ('10/10', 'vanhoa', 99);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 1);
+VALUES ('Sơ cấp', 'chinhtri', 39);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 61);
+VALUES ('Sơ cấp', 'chinhtri', 99);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 3);
+VALUES ('Sơ cấp', 'chinhtri', 41);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 4);
+VALUES ('Sơ cấp', 'chinhtri', 42);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 5);
+VALUES ('Sơ cấp', 'chinhtri', 43);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 6);
+VALUES ('Sơ cấp', 'chinhtri', 44);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 7);
+VALUES ('Sơ cấp', 'chinhtri', 45);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 8);
+VALUES ('Sơ cấp', 'chinhtri', 46);
 INSERT INTO level (value, type, user_id)
-VALUES ('Sơ cấp', 'chinhtri', 9);
+VALUES ('Sơ cấp', 'chinhtri', 47);
 INSERT INTO level (value, type,user_id)
-VALUES ('Trung cấp', 'chinhtri', 2);
+VALUES ('Trung cấp', 'chinhtri', 40);
 INSERT INTO level (value, type, user_id)
-VALUES ('Cao đẳng', 'chuyenmon',1);
+VALUES ('Cao đẳng', 'chuyenmon',39);
 INSERT INTO level (value, type, user_id)
-VALUES ('Cao đẳng', 'chuyenmon',4);
+VALUES ('Cao đẳng', 'chuyenmon',42);
 INSERT INTO level (value, type, user_id)
-VALUES ('Cao đẳng', 'chuyenmon',6);
+VALUES ('Cao đẳng', 'chuyenmon',44);
 INSERT INTO level (value, type,user_id)
-VALUES ('Thạc sĩ', 'chuyenmon',2);
+VALUES ('Thạc sĩ', 'chuyenmon',40);
 INSERT INTO level (value, type,user_id)
-VALUES ('Đại học', 'chuyenmon',3);
+VALUES ('Đại học', 'chuyenmon',41);
 INSERT INTO level (value, type,user_id)
-VALUES ('Đại học', 'chuyenmon',9);
+VALUES ('Đại học', 'chuyenmon',47);
 INSERT INTO level (value, type,user_id)
-VALUES ('Sơ cấp', 'chuyenmon',5);
+VALUES ('Sơ cấp', 'chuyenmon',43);
 INSERT INTO level (value, type, user_id)
-VALUES ('Trung cấp', 'chuyenmon', 61);
+VALUES ('Trung cấp', 'chuyenmon', 99);
 INSERT INTO level (value, type, user_id)
-VALUES ('Trung cấp', 'chuyenmon', 7);
+VALUES ('Trung cấp', 'chuyenmon', 45);
 INSERT INTO level (value, type, user_id)
-VALUES ('Trung cấp', 'chuyenmon', 8);
+VALUES ('Trung cấp', 'chuyenmon', 46);
 INSERT INTO level (value, type)
 VALUES ('Tiến sĩ', 'chuyenmon');
 INSERT INTO level (value, type)
@@ -126,26 +126,26 @@ CREATE TABLE `position` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `position_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `position_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',1);
+VALUES ('Đảng viên', 'dang',39);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',2);
+VALUES ('Đảng viên', 'dang',40);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',3);
+VALUES ('Đảng viên', 'dang',41);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',4);
+VALUES ('Đảng viên', 'dang',42);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',6);
+VALUES ('Đảng viên', 'dang',44);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',7);
+VALUES ('Đảng viên', 'dang',45);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',8);
+VALUES ('Đảng viên', 'dang',46);
 INSERT INTO position (value, type,user_id)
-VALUES ('Đảng viên', 'dang',9);
+VALUES ('Đảng viên', 'dang',47);
 INSERT INTO position (value, type)
 VALUES ('Chi ủy viên', 'dang');
 INSERT INTO position (value, type)
@@ -155,26 +155,26 @@ VALUES ('PBT Chi bộ', 'dang');
 INSERT INTO position (value, type)
 VALUES ('PBT dang ủy', 'dang');
 INSERT INTO position (value, type,user_id)
-VALUES ('Chủ tịch HPN', 'quanchung', 1);
+VALUES ('Chủ tịch HPN', 'quanchung', 39);
 INSERT INTO position (value, type,user_id)
-VALUES ('Chủ tịch HPN', 'quanchung', 7);
+VALUES ('Chủ tịch HPN', 'quanchung', 45);
 INSERT INTO position (value, type, user_id)
-VALUES ('Hội viên HPN', 'quanchung', 2);
+VALUES ('Hội viên HPN', 'quanchung', 40);
 INSERT INTO position (value, type, user_id)
-VALUES ('Hội viên HPN', 'quanchung', 5);
+VALUES ('Hội viên HPN', 'quanchung', 43);
 INSERT INTO position (value, type, user_id)
-VALUES ('Hội viên HPN', 'quanchung', 6);
+VALUES ('Hội viên HPN', 'quanchung', 44);
 
 INSERT INTO position (value, type,user_id)
-VALUES ('Ủy viên BCH CĐ', 'quanchung',2);
+VALUES ('Ủy viên BCH CĐ', 'quanchung',40);
 INSERT INTO position (value, type, user_id)
-VALUES ('Ủy viên HPN', 'quanchung', 3);
+VALUES ('Ủy viên HPN', 'quanchung', 41);
 INSERT INTO position (value, type, user_id)
-VALUES ('Ủy viên HPN', 'quanchung', 8);
+VALUES ('Ủy viên HPN', 'quanchung', 46);
 INSERT INTO position (value, type, user_id)
-VALUES ('Phó CT HPN', 'quanchung', 4);
+VALUES ('Phó CT HPN', 'quanchung', 42);
 INSERT INTO position (value, type, user_id)
-VALUES ('Đoàn viên CĐ', 'quanchung', 5);
+VALUES ('Đoàn viên CĐ', 'quanchung', 43);
 INSERT INTO position (value, type)
 VALUES ('BCH Hội đồng QN', 'quanchung');
 INSERT INTO position (value, type)
@@ -397,9 +397,9 @@ CREATE TABLE `user` (
   KEY `donvi_id` (`donvi_id`),
   KEY `capbac_id` (`capbac_id`),
   KEY `title_id` (`title_id`),
-  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`donvi_id`) REFERENCES `donvi` (`id`),
-  CONSTRAINT `user_ibfk_2` FOREIGN KEY (`capbac_id`) REFERENCES `capbac` (`id`),
-  CONSTRAINT `user_ibfk_3` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`)
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`donvi_id`) REFERENCES `donvi` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_ibfk_2` FOREIGN KEY (`capbac_id`) REFERENCES `capbac` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_ibfk_3` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user (name,birthday, dangvien, donvi_id, nhapngu, capbac_id, title_id)
@@ -693,7 +693,7 @@ CREATE TABLE `award` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `award_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO award (user_id, name, namkhen)
 values (39, 'Bằng khen TCCT', 2016);
@@ -740,7 +740,7 @@ CREATE TABLE `account` (
   `updated_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `member_id` (`user_id`),
-  CONSTRAINT `account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO account (username,password, user_id, active)
@@ -769,11 +769,11 @@ CREATE TABLE `history` (
   KEY `level_id` (`level_id`),
   KEY `position_id` (`position_id`),
   KEY `award_id` (`award_id`),
-  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`),
-  CONSTRAINT `history_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `history_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `level` (`id`),
-  CONSTRAINT `history_ibfk_4` FOREIGN KEY (`position_id`) REFERENCES `position` (`id`),
-  CONSTRAINT `history_ibfk_5` FOREIGN KEY (`award_id`) REFERENCES `award` (`id`)
+  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`title_id`) REFERENCES `title` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `history_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `history_ibfk_3` FOREIGN KEY (`level_id`) REFERENCES `level` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `history_ibfk_4` FOREIGN KEY (`position_id`) REFERENCES `position` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `history_ibfk_5` FOREIGN KEY (`award_id`) REFERENCES `award` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `user_group`;
@@ -787,8 +787,8 @@ CREATE TABLE `user_group` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `group_id` (`group_id`),
-  CONSTRAINT `user_group_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `user_group_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`)
+  CONSTRAINT `user_group_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_group_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO user_group (user_id,group_id,is_admin)

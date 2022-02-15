@@ -56,6 +56,7 @@ class AccountRepository {
     return new Promise(function (handle) {
       let sql = `
       SELECT
+        account.id account_id,
         user.name name,
         active,
         user.id userId,
@@ -160,6 +161,20 @@ class AccountRepository {
       });
     });
   };
+  lock = (accountId, status) => {
+    return new Promise(function (handle) {
+      let sql = `update account set active  = ? where id = ?`;
+      //query database
+      conn.query(sql, [status, accountId], (err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          handle(res);
+        }
+      });
+    });
+  };
+  
 }
 
 module.exports = new AccountRepository();

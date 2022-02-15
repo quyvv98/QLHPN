@@ -34,9 +34,9 @@ function route(app) {
   app.get("/users", userController.getUsers);
   app.get("/users/add", userController.add);
   app.get("/users/:id", userController.getUser);
-  app.put("/users/:id", userController.update_user);
+  app.post("/users/:id/update", userController.update_user);
   app.get("/users/:id/edit", userController.editUser);
-  app.post("/users/:id/delete", userController.removeUser);
+  app.get("/users/:id/delete", userController.removeUser);
   app.post("/users", userController.new_user);
 
   app.get("/accounts", accountController.getAccounts);
@@ -44,6 +44,8 @@ function route(app) {
   app.get("/accounts/:id", accountController.getAccount);
   app.get("/accounts/:id/edit", accountController.editAccount);
   app.post("/accounts/:id/change-password", accountController.editPassword);
+  app.get("/accounts/:id/lock", accountController.lockAccount);
+  app.get("/accounts/:id/unlock", accountController.unlockAccount);
 
   app.delete("/accounts/:id", accountController.removeAccount);
 

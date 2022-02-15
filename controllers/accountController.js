@@ -98,6 +98,26 @@ class AccountController {
         }
       });
   };
+  lockAccount = (req, res) =>{
+    const accountId = req.params.id
+    accountRepository
+      .lock(accountId, 0)
+      .then((result) => {
+        if (result && result.affectedRows > 0) {
+          res.redirect("/accounts");
+        }
+      });
+  }
+  unlockAccount = (req, res) =>{
+    const accountId = req.params.id
+    accountRepository
+      .lock(accountId, 1)
+      .then((result) => {
+        if (result && result.affectedRows > 0) {
+          res.redirect("/accounts");
+        }
+      });
+  }
 }
 
 module.exports = new AccountController();

@@ -48,280 +48,343 @@
         </div>
       </header>
       <!-- main-header -->
-
-      <section class="main-content">
-        <div class="mk-minibar-menu">
-          <% if(session.group_ids == '2' || session.group_ids == '1' ||
-          session.group_ids == '3'){ %>
-          <a href="/reports" class="mk-minibar-menu-item">
-            <i class="fas fa-chart-line"></i>
-          </a>
-          <% } %>
-          <a href="/users" class="mk-minibar-menu-item">
-            <i class="fas fa-child"></i>
-          </a>
-          <a href="/accounts" class="mk-minibar-menu-item active">
-            <i class="fas fa-user-circle"></i>
-          </a>
-        </div>
-        <div class="mk-panel-tab-content">
-          <div class="tab-content-topbar">
-            <div class="bar-left">
-              <h6 class="mb-0">
-                <a href="/users">Danh sách hội viên</a> >
-                <span>Thêm mới hội viên</span>
-              </h6>
-            </div>
+      <form action="/users/<%=data.id%>/update" method="post">
+        <section class="main-content">
+          <div class="mk-minibar-menu">
+            <% if(session.group_ids == '2' || session.group_ids == '1' ||
+            session.group_ids == '3'){ %>
+            <a href="/reports" class="mk-minibar-menu-item">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <% } %>
+            <a href="/users" class="mk-minibar-menu-item active">
+              <i class="fas fa-child"></i>
+            </a>
+            <a href="/accounts" class="mk-minibar-menu-item">
+              <i class="fas fa-user-circle"></i>
+            </a>
           </div>
-          <div class="mk-product-wrap mk-space">
-            <div class="row">
-              <div class="col-lg-3 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Họ và Tên <span class="color-error">*</span></label
-                >
-                <input
-                  type="text"
-                  placeholder="Nhập Họ và Tên"
-                  class="form-control"
-                  value="<%= data.name %>"
-                />
-              </div>
-              <div class="col-lg-3 col-md-6 mk-form-group">
-                <label class="mk-label">Năm sinh </label>
-                <input
-                  type="text"
-                  placeholder="Nhập Năm sinh"
-                  class="form-control"
-                  value="<%= data.birthday %>"
-                />
-              </div>
-              <div class="col-lg-3 col-md-6 mk-form-group">
-                <label class="mk-label">Năm nhập ngũ </label>
-                <input
-                  type="text"
-                  placeholder="Nhập Năm nhập ngũ"
-                  class="form-control"
-                  value="<%= data.nhapngu %>"
-                />
-              </div>
-              <div class="col-lg-3 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Cấp bậc <span class="color-error">*</span></label
-                >
-                <select
-                  class="form-select"
-                  aria-label="Default select example"
-                  name="capbac"
-                  value="<%= data.capbac %>"
-                >
-                  <option value="<%= data.capbac %>"><%= data.capbac %>/</option>
-                  <option value="1/">1/</option>
-                  <option value="1/CN">1/CN</option>
-                  <option value="1//">1//</option>
-                  <option value="1//CN">1//CN</option>
-                  <option value="2/">2/</option>
-                  <option value="2/CN">2/CN</option>
-                  <option value="2//">2//</option>
-                  <option value="2//CN/">2//CN</option>
-                  <option value="3/">3/</option>
-                  <option value="3/CN">3/CN</option>
-                  <option value="3//">3//</option>
-                  <option value="3//CN">3//CN</option>
-                  <option value="4/">4/</option>
-                  <option value="4/CN">4/CN</option>
-                  <option value="4//">4//</option>
-                  <option value="4//CN">4//CN</option>
-                </select>
+          <div class="mk-panel-tab-content">
+            <div class="tab-content-topbar">
+              <div class="bar-left">
+                <h6 class="mb-0">
+                  <a href="/users">Danh sách hội viên</a> >
+                  <span>Thêm mới hội viên</span>
+                </h6>
               </div>
             </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Đơn vị <span class="color-error">*</span></label
-                >
-                <select
-                  class="form-select"
-                  aria-label="Default select example"
-                  name="donvi"
-                  value="<%=data.donvi%>"
-                >
-                <option value="<%= data.donvi %>"><%= data.donvi %>/</option>
-                  <option value="P1">P1</option>
-                  <option value="P2">P2</option>
-                  <option value="P13">P13</option>
-                  <option value="P7">P7</option>
-                  <option value="P3">P3</option>
-                  <option value="P4">P4</option>
-                  <option value="P5">P5</option>
-                  <option value="P8">P8</option>
-                  <option value="TTCNTT">TTCNTT</option>
-                  <option value="P9">P9</option>
-                  <option value="K11">K11</option>
-                  <option value="K12">K12</option>
-                  <option value="K13">K13</option>
-                  <option value="K21">K21</option>
-                  <option value="K23">K23</option>
-                  <option value="K22">K22</option>
-                  <option value="K11">K24</option>
-                  <option value="K11">K31</option>
-                  <option value="K11">K32</option>
-                  <option value="K11">K51</option>
-                  <option value="K11">K7</option>
-                  <option value="K11">K52</option>
-                  <option value="K11">K6</option>
-                  <option value="K11">K9</option>
-                </select>
+            <div class="mk-product-wrap mk-space">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Họ và Tên <span class="color-error">*</span></label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Nhập Họ và Tên"
+                    class="form-control"
+                    value="<%= data.name %>"
+                    name="name"
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Năm sinh </label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Năm sinh"
+                    class="form-control"
+                    value="<%= data.birthday %>"
+                    name="birthday"
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Năm nhập ngũ </label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Năm nhập ngũ"
+                    class="form-control"
+                    value="<%= data.nhapngu %>"
+                    name="nhapngu"
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Địa chỉ </label>
+                  <input
+                    type="text"
+                    placeholder="Nhập địa chỉ"
+                    class="form-control"
+                    value="<%= data.address %>"
+                    name="address"
+                  />
+                </div>
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Cấp bậc <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="capbac"
+                    value="<%= data.capbac %>"
+                  >
+                  <option value="<%= data.capbac_id %>"><%= data.capbac %></option>
+                    <option value=1>1/</option>
+                    <option value=2>1/CN</option>
+                    <option value=3>1//</option>
+                    <option value=4>1//CN</option>
+                    <option value=5>2/</option>
+                    <option value=6>2/CN</option>
+                    <option value=7>2//</option>
+                    <option value=8>2//CN</option>
+                    <option value=9>3/</option>
+                    <option value=10>3/CN</option>
+                    <option value=11>3//</option>
+                    <option value=12>3//CN</option>
+                    <option value=13>4/</option>
+                    <option value=14>4/CN</option>
+                    <option value=15>4//</option>
+                    <option value=16>4//CN</option>
+                  </select>
+                </div>
               </div>
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label">Dân tộc </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option value="Kinh">Kinh</option>
-                </select>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Đơn vị <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="donvi"
+                    value="<%=data.donvi_id%>"
+                  >
+                  <option  value="<%=data.donvi_id%>"><%=data.donvi%></option>
+                    <option value=0></option>
+                    <option value=1>P1</option>
+                    <option value=2>P2</option>
+                    <option value=3>P13</option>
+                    <option value=4>P7</option>
+                    <option value=5>P3</option>
+                    <option value=6>P4</option>
+                    <option value=7>P5</option>
+                    <option value=8>P8</option>
+                    <option value=9>TTCNTT</option>
+                    <option value=10>P9</option>
+                    <option value=11>K11</option>
+                    <option value=12>K12</option>
+                    <option value=13>K13</option>
+                    <option value=14>K21</option>
+                    <option value=15>K23</option>
+                    <option value=16>K22</option>
+                    <option value=17>K24</option>
+                    <option value=18>K31</option>
+                    <option value=19>K32</option>
+                    <option value=20>K51</option>
+                    <option value=21>K7</option>
+                    <option value=22>K52</option>
+                    <option value=23>K6</option>
+                    <option value=24>K9</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label">Dân tộc </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option value="Kinh">Kinh</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label">Tôn giáo</label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Tôn giáo"
+                    class="form-control"
+                    value="<%=data.religious %>"
+                    name="religious"
+                  />
+                </div>
               </div>
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label">Tôn giáo</label>
-                <input
-                  type="text"
-                  placeholder="Nhập Tôn giáo"
-                  class="form-control" value="<%=data.religious %>"
-                />
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Trình độ văn hóa <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="trinhdovanhoa"
+                  >
+                    <option value="12">12/12</option>
+                    <option value="10">10/10</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"> Trình độ chính trị </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="trinhdochinhtri"
+                  >
+                    <option selected>Trình độ chính trị</option>
+                    <option value="Sơ cấp">Sơ cấp</option>
+                    <option value="Trung cấp">Trung cấp</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Chức danh <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="title"
+                  >
+                    <option value="<%= data.title_id %>">
+                      <%= data.title %>/
+                    <option value=0></option>
+                    <option value=15>Nhân viên</option>
+                  <option value=16>Trợ lý</option>
+                  <option value=17>CN Bộ môn</option>
+                  <option value=18>Giáo viên</option>
+                  <option value=19>Phó CN Khoa</option>
+                  <option value=20>Văn thư</option>
+                  <option value=21>NVKT</option>
+                  <option value=22>Giảng viên</option>
+                  <option value=23>KTV</option>
+                  <option value=24>Bếp trưởng</option>
+                  <option value=25>Học viên</option>
+                  <option value=26>Quản lý bếp</option>
+                  <option value=27>Trợ lý CĐ-PN</option>
+                  <option value=28>Kế toán</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Trình độ văn hóa <span class="color-error">*</span></label
-                >
-                <select class="form-select" aria-label="Default select example">
-                  <option value=12>12/12</option>
-                  <option value=10>10/10</option>
-                </select>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Chức vụ đảng <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="chucvudang"
+                  >
+                    <option value=1>Bí thư chi bộ</option>
+                    <option value=2>PBT Chi bộ</option>
+                    <option value=3>PBT Đảng</option>
+                    ủy
+                    <option value=4>Chi ủy viên</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"> Chức vụ chính quyền </label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="chucvuchinhquyen"
+                  >
+                    <option value="Nhân viên">Nhân viên</option>
+                    <option value="Trợ lý">Trợ lý</option>
+                    <option value="CN Bộ môn">CN Bộ môn</option>
+                    <option value="Giáo viên">Giáo viên</option>
+                    <option value="Phó CN Khoa">Phó CN Khoa</option>
+                    <option value="Văn thư">Văn thư</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Chức vụ quần chúng
+                    <span class="color-error">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="chucvuquanchung"
+                  >
+                    <option value="Chủ tịch HPN">Chủ tịch HPN</option>
+                    <option value="Hội viên HPN">Hội viên HPN</option>
+                    <option value="Ủy viên HPN">Uỷ viên HPN</option>
+                    <option value="Ủy viên BCH CĐ">Uỷ viên BCH CĐ</option>
+                    <option value="Doàn viên CĐ">Doàn viên CĐ</option>
+                  </select>
+                </div>
               </div>
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"> Trình độ chính trị </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Trình độ chính trị</option>
-                  <option value="Sơ cấp">Sơ cấp</option>
-                  <option value="Trung cấp">Trung cấp</option>
-                </select>
-              </div>
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Chức danh <span class="color-error">*</span></label
-                >
-                <select class="form-select" aria-label="Default select example">
-                    <option value="<%= data.title %>"><%= data.title %>/</option>
-                  <option value="Nhân viên">Nhân viên</option>
-                  <option value="Trợ lý">Trợ lý</option>
-                  <option value="CN Bộ môn">CN Bộ môn</option>
-                  <option value="Giáo viên">Giáo viên</option>
-                  <option value="Phó CN Khoa">Phó CN Khoa</option>
-                  <option value="Văn thư">Văn thư</option>
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Chức vụ đảng <span class="color-error">*</span></label
-                >
-                <select class="form-select" aria-label="Default select example">
-                  <option value="0">Chi ủy viên</option>
-                  <option value="1">Bí thư chi bộ</option>
-                  <option value="2">PBT Chi bộ</option>
-                  <option value="3">PBT Đảng</option>
-                  ủy
-                  <option value="4">Chi ủy viên</option>
-                </select>
-              </div>
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"> Chức vụ chính quyền </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Chức vụ chính quyền</option>
-                  <option value="Nhân viên">Nhân viên</option>
-                  <option value="Trợ lý">Trợ lý</option>
-                  <option value="CN Bộ môn">CN Bộ môn</option>
-                  <option value="Giáo viên">Giáo viên</option>
-                  <option value="Phó CN Khoa">Phó CN Khoa</option>
-                  <option value="Văn thư">Văn thư</option>
-                </select>
-              </div>
-              <div class="col-lg-4 col-md-6 mk-form-group">
-                <label class="mk-label"
-                  >Chức vụ quần chúng <span class="color-error">*</span></label
-                >
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Chức vụ quần chúng</option>
-                  <option selected value="">Chức vụ quần chúng</option>
-                  <option value="Chủ tịch HPN">Chủ tịch HPN</option>
+
+              <div class="row">
+                <!-- <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label">Khen thưởng </label>
+                  <div class="form-group">
+                    <div
+                      class="input-group date"
+                      id="datetimepicker1"
+                      style="position: relative"
+                      name="khenthuong"
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        data-provide="datepicker"
+                        data-date-container="#datetimepicker1"
+                        placeholder="Chọn thời gian"
+                        
+                      />
+                      <span class="input-group-addon" style="display: none">
+                        <i class="fas fa-calendar-times"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="col-lg-3 col-md-6 mk-form-group">
+                  <label class="mk-label"
+                    >Khen thưởng
+                  </label>
+                  <select
+                  class="form-control"
+                  value="<%=data.award%>"
+                  name="award"
+                  >
+                  <option value=2>Giấy khen Đảng</option>
                   <option value="Hội viên HPN">Hội viên HPN</option>
                   <option value="Ủy viên HPN">Uỷ viên HPN</option>
                   <option value="Ủy viên BCH CĐ">Uỷ viên BCH CĐ</option>
                   <option value="Doàn viên CĐ">Doàn viên CĐ</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-3 col-md-6 mk-form-group">
-                <label class="mk-label">Khen thưởng </label>
-                <div class="form-group">
-                  <div
-                    class="input-group date"
-                    id="datetimepicker1"
-                    style="position: relative"
-                  >
-                    <input
-                      type="text"
-                      class="form-control"
-                      data-provide="datepicker"
-                      data-date-container="#datetimepicker1"
-                      placeholder="Chọn thời gian"
-                    />
-                    <span class="input-group-addon" style="display: none">
-                      <i class="fas fa-calendar-times"></i>
-                    </span>
-                  </div>
+                  </select>
+                </div>
+                <div class="col-lg-6 col-md-6 mk-form-group">
+                  <label class="mk-label">Hoàn cảnh gia đình</label>
+                  <input
+                    type="text"
+                    placeholder="Nhập Nội dung"
+                    class="form-control"
+                    value="<%= data.family_situation %>"
+                  />
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6 mk-form-group">
-                <label class="mk-label" style="opacity: 0">Khen thưởng </label>
-                <input
-                  type="text"
-                  placeholder="Nhập Nội dung"
-                  class="form-control"
-                />
-              </div>
-              <div class="col-lg-6 col-md-6 mk-form-group">
-                <label class="mk-label">Hoàn cảnh gia đình</label>
-                <input
-                  type="text"
-                  placeholder="Nhập Nội dung"
-                  class="form-control"
-                />
-              </div>
+
+              <button
+                type="button"
+                class="mk-btn mk-btn-primary"
+                data-toggle="modal"
+                data-target="#modalHistory"
+              >
+                Lịch sửa thay đổi
+              </button>
             </div>
-
-            <button
-              type="button"
-              class="mk-btn mk-btn-primary"
-              data-toggle="modal"
-              data-target="#modalHistory"
-            >
-              Lịch sửa thay đổi
-            </button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div class="mk-detail-bottom">
-        <button class="mk-btn mk-btn-secondary mr6">
-          <i class="fas fa-ban mr6"></i>Hủy
-        </button>
-        <button class="mk-btn mk-btn-primary">
-          <i class="fas fa-save mr6"></i>Lưu
-        </button>
-      </div>
+        <div class="mk-detail-bottom">
+          <a href="/users/<%=data.id%>" class="mk-btn mk-btn-secondary mr6"
+            ><i class="fas fa-ban mr6"></i>Hủy</a
+          >
+
+          <button class="mk-btn mk-btn-primary" type="submit">
+            <i class="fas fa-save mr6"></i>Lưu
+          </button>
+        </div>
+      </form>
       <!-- main-content -->
     </div>
 

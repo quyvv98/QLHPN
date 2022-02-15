@@ -154,10 +154,10 @@
                                           <td><%=data[i].title %></td>
                                           <td class="cell-operation cell-pinned">
                                               <div class="input-group input-group-options p-0 border-0">
-                                                  <a title="Edit" href='/users/<%=data[i].id %>'' class="item active" >
+                                                  <a title="Edit" href='/users/<%=data[i].id %>' class="item active" >
                                                       <i class="fas fa-pen"></i>
                                                   </a>
-                                                  <a title="Xóa" class="item mk-action-delete">
+                                                  <a title="Xóa" class="item mk-action-delete" href='/users/<%=data[i].id %>/delete'>
                                                       <i class="fas fa-trash-alt"></i>
                                                   </a> 
                                               </div>

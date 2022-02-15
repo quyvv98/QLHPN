@@ -15,16 +15,20 @@ SELECT
           user.address address,
           user.religious religious,
           donvi.name donvi,
+          donvi.id donvi_id,
           title.name title,
-          capbac.name capbac
+          title.id title_id,
+          capbac.id capbac_id,
+          capbac.name capbac,
+          award.id award_id,
+          award.name award
         FROM
           user
           LEFT JOIN capbac ON user.capbac_id = capbac.id
           LEFT JOIN title ON user.title_id = title.id
           LEFT JOIN donvi on user.donvi_id = donvi.id
           LEFT JOIN award ON award.user_id = user.id
-        Where user.id = ?
-          group by user.id`;
+        Where user.id = ?`;
       //query database
       conn.query(sql, [userId], (err, rows) => {
         if (err) {
@@ -73,11 +77,14 @@ SELECT
   };
   removeUser = (userId, groupId) => {
     return new Promise(function (handle) {
-      let sql = `
-                 DELETE user_group where user_id = ? and group_id = ?;
-    `;
+    //   let sql = `
+    //              DELETE user_group where user_id = ? and group_id = ?;
+    // `;
+          let sql = `
+          DELETE from user where id = ?;
+      `;
       //query database
-      conn.query(sql, [userId, groupId], (err, rows) => {
+      conn.query(sql, [userId], (err, rows) => {
         if (err) {
           console.log(err);
         } else {
@@ -98,11 +105,11 @@ SELECT
           user.family_situation family_situation,
           user.address address,
           user.religious religious,
-          donvi.name donvi,
-          title.name title,
-          capbac.name capbac,
-          GROUP_CONCAT(award.name) award,
-          GROUP_CONCAT(level.value) level
+          donvi.id donvi,
+          title.id title,
+          capbac.id capbac,
+          award.name award,
+          level.value level
         FROM
           user
           LEFT JOIN capbac ON user.capbac_id = capbac.id
@@ -154,7 +161,7 @@ SELECT
   updateUser = (data, userId) => {
     return new Promise(function (handle) {
       let sql = `
-      UPDATE user SET name = ?, birthday = ?, address = ?, male =?, family_situation =?, dangvien = ?, religious =?, nhapngu = ? , 
+      UPDATE user SET name = ?, birthday = ?, address = ?, family_situation =?, religious =?, nhapngu = ? , 
       donvi_id = ?, title_id = ?, capbac_id = ?
       WHERE id = ?
     `;
@@ -164,18 +171,19 @@ SELECT
           data["name"],
           data["birthday"],
           data["address"],
-          data["male"],
           data["family_situation"],
-          data["dangvien"],
           data["religious"],
           data["nhapngu"],
+          data["donvi"],
+          data["title"],
+          data["capbac"],
           userId,
         ],
         (err, rows) => {
           if (err) {
             console.log(err);
           } else {
-            handle(rows["insertId"]);
+            handle(rows);
           }
         }
       );

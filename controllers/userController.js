@@ -46,8 +46,8 @@ class UserController {
       res.redirect("/login");
     }
     const id = req.params.id;
-    userRepository.updateUser(req.body, id).then((userId) => {
-      res.redirect("/users/" + userId);
+    userRepository.updateUser(req.body, id).then((data) => {
+      res.redirect("/users/" + id);
     });
   }
 
@@ -72,9 +72,9 @@ class UserController {
       res.redirect("/login");
     }
     const userId = req.params.id;
-    const groupId = req.session.user.groupId;
-    userRepository.removeUser(userId, groupId).then((result) => {});
-    res.redirect("/users");
+    userRepository.removeUser(userId).then((result) => {
+      res.redirect("/users");
+    });
   }
 }
 module.exports = new UserController();
