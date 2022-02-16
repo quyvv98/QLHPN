@@ -923,7 +923,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `birthday` int NOT NULL,
+  `birthday` int DEFAULT NULL,
   `address` text,
   `male` tinyint(1) DEFAULT '0',
   `family_situation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT 'hoancanhgiadinh',

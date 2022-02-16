@@ -155,6 +155,12 @@ SELECT
       if(data["award"] == "") {
         data["award"]=null
       }
+      if(data["birthday"] == "") {
+        data["birthday"]=null
+      }
+      if(data["nhapngu"] == "") {
+        data["nhapngu"]=null
+      }
       let sql = `
       INSERT INTO user(name, birthday, address, male, family_situation, dangvien, religious, nhapngu, award_id)
       VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -193,6 +199,12 @@ SELECT
       }
       if(data["title"] == "") {
         data["capbac"]=null
+      }
+      if(data["birthday"] == "") {
+        data["birthday"]=null
+      }
+      if(data["nhapngu"] == "") {
+        data["nhapngu"]=null
       }
       let sql = `
       UPDATE user SET name = ?, birthday = ?, address = ?, family_situation =?, religious =?, nhapngu = ? , 
