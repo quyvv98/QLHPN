@@ -152,9 +152,12 @@ SELECT
 
   newUser = (data) => {
     return new Promise(function (handle) {
+      if(data["award"] == "") {
+        data["award"]=null
+      }
       let sql = `
-      INSERT INTO user(name, birthday, address, male, family_situation, dangvien, religious, nhapngu)
-      VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+      INSERT INTO user(name, birthday, address, male, family_situation, dangvien, religious, nhapngu, award_id)
+      VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
     `;
       conn.query(
         sql,
@@ -167,6 +170,7 @@ SELECT
           data["dangvien"],
           data["religious"],
           data["nhapngu"],
+          data["award"],
         ],
         (err, rows) => {
           if (err) {
@@ -181,6 +185,15 @@ SELECT
 
   updateUser = (data, userId) => {
     return new Promise(function (handle) {
+      if(data["award"] == "") {
+        data["award"]=null
+      }
+      if(data["capbac"] == "") {
+        data["capbac"]=null
+      }
+      if(data["title"] == "") {
+        data["capbac"]=null
+      }
       let sql = `
       UPDATE user SET name = ?, birthday = ?, address = ?, family_situation =?, religious =?, nhapngu = ? , 
       donvi_id = ?, title_id = ?, capbac_id = ?, award_id =? 
